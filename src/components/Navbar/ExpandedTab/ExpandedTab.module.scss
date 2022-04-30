@@ -1,0 +1,40 @@
+.expandedTab__wrapper{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: max-content;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow:  1px 1px 5px rgb(0 0 0 / 40%);
+    margin-top: 5px;
+    > div{
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        > .expandedTab__title{
+            padding: 5px 10px;
+            display: flex;
+            flex-direction: row;
+            li{
+                list-style-type: none;
+                margin-left: 10px;
+            }
+          
+        }
+        > .expandedTab__title:hover{
+            background-color: var(--pink-color);
+        }
+       
+    }
+    @media screen and (max-width: 900px) {
+        box-shadow:  none;  
+        width: 170px; 
+        border-radius: 0px;
+        .expandedTab__title{
+            width: 100%;
+        }
+    }
+  
+  
+   
+}

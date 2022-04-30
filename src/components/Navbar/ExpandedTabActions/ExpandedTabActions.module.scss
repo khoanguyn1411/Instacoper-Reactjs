@@ -1,0 +1,19 @@
+.expandedTabActions__wrapper{
+    width: max-content;
+    background-color: white;
+    box-shadow:  1px 1px 5px rgb(0 0 0 / 40%);
+    margin-top: 10px;
+    >ul{
+        >li{
+            list-style-type: none;
+            padding: 5px 8px;
+            cursor: pointer;
+            >a{
+                font-weight: 600;
+            }
+        }
+        >li:hover{
+            background-color: var(--pink-color);
+        }
+    }
+}

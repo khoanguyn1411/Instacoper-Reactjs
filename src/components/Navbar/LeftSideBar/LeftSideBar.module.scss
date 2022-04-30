@@ -1,0 +1,40 @@
+.leftSideBar__wrapper{
+    position: fixed;
+    left: -250px;
+    min-height: 100vh;
+    background: black;
+    top: 0;
+    min-width: 250px;
+    transition: 0.3s;
+    >svg{
+        color: white;
+        position: absolute;
+        margin: 20px;
+        right: 0;
+        font-size: 25px;
+        cursor: pointer;
+    }
+    div{
+        margin-top: 60px;
+        .leftSideBar__item{
+            color: white;
+            padding-left: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-weight: 800;
+            font-size: 18px;
+            list-style-type: none;
+            cursor: pointer;
+        }
+        .leftSideBar__item:hover{
+            background-color: var(--pink-color);
+        }
+    }
+   
+   
+}
+
+.toggle{
+    left: 0;
+    transition: 0.3s;
+}

@@ -1,0 +1,19 @@
+.expandedTabLv2__wrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    margin-left: 10px;
+    font-size: 14px;
+    >div{
+        display: flex;
+        flex-direction: row;
+        padding: 2.5px 0px;
+        >li{
+            list-style-type: none;
+            margin-left: 10px;
+        }
+    }
+    >div:hover{
+        color: var(--pink-color);
+    }
+}

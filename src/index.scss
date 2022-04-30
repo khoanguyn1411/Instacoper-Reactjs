@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400&display=swap");
+
+:root {
+  --font-ssp: 'Source Sans Pro', sans-serif;;
+  --font-pf: 'Playfair Display',sans-serif;
+
+  --black-color: #000000;
+  --white-color: #FFFFFF;
+  --pink-color: #F54253;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  font-family: var(--font-ssp);
+  
+}
+::-webkit-scrollbar-track {
+  background: var(--pink-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--pink-color);
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pink-color);
+}
+
+
