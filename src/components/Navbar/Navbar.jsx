@@ -82,7 +82,6 @@ const Navbar = () => {
   }, [bold])
 
   useEffect(() => {
-    console.log(openActionTab)
     const handleEventClickOut = (event) => {
       const element = document.querySelector(`#${openActionTab[0]}`)
       const elementImg = document.querySelector(`#img-${openActionTab[0]}`)

@@ -1,13 +1,14 @@
 import React from 'react'
 
 import {imgsHome} from '../../constants'
+import {Banner} from './../Home'
 import './Home.scss'
 
 const Home = () => {
   return (
-    <div>
-      Home
-    </div>
+    <>
+      <Banner/>
+    </>
   )
 }
 
