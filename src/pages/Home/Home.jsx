@@ -1,14 +1,15 @@
 import React from 'react'
 
 import {imgsHome} from '../../constants'
-import {Banner} from './../Home'
-import './Home.scss'
+import {Banner, Advertisement} from './../Home'
+import styles from './Home.module.scss'
 
 const Home = () => {
   return (
-    <>
+    <div className={styles.home__wrapper}>
       <Banner/>
-    </>
+      <Advertisement/>
+    </div>
   )
 }
 

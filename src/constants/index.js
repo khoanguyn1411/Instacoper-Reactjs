@@ -1,7 +1,9 @@
 import imgsHome from './imgsHome';
 import imgsLogo from './imgsLogo';
-import tabList from './tabs'
 import imgsIcon from './imgsIcon'
-import banners from './banners';
+import imgsFooter from './imgsFooter';
 
-export { imgsHome, tabList, imgsIcon,imgsLogo,banners };
+import banners from './banners';
+import tabList from './tabs'
+
+export { imgsHome, tabList, imgsIcon,imgsLogo,banners, imgsFooter };

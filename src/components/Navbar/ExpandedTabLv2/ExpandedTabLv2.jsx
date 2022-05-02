@@ -6,11 +6,22 @@ import {faCaretDown} from '@fortawesome/free-solid-svg-icons'
 import styles from './ExpandedTabLv2.module.scss'
 import {tabList} from '../../../constants'
 import { useNavigate } from 'react-router-dom'
+import { PageContext } from '../../PageContext/PageContext'
 
-const ExpandedTabLv2 = ({isVisible, title, page, handleSwitchPage}) => {
+const ExpandedTabLv2 = ({isVisible, title, page}) => {
   const tabs = title.tablist3
 
   const navigate = useNavigate()
+  const setBold = useContext(PageContext).setBold
+
+  const handleSwitchPage = (item) => {
+    setBold((prev) => (
+      {
+        direct: item,
+        pageAssistance: prev.pageAssistance
+      }
+    ))
+  }
 
   const handleDirectPage = (name) => {
       let path =  `${page}/${title.nameNoAccent}/${name}`

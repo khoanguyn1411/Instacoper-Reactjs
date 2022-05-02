@@ -1,0 +1,171 @@
+.footer__wrapper {
+    width: 100%;
+    height: auto;
+
+    .footer__brandLogos__wrapper {
+        display: flex;
+        background-color: var(--pink-color);
+        width: 100%;
+        padding: 10px;
+        justify-content: center;
+
+        .footer__brandLogos {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            img {
+                margin: 0 10px;
+                width: 9%;
+                max-height: 40px;
+            }
+        }
+    }
+
+    .footer__content_wrapper {
+        padding: 40px 0;
+        width: 100%;
+        background-color: black;
+
+        p, a {
+            color: white;
+            font-size: 15px;
+            margin-bottom: 3px;
+            text-decoration: none;
+        }
+
+        >div {
+            .footer__content_up {
+                display: flex;
+                height: 100%;
+                justify-content: space-between;
+
+                @media screen and (max-width: 800px) {
+                    flex-direction: column;
+                }
+
+                .bold {
+                    font-weight: 800;
+                }
+
+                .footer__content_text {
+                    flex: 0.6;
+                    display: flex;
+                    justify-content: space-between;
+                    height: 100%;
+
+                    @media screen and (max-width: 800px) {
+                        flex-wrap: wrap;
+                    }
+
+                    .footer__content_pages {
+                        height: 100%;
+                        flex: 0.2;
+                        display: flex;
+                        flex-direction: column;
+
+                        >p {
+                            width: max-content;
+                        }
+                    }
+
+                    .footer__content_contact {
+                        height: 100%;
+                        flex: 0.5;
+                        margin: 0 20px;
+
+                        >p {
+                            margin-bottom: 20px;
+                        }
+
+                    }
+
+                    .footer__content_assistance {
+                        height: 100%;
+                        flex: 0.2;
+                       
+                        p {
+                            width: max-content;
+                        }
+
+                        >div {
+                            margin-top: 20px;
+                            display: flex;
+                            flex-direction: column;
+                            width: max-content;
+    
+                        }
+                    }
+                }
+
+                .footer__content_register {
+                    height: 100%;
+                    flex: 0.35;
+
+                    @media screen and (max-width: 800px) {
+                        margin-top: 20px;
+                    }
+
+                    >form {
+                        input {
+                            padding: 7px 10px;
+                            width: 100%;
+                            margin-top: 5px;
+                        }
+
+                        button {
+                            background-color: #F54253;
+                            font-weight: bolder;
+                            padding: 7px;
+                            margin-top: 8px;
+                            width: 100%;
+                            border: none;
+                            color: white;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            .footer__content_sep {
+                width: 100%;
+                height: 1px;
+                margin: 20px 0px;
+                background-color: white;
+            }
+
+            .footer__content_down {
+                display: flex;
+                justify-content: space-between;
+                @media screen and (max-width: 800px) {
+                    flex-direction: column;
+                }
+                .leftContent {
+                    margin-right: 20px;
+                    >div {
+                        margin-top: 15px;
+                        img {
+                            margin-right: 10px;
+                            height: 40px;
+                            margin-top: 8px;
+                        }
+                    }
+
+                }
+                .rightContent{
+                    display: flex;
+                    align-items: flex-end;
+                    img{
+                        height: 40px;
+                    }
+                    @media screen and (max-width: 800px) {
+                        margin-top: 15px;
+                    }
+                }
+            }
+
+        }
+
+
+    }
+}

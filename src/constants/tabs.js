@@ -1,10 +1,9 @@
-
 const HOME = 'Trang chủ'
 const PRODUCTS = 'Sản phẩm'
 const BLOG = 'Blog'
-const FAQS = 'FAQS'
+const FAQS = 'FAQs'
 const ABOUTUS = 'Về chúng tôi'
-  
+
 const HOME_NO_ACCENTS = 'trang-chu'
 const PRODUCTS_NO_ACCENTS = 'san-pham'
 const BLOG_NO_ACCENTS = 'blog'
@@ -28,18 +27,47 @@ const CONTACT_NO_ACCENT = 'lien-he'
 
 
 const arrProductPages = ['Thương hiệu', 'Khuyến mãi', 'Hàng mới về', 'Bán chạy nhất',
-'Sneaker nam', 'Sneaker nữ']
+    'Sneaker nam', 'Sneaker nữ'
+]
 const arrBlogPages = ['Chủ đề', 'Blog mới nhất', 'Xem nhiều nhất']
 const arrFAQs = ['Hỗ trợ khách hàng', 'Chính sách', 'Liên hệ']
 
 const tabsLeftBar = ['Walking Style Shoes', 'Casual Shoes', 'Boat Shoes', 'Canvas Trendy Shoes',
-'Basketball Style Shoes', 'Chunky Shoes', 'Other Trendy Shoes']
+    'Basketball Style Shoes', 'Chunky Shoes', 'Other Trendy Shoes'
+]
 
-const tabsUser = ['Đăng nhập', 'Đăng ký', 'Tài khoản của tôi', 'Quản lý đơn hàng', 
-'Thông báo của tôi', 'Thiết lập địa chỉ', 'Đổi mật khẩu', 'Đăng xuất']
+const tabsUser = ['Đăng nhập', 'Đăng ký', 'Tài khoản của tôi', 'Quản lý đơn hàng',
+    'Thông báo của tôi', 'Thiết lập địa chỉ', 'Đổi mật khẩu', 'Đăng xuất'
+]
 
-const tabListObj = [
+const tabsCustomerSupport = [{
+        name: 'Hướng dẫn mua hàng',
+        nameNoAccent: 'huong-dan-mua-hang',
+        isExpanded: false
+    },
     {
+        name: 'Hướng dẫn thanh toán',
+        nameNoAccent: 'huong-dan-thanh-toan',
+        isExpanded: false
+    },
+    {
+        name: 'Chính sách bảo mật',
+        nameNoAccent: 'chinh-sach-bao-mat',
+        isExpanded: false
+    },
+    {
+        name: 'Chính sách đổi trả',
+        nameNoAccent: 'chinh-sach-doi-tra',
+        isExpanded: false
+    },
+    {
+        name: 'Giao hàng & Vận chuyển',
+        nameNoAccent: 'giao-hang-&-van-chuyen',
+        isExpanded: false
+    },
+]
+
+const tabListObj = [{
         name: HOME,
         nameNoAccent: HOME_NO_ACCENTS,
         isExpanded: false
@@ -48,13 +76,11 @@ const tabListObj = [
         name: PRODUCTS,
         nameNoAccent: PRODUCTS_NO_ACCENTS,
         isExpanded: true,
-        tabList2: [
-            {
+        tabList2: [{
                 name: arrProductPages[0],
                 nameNoAccent: BRAND_NO_ACCENTS,
                 isExpanded: true,
-                tablist3: [
-                    {
+                tablist3: [{
                         name: 'Nike',
                         nameNoAccent: 'nike',
                         isExpanded: false
@@ -97,13 +123,11 @@ const tabListObj = [
         name: BLOG,
         nameNoAccent: BLOG_NO_ACCENTS,
         isExpanded: true,
-        tabList2: [
-            {
+        tabList2: [{
                 name: arrBlogPages[0],
                 nameNoAccent: TOPIC_NO_ACCENT,
                 isExpanded: true,
-                tablist3: [
-                    {
+                tablist3: [{
                         name: 'Instacoper news',
                         nameNoAccent: 'instacoper-news',
                         isExpanded: false
@@ -114,7 +138,7 @@ const tabListObj = [
                         isExpanded: false
                     },
                 ]
-                
+
             },
             {
                 name: arrBlogPages[1],
@@ -132,11 +156,12 @@ const tabListObj = [
         name: FAQS,
         nameNoAccent: FAQS_NO_ACCENTS,
         isExpanded: true,
-        tabList2: [
-            {
+        tabList2: [{
                 name: arrFAQs[0],
                 nameNoAccent: CUSTOMERASSISTANCE_NO_ACCENT,
-                isExpanded: false
+                isExpanded: true,
+                tablist3: tabsCustomerSupport
+
             },
             {
                 name: arrFAQs[1],
@@ -159,8 +184,18 @@ const tabListObj = [
 
 
 export default {
-    tabListObj, tabsLeftBar, tabsUser,
-    HOME,PRODUCTS,BLOG,FAQS,ABOUTUS,
-    HOME_NO_ACCENTS, PRODUCTS_NO_ACCENTS, BLOG_NO_ACCENTS, FAQS_NO_ACCENTS, ABOUTUS_NO_ACCENTS
+    tabListObj,
+    tabsLeftBar,
+    tabsUser,
+    tabsCustomerSupport,
+    HOME,
+    PRODUCTS,
+    BLOG,
+    FAQS,
+    ABOUTUS,
+    HOME_NO_ACCENTS,
+    PRODUCTS_NO_ACCENTS,
+    BLOG_NO_ACCENTS,
+    FAQS_NO_ACCENTS,
+    ABOUTUS_NO_ACCENTS
 }
-
