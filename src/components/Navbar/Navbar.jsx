@@ -61,7 +61,7 @@ const Navbar = () => {
         pageAssistance: getWindowHref().pageAssistance
       }
     ))
-  }, [bold])
+  }, [bold.direct])
 
   useEffect(() => {
     const handleEventClickOut = (event) => {

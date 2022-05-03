@@ -1,7 +1,6 @@
 import React from 'react'
 
-import {imgsHome} from '../../constants'
-import {Banner, Advertisement} from './../Home'
+import {Banner, Advertisement, TopBlogs, NewProducts, OurValues, OurStory} from './../Home'
 import styles from './Home.module.scss'
 
 const Home = () => {
@@ -9,6 +8,10 @@ const Home = () => {
     <div className={styles.home__wrapper}>
       <Banner/>
       <Advertisement/>
+      <TopBlogs/>
+      <NewProducts/>
+      <OurValues/>
+      <OurStory/>
     </div>
   )
 }

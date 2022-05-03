@@ -1,0 +1,24 @@
+.product__wrapper{
+    background-color: white;
+    height: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    .product__img{
+        height: 200px;
+    }
+    .product__content{
+        h1, h2, h3{
+            font-size: 15px;
+            width: 100%;
+            text-align: center;
+            padding: 0 10px;
+        }
+        h2{
+            font-weight: normal;
+            margin-top: 4px;
+        }
+        h3{
+            margin-top: 15px;
+        }
+    }
+}

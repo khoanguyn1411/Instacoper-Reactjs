@@ -6,9 +6,11 @@ import styles from './Advertisement.module.scss'
 
 const Advertisement = () => {
   return (
-    <div className={styles.subBanner__wrapper}>
-        <img src={imgsHome.subBanner1}/>
-        <img src={imgsHome.subBanner2}/>
+    <div className='app__wrapper'>
+      <div className={styles.subBanner__wrapper}>
+        <img src={imgsHome.subBanner1} />
+        <img src={imgsHome.subBanner2} />
+      </div>
     </div>
   )
 }

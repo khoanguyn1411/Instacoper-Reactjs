@@ -1,2 +1,6 @@
 export {default as Banner} from './Banner/Banner'
 export {default as Advertisement} from './Advertisement/Advertisement'
+export {default as TopBlogs} from './TopBlogs/TopBlogs'
+export {default as NewProducts} from './NewProducts/NewProducts'
+export {default as OurValues} from './OurValues/OurValues'
+export {default as OurStory} from './OurStory/OurStory'

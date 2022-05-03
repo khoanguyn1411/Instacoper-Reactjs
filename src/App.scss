@@ -4,9 +4,13 @@
     align-items: center;
 }
 
-.app__wrapper{
+.app__wrapper {
     width: 100%;
-    padding: 0 20px;
+    padding: 0 50px;
     max-width: 1250px;
     margin: auto;
+
+    @media screen and (max-width: 900px) {
+        padding: 0 20px;
+    }
 }

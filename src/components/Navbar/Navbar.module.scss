@@ -65,14 +65,17 @@
                     height: 100%;
                     cursor: pointer;
                 }
-                >img:first-child{
-                     margin-right: 10px;
-                }
+              
                 >div{
                     position: absolute;
                     right: 0;
                     margin-right: 8px;
                 }
+            }
+            >div:first-child{
+                >img:first-child{
+                    margin-right: 10px;
+               }
             }
            
         }
