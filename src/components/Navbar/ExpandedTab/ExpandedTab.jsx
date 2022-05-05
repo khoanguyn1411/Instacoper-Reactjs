@@ -13,7 +13,7 @@ const ExpandedTab = ({ page }) => {
 
   const navigate = useNavigate()
 
-  const setBold = useContext(PageContext).setBold
+  const handleSetBold = useContext(PageContext).handleSetBold
 
   const tabs = tabList.tabListObj
   const newArr = tabs.filter((item) => (item.nameNoAccent === page))
@@ -22,7 +22,10 @@ const ExpandedTab = ({ page }) => {
   const [checked, setChecked] = useState([]);
 
   const handleSwitchPage = (item) => {
-    setBold(item)
+    handleSetBold( {
+      direct: item,
+      pageAssistance: undefined
+    })
   }
 
   const handleDirectPage = (name) => {

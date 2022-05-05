@@ -12,16 +12,19 @@ const Banner = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
 
   useEffect(() => {
-    const handleMoveSlideAuto = setInterval(() => {
-      if (currentSlide >= banners.length - 1) {
-        setCurrentSlide(0)
+    if (currentSlide < 0) {
+      setCurrentSlide(banners.length - 1)
+    }
+    if (currentSlide > 4) {
+      setCurrentSlide(0)
+    }
+    else {
+      const handleMoveSlideAuto = setInterval(() => {
+        handleSetNextSlide()
+      }, 2500)
+      return () => {
+        clearInterval(handleMoveSlideAuto)
       }
-      else {
-        setCurrentSlide(currentSlide + 1)
-      }
-    }, 2500)
-    return () => {
-      clearInterval(handleMoveSlideAuto)
     }
   }, [currentSlide])
 
@@ -29,8 +32,26 @@ const Banner = () => {
     setCurrentSlide(index)
   }
 
+  const handleSetPreviousSlide = () => {
+    setCurrentSlide(currentSlide - 1)
+  }
+
+  const handleSetNextSlide = () => {
+    setCurrentSlide(currentSlide + 1)
+  }
+
+
+
   return (
     <div className={styles.banner__wrapper}>
+      <div className={styles.newProducts__button}>
+        <div onClick={handleSetPreviousSlide}>
+          <a>❮</a>
+        </div>
+        <div onClick={handleSetNextSlide}>
+          <a>❯</a>
+        </div>
+      </div>
       {
         banners.map((banner, index) => (
           index === currentSlide &&

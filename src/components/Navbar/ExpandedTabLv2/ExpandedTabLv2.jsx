@@ -1,46 +1,46 @@
 import React, { useContext } from 'react'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faCaretDown} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
 
 
 import styles from './ExpandedTabLv2.module.scss'
-import {tabList} from '../../../constants'
+import { tabList } from '../../../constants'
 import { useNavigate } from 'react-router-dom'
 import { PageContext } from '../../PageContext/PageContext'
 
-const ExpandedTabLv2 = ({isVisible, title, page}) => {
+const ExpandedTabLv2 = ({ isVisible, title, page }) => {
   const tabs = title.tablist3
 
   const navigate = useNavigate()
-  const setBold = useContext(PageContext).setBold
+  const handleSetBold = useContext(PageContext).handleSetBold
 
   const handleSwitchPage = (item) => {
-    setBold((prev) => (
+    handleSetBold(
       {
         direct: item,
-        pageAssistance: prev.pageAssistance
+        pageAssistance: undefined
       }
-    ))
+    )
   }
 
   const handleDirectPage = (name) => {
-      let path =  `${page}/${title.nameNoAccent}/${name}`
-      navigate(path);
-      handleSwitchPage(title.nameNoAccent)
+    let path = `${page}/${title.nameNoAccent}/${name}`
+    navigate(path);
+    handleSwitchPage(name)
   }
 
   return (
-    isVisible && 
+    isVisible &&
     <div className={styles.expandedTabLv2__wrapper}>
-        {
-          tabs && 
-          tabs.map((item, index) => (
-            <div onClick={() => handleDirectPage(item.nameNoAccent)} key={index}>
-              <FontAwesomeIcon icon={faCaretDown}/>
-              <li>{item.name}</li>
-            </div>
-          ))
-        }
+      {
+        tabs &&
+        tabs.map((item, index) => (
+          <div onClick={() => handleDirectPage(item.nameNoAccent)} key={index}>
+            <FontAwesomeIcon icon={faCaretDown} />
+            <li>{item.name}</li>
+          </div>
+        ))
+      }
     </div>
   )
 }

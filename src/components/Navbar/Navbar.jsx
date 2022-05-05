@@ -16,10 +16,13 @@ import { PageContext } from '../PageContext/PageContext'
 
 const Navbar = () => {
 
+
+
+
   const context = useContext(PageContext)
 
   const bold = context.bold
-  const setBold = context.setBold
+  const handleSetBold = context.handleSetBold
 
   const getWindowHref = context.getWindowHref
 
@@ -30,12 +33,12 @@ const Navbar = () => {
   const [openActionTab, setOpenActionTab] = useState([])
 
   const handleSwitchPage = (item) => {
-    setBold((prev) => (
+    handleSetBold(
       {
         direct: item,
-        pageAssistance: prev.pageAssistance
+        pageAssistance: undefined
       }
-    ))
+    )
   }
   const tabs = tabList.tabListObj
   const arrName = []
@@ -43,16 +46,14 @@ const Navbar = () => {
     arrName.push(item.nameNoAccent)
   })
 
-
-
   useEffect(() => {
-    setBold((prev) => (
+    handleSetBold(
       {
-        direct: getWindowHref().arrPathSplit.includes(bold.direct) ?
-          getWindowHref().page : prev.direct,
+        direct: getWindowHref().page,
         pageAssistance: getWindowHref().pageAssistance
       }
-    ))
+    )
+    console.log(bold)
   }, [bold.direct])
 
   useEffect(() => {

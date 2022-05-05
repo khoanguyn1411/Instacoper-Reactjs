@@ -11,7 +11,7 @@ const Footer = () => {
 
   const context = useContext(PageContext)
   const bold = context.bold
-  const setBold = context.setBold
+  const handleSetBold = context.handleSetBold
 
 
 
@@ -23,7 +23,7 @@ const Footer = () => {
 
 
   const handleSwitchPage = (item) => {
-    setBold({
+    handleSetBold({
       direct: item.nameNoAccent,
       pageAssistance: item.nameNoAccent
     })

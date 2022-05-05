@@ -23,7 +23,7 @@ function PageProvider({ children }) {
       return {
         direct: tabList.HOME_NO_ACCENTS, //Lấy thẳng cái đường dẫn cuối luôn
         arrPathSplit: splitHrefArr,
-        page: splitHrefArr[3],
+        page: tabList.HOME_NO_ACCENTS,
         pageAssistance: splitHrefArr[5]
       }
     }
@@ -42,10 +42,16 @@ function PageProvider({ children }) {
     pageAssistance: getWindowHref().pageAssistance
   })
 
+  const handleSetBold = (item) => {
+    window.scrollTo(0, 0);
+    setBold(item)
+  }
+
+
 
   const value = {
     bold,
-    setBold,
+    handleSetBold,
     getWindowHref,
   }
 

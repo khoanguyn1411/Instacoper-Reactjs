@@ -47,7 +47,7 @@ const TopBlogs = () => {
                 <h1>{item.category}</h1>
                 <h2>{item.title}</h2>
                 <p>{item.content}</p>
-                <p1>{item.dateUpload}</p1>
+                <h3>{item.dateUpload}</h3>
               </div>
             </div>
           ))
