@@ -1,27 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import {useNavigate} from 'react-router-dom'
+
+import styles from './AboutUs.module.scss'
 import { tabList } from '../../constants'
+import {BannerMain, Values, InstacoperBrand, Team} from './../AboutUs'
 
-const AboutUs = (props) => {
-
-
-  let navigate = useNavigate(); 
-  const routeChange = () =>{ 
-    let path = '/trang-chu'; 
-
-    navigate(path);
-    props.handleSwitchPage(tabList.HOME_NO_ACCENTS)
-  }
-
-  const handleNavigate = () => {
-    routeChange()
-  }
-
+const AboutUs = () => {
   
   return (
     <div>
-      <button onClick={handleNavigate}>To home</button>
-      AboutUs
+        <BannerMain/>
+        <Values/>
+        <InstacoperBrand/>
+        <Team/>
     </div>
   )
 }

@@ -1,0 +1,61 @@
+.bannerMain__above {
+    height: 350px;
+    background: url(../../../assets/img_aboutus/banner1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top 0 right 50%;
+
+    >div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+        h1 {
+            font-weight: bold;
+            font-size: 55px;
+            color: white;
+            text-transform: uppercase;
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+}
+
+.bannerMain__circleLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .bannerMain__img_wrapper {
+        background: black;
+        padding: 35px;
+        border-radius: 50%;
+        border: 10px solid white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -90px;
+        img{
+            width: 130px;
+            height: 130px;
+        }
+    }
+}
+
+.bannerMain__below{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top 0 right 50%;
+    margin-top: -90px;
+    background-image: url(../../../assets/img_aboutus/banner2.png);
+    padding: 70px 0;
+    >div{
+        margin-top: 60px;
+        p{
+            text-align: justify;
+            color: white;
+            margin-bottom: 20px;
+        }
+    }
+}

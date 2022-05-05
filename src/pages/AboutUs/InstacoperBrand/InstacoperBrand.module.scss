@@ -1,0 +1,104 @@
+.wrapper {
+    background-image: url(../../../assets/img_aboutus/banner2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top 0 right 50%;
+    padding-bottom: 50px;
+
+    >div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .sep {
+            height: 3px;
+            width: 20%;
+            background-color: white;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: var(--pink-color);
+            font-family: var(--font-pf);
+            font-weight: bold;
+            font-size: 45px;
+            padding: 20px;
+            width: fit-content;
+            margin-top: -55px;
+            text-align: center;
+
+            @media screen and (max-width: 330px) {
+                font-size: 35px;
+                margin-top: -45px;
+            }
+        }
+
+        .content {
+            width: 100%;
+            display: grid;
+            grid-column-gap: 20px;
+            grid-row-gap: 30px;
+            grid-template-columns: repeat(4, 1fr);
+            margin-top: 45px;
+
+            .content_item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                * {
+                    text-align: center;
+                }
+
+                img {
+                    width: 25%;
+                }
+
+                h2 {
+                    font-weight: 600;
+                    margin: 10px 0px;
+                    font-size: 20px;
+                    color: white;
+                }
+
+                p {
+                    width: 100%;
+                    padding: 0 10px;
+                    font-family: 'Playfair Display', sans-serif;
+                    color: white;
+                }
+            }
+
+            @media screen and (max-width: 750px) {
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+            @media screen and (max-width: 330px) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    }
+
+ 
+}
+.brandLogos__wrapper {
+    display: flex;
+    background-color: var(--pink-color);
+    width: 100%;
+    padding: 10px;
+    justify-content: center;
+    margin: 40px 0;
+
+    .brandLogos {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        img {
+            margin: 0 10px;
+            width: 9%;
+            max-height: 40px;
+        }
+    }
+}

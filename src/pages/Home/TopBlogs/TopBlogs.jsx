@@ -31,8 +31,9 @@ const TopBlogs = () => {
 
       <div className={styles.topBlogs__wrapper}>
         {
-          blogs.map((item) => (
+          blogs.map((item, index) => (
             <div
+              key={index}
               className={styles.item__wrapper}
               style={{
                 backgroundImage: `url(${item.thumb})`

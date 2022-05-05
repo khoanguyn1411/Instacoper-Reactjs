@@ -1,86 +1,96 @@
-
-.app__header{
+.app__header {
     position: fixed;
     width: 100%;
     z-index: 5;
 }
 
-.app__searchBar{
+.app__searchBar {
     background-color: black;
     height: 70px;
     width: 100%;
-    > div{
+
+    >div {
         height: 100%;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        .app__searchBar_logo{
+
+        .app__searchBar_logo {
             width: auto;
             height: 50%;
             display: flex;
             flex-direction: row;
-            > img:first-child{
+
+            >img:first-child {
                 margin-right: 15px;
             }
-            >img:last-child{
+
+            >img:last-child {
                 margin-top: 5px;
+
                 @media screen and (max-width: 550px) {
                     display: none;
                 }
             }
         }
-    
-        .app__searchBar_input{
+
+        .app__searchBar_input {
             flex: 0.8;
             display: flex;
             align-items: center;
             position: relative;
             margin: 0 10px;
-            >svg{
+
+            >svg {
                 position: absolute;
                 margin-left: 5px;
             }
-            >input{
+
+            >input {
                 flex: 0.8;
                 padding: 8px;
                 padding-left: 30px;
                 border: none;
                 border-radius: 3px;
+
                 @media screen and (max-width: 550px) {
                     width: 40%;
                 }
             }
-           
+
         }
-    
-        .app__searchBar_actions{
+
+        .app__searchBar_actions {
             width: 15%;
             height: 30%;
             display: flex;
             justify-content: end;
-            >div{
+
+            >div {
                 position: relative;
-                >img{
+
+                >img {
                     height: 100%;
                     cursor: pointer;
                 }
-              
-                >div{
+
+                >div {
                     position: absolute;
                     right: 0;
                     margin-right: 8px;
                 }
             }
-            >div:first-child{
-                >img:first-child{
+
+            >div:first-child {
+                >img:first-child {
                     margin-right: 10px;
-               }
+                }
             }
-           
+
         }
     }
-   
+
 }
 
 
@@ -88,7 +98,7 @@
 
 
 
-.app__navbar_bold{
+.app__navbar_bold {
     font-weight: 800;
     font-family: var(--font-ssp);
     cursor: pointer;
@@ -96,17 +106,19 @@
     color: var(--pink-color);
 }
 
-.app__navbar{
+.app__navbar {
     box-shadow: 1px 1px 5px rgb(0 0 0 / 40%);
     background-color: white;
-    >div{
+
+    >div {
         width: 100%;
         display: flex;
         flex-direction: row;
         align-items: center;
         padding-top: 10px;
         padding-bottom: 10px;
-        >svg{
+
+        >svg {
             position: absolute;
             right: 0;
             display: none;
@@ -114,9 +126,11 @@
             font-size: 25px;
             cursor: pointer;
         }
-        .app__navbar_toggleField{
+
+        .app__navbar_toggleField {
             flex: 0.25;
-            div{
+
+            div {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
@@ -129,34 +143,39 @@
                 border-radius: 5px;
                 cursor: pointer;
                 transition: 0.3s;
-    
-                h1{
+
+                h1 {
                     font-size: 15px;
                     font-family: var(--font-ssp);
                     margin-left: 10px;
                     color: white;
                 }
-                svg{
+
+                svg {
                     font-size: 20px;
                     color: white;
                     cursor: pointer;
                 }
             }
-            :hover{
+
+            :hover {
                 background-color: rgb(61, 55, 55);
                 transition: 0.3s;
             }
-          
+
         }
-        .app__navbar_ulWrapper{
+
+        .app__navbar_ulWrapper {
             display: flex;
             flex-direction: row;
             flex: 1;
-            > svg{
+
+            >svg {
                 display: none;
                 cursor: pointer;
             }
-            .app__navbar_listItem{
+
+            .app__navbar_listItem {
                 text-decoration: none;
                 list-style-type: none;
                 width: fit-content;
@@ -165,40 +184,44 @@
                 align-items: flex-start;
                 margin: 0px 18px;
                 flex-direction: row;
-                
-                img{
+
+                img {
                     margin-left: 10px;
                     height: 8px;
                 }
-                .app__navbar_extended{
+
+                .app__navbar_extended {
                     display: none;
                     position: absolute;
                     left: 0;
                     margin-top: 20px;
                 }
-              
-              
+
+
             }
-            .app__navbar_noBold{
+
+            .app__navbar_noBold {
                 font-family: var(--font-ssp);
                 cursor: pointer;
                 text-decoration: none;
                 color: black;
                 transition: 0.3s;
             }
-            .app__navbar_noBold:hover{
+
+            .app__navbar_noBold:hover {
                 color: var(--pink-color);
                 transition: 0.4s;
             }
-    
-            div:hover .app__navbar_extended{
+
+            div:hover .app__navbar_extended {
                 display: block;
             }
+
             @media screen and (max-width: 900px) {
                 flex-direction: column;
                 right: -200px;
                 background-color: white;
-                overflow-y:scroll;
+                overflow-y: scroll;
                 transition: 0.3s;
                 width: 200px;
                 padding-top: 20px;
@@ -206,7 +229,8 @@
                 padding-bottom: 20px;
                 position: fixed;
                 top: 0;
-                > svg{
+
+                >svg {
                     position: absolute;
                     right: 0;
                     font-size: 28px;
@@ -215,37 +239,38 @@
                     background-color: var(--pink-color);
                     padding: 5px;
                 }
-                .app__navbar_listItem{
+
+                .app__navbar_listItem {
                     height: auto;
                     margin: 0;
                     margin-left: 10px;
                     margin-top: 10px;
                     display: flex;
                     flex-direction: column;
-                    .app__navbar_extended{
+
+                    .app__navbar_extended {
                         display: flex;
                         position: static;
                         margin: 0;
                     }
                 }
             }
-            
-           
-         
+
+
+
         }
-        
-        .app__navbar_show{
+
+        .app__navbar_show {
             right: 0px;
             transition: 0.3s;
         }
+
         @media screen and (max-width: 900px) {
-            >svg{
+            >svg {
                 display: block;
             }
         }
-       
+
     }
-    
+
 }
-
-

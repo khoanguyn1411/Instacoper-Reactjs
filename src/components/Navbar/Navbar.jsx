@@ -26,7 +26,7 @@ const Navbar = () => {
 
 
   const [openLeftSide, setOpenLeftSide] = useState(false)
-  const [openNavMobile, setOpenNavMobile] = useState(isMobileNav())
+  const [openNavMobile, setOpenNavMobile] = useState(false)
   const [openActionTab, setOpenActionTab] = useState([])
 
   const handleSwitchPage = (item) => {
@@ -44,14 +44,6 @@ const Navbar = () => {
   })
 
 
-  function isMobileNav() {
-    if (window.innerWidth > 900) {
-      return true
-    }
-    else {
-      return false
-    }
-  }
 
   useEffect(() => {
     setBold((prev) => (
