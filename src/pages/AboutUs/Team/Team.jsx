@@ -1,6 +1,6 @@
 import React from 'react'
 
-import imgsAboutus from '../../../constants/imgsAboutus'
+import {imgsAboutus} from '../../../constants'
 import styles from './Team.module.scss'
 const Team = () => {
   const members = [

@@ -20,12 +20,23 @@ function PageProvider({ children }) {
     let href = window.location.href
     const splitHrefArr = splitMulti(href, ['/', '?'])
     if (splitHrefArr[splitHrefArr.length - 1] === '') {
-      return {
-        direct: tabList.HOME_NO_ACCENTS, //Lấy thẳng cái đường dẫn cuối luôn
-        arrPathSplit: splitHrefArr,
-        page: tabList.HOME_NO_ACCENTS,
-        pageAssistance: splitHrefArr[5]
+      if (splitHrefArr.length === 4) {
+        return {
+          direct: tabList.HOME_NO_ACCENTS, //Lấy thẳng cái đường dẫn cuối luôn
+          arrPathSplit: splitHrefArr,
+          page: tabList.HOME_NO_ACCENTS,
+          pageAssistance: splitHrefArr[5]
+        }
       }
+      else {
+        return {
+          direct: splitHrefArr[splitHrefArr.length - 1], //Lấy thẳng cái đường dẫn cuối luôn
+          arrPathSplit: splitHrefArr,
+          page: splitHrefArr[3],
+          pageAssistance: splitHrefArr[5]
+        }
+      }
+
     }
     else {
       return {
@@ -38,7 +49,7 @@ function PageProvider({ children }) {
   }
 
   const [bold, setBold] = useState({
-    direct: getWindowHref().direct,
+    direct: getWindowHref().page,
     pageAssistance: getWindowHref().pageAssistance
   })
 

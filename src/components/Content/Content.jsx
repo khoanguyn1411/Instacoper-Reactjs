@@ -4,6 +4,8 @@ import { Routes, Route } from 'react-router-dom'
 import { tabList } from '../../constants'
 import { Home, Products, FAQs, Blog, AboutUs } from '../../pages'
 
+import { HDMH } from '../../pages/FAQs'
+
 import Brand from '../../pages/Brands/Brand'
 import styles from './Content.module.scss'
 
@@ -17,10 +19,11 @@ const Content = () => {
         <Routes>
         {
           tabs.map((item, index) => {
-            return <Route key={index} path={item.nameNoAccent} element={pagesComponents[index]} />
+            return <Route key={index} path={`${item.nameNoAccent}/*`} element={pagesComponents[index]} />
           })
         }
         <Route path='/' element={<Home />} />
+       
         <Route path='/san-pham/thuong-hieu' element={<Brand />} />
         <Route path='/san-pham/thuong-hieu/nike' element={<Brand />} />
         <Route path='/san-pham/thuong-hieu/adidas' element={<Brand />} />

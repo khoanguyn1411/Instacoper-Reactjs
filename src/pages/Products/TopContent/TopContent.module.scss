@@ -1,0 +1,108 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+    .wrapper_leftContent{
+        
+    }
+    .wrapper_rightContent{
+        display: flex;
+        .filter_res {
+            display: none;
+        }
+    
+        .toggle_filter,
+        .sort_by {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+    
+            h1 {
+                font-size: 17px;
+                margin-right: 10px;
+                font-weight: normal;
+                cursor: pointer;
+                transition: 0.3s;
+    
+                &:hover {
+                    transition: 0.3s;
+                    color: var(--pink-color);
+                    font-weight: bold;
+                }
+            }
+    
+            img {
+                height: 14px;
+            }
+        }
+    
+        .sort_by {
+            .outside {
+                position: relative;
+    
+                .sort_by_extended {
+                    position: absolute;
+                    display: none;
+                    z-index: 10;
+    
+                    ul {
+                        margin-top: 5px;
+                        top: 0;
+                        background-color: white;
+                        border: 2px solid var(--pink-color);
+                        border-radius: 5px;
+    
+                        li {
+                            list-style-type: none;
+                            padding: 5px;
+                            cursor: pointer;
+    
+                            &:hover {
+                                background-color: var(--pink-color);
+                                color: white;
+                            }
+                        }
+                    }
+                }
+    
+                h1 {
+                    margin-left: 20px;
+                }
+    
+                &:hover {
+                    .sort_by_extended {
+                        display: flex;
+                    }
+                }
+            }
+    
+            img {
+                height: 10px;
+            }
+    
+        }
+    }
+    @media screen and (max-width: 950px) {
+        .filter_res {
+            display: block;
+            padding: 10px;
+            cursor: pointer;
+            background-color: var(--pink-color);
+            border-radius: 8px;
+            transition: 0.3s;
+
+            &:hover {
+                opacity: 0.8;
+                transition: 0.3s;
+            }
+        }
+
+        .toggle_filter,
+        .sort_by {
+            display: none;
+        }
+    }
+}

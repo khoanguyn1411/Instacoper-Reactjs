@@ -51,18 +51,32 @@ const tabsCustomerSupport = [{
         isExpanded: false
     },
     {
+        name: 'Giao hàng & Vận chuyển',
+        nameNoAccent: 'giao-hang-&-van-chuyen',
+        isExpanded: false
+    },
+    {
+        name: 'Hướng dẫn chọn size',
+        nameNoAccent: 'huong-dan-chon-size',
+        isExpanded: false
+    },
+   
+]
+
+const tabsPolicy = [
+    {
         name: 'Chính sách bảo mật',
         nameNoAccent: 'chinh-sach-bao-mat',
         isExpanded: false
     },
     {
-        name: 'Chính sách đổi trả',
+        name: 'Chinh sách đổi trả',
         nameNoAccent: 'chinh-sach-doi-tra',
         isExpanded: false
     },
     {
-        name: 'Giao hàng & Vận chuyển',
-        nameNoAccent: 'giao-hang-&-van-chuyen',
+        name: 'Cam kết & bảo hành',
+        nameNoAccent: 'cam-ket-&-bao-hanh',
         isExpanded: false
     },
 ]
@@ -166,7 +180,9 @@ const tabListObj = [{
             {
                 name: arrFAQs[1],
                 nameNoAccent: POLICY_NO_ACCENT,
-                isExpanded: false
+                isExpanded: true,
+                tablist3: tabsPolicy
+            
             },
             {
                 name: arrFAQs[2],
@@ -188,6 +204,7 @@ export default {
     tabsLeftBar,
     tabsUser,
     tabsCustomerSupport,
+    tabsPolicy,
     HOME,
     PRODUCTS,
     BLOG,

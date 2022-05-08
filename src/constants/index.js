@@ -1,10 +1,25 @@
-import imgsHome from './imgsHome';
-import imgsLogo from './imgsLogo';
-import imgsIcon from './imgsIcon'
-import imgsFooter from './imgsFooter';
-import imgsAboutus from './imgsAboutus';
+import imgsHome from './img/imgsHome';
+import imgsLogo from './img/imgsLogo';
+import imgsIcon from './img/imgsIcon'
+import imgsFooter from './img/imgsFooter';
+import imgsAboutus from './img/imgsAboutus';
+import imgsFaqs from './img/imgsFaqs'
+import imgsProducts from './img/imgsProducts'
 
-import banners from './banners';
+import videos from './video/videos'
+
 import tabList from './tabs'
+import products from './products';
 
-export { imgsHome, tabList, imgsIcon,imgsLogo,banners, imgsFooter, imgsAboutus };
+export {
+    imgsHome,
+    tabList,
+    imgsIcon,
+    imgsLogo,
+    imgsFooter,
+    imgsAboutus,
+    imgsFaqs,
+    videos,
+    imgsProducts,
+    products
+};

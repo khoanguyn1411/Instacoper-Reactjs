@@ -1,6 +1,5 @@
 import React from 'react'
-import imgsHome from '../../../constants/imgsHome'
-import imgsIcon from '../../../constants/imgsIcon'
+import {imgsHome, imgsIcon} from '../../../constants'
 
 import styles from './TopBlogs.module.scss'
 

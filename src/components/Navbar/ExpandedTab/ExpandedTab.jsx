@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretRight } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
+import clsx from 'clsx'
 
 import { tabList } from '../../../constants'
 import styles from './ExpandedTab.module.scss'
@@ -50,10 +51,16 @@ const ExpandedTab = ({ page }) => {
     }
   }
 
+  const classesWrapper = clsx([
+    styles.expandedTab__wrapper,
+    {[styles.productWidth]: page===tabList.PRODUCTS_NO_ACCENTS},
+    {[styles.blogWidth]: page===tabList.BLOG_NO_ACCENTS},
+    {[styles.faqsWidth]: page===tabList.FAQS_NO_ACCENTS}
+  ])
 
 
   return (
-    <ul className={styles.expandedTab__wrapper}>
+    <ul className={classesWrapper}>
       {
         tabInside.map((item, index) => (
           <div key={index}>

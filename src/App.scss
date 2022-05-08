@@ -10,8 +10,72 @@
     max-width: 1250px;
     margin: auto;
 
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 1000px) {
         padding: 0 20px;
     }
 }
 
+.app__checkbox_wrap {
+    input {
+        display: none;
+    }
+
+    input:checked+label:before {
+        background-color: #F54253;
+        color: white;
+        font-size: 12px;
+        border: 1px solid #F54253
+    }
+
+    input+label::before {
+        content: "\220E";
+        border: 1px solid rgba(188, 188, 188, 1);
+        border-radius: 1px;
+        display: inline-block;
+        margin-right: 8px;
+        vertical-align: bottom;
+        color: transparent;
+        font-size: 12px;
+        padding-left: 4px;
+        padding-right: 4px;
+        padding-bottom: 2px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    input+label {
+        display: block;
+        margin: 3px 4px 4px 0px;
+        font-size: 15px;
+        margin-top: 5px;
+    }
+}
+
+.app__checkbox_number_wrap {
+    input {
+        display: none;
+    }
+
+    label {
+        position: relative;
+        border: 1px solid rgba(188, 188, 188, 1);
+        font-size: 16px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        padding-right: 7px;
+        padding-left: 7px;
+        background-color: rgba(250, 251, 251, 1);
+        border-radius: 3px;
+        margin-right: 5px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    input:checked + label {
+        background-color: #F54253;
+        color: white;
+        border: 1px solid #F54253;
+        -webkit-box-shadow: 2px 2px 2px #666;
+        -moz-box-shadow: 2px 2px 2px #666;
+        box-shadow: 2px 2px 2px #666;
+    }
+}

@@ -53,7 +53,6 @@ const Navbar = () => {
         pageAssistance: getWindowHref().pageAssistance
       }
     )
-    console.log(bold)
   }, [bold.direct])
 
   useEffect(() => {
@@ -76,6 +75,24 @@ const Navbar = () => {
     }
 
   }, [openActionTab])
+
+  useEffect(() => {
+    const eFilter = document.querySelector('#nav_bar')
+    if (window.innerWidth < 900) {
+      const handleWindowClick = (e) => {
+        if (eFilter) {
+          let isClickInsideElement = eFilter.contains(e.target);
+          if (!isClickInsideElement) {
+            setOpenNavMobile(false)
+          }
+        }
+      }
+      window.addEventListener('mousedown', handleWindowClick)
+      return () => (
+        window.removeEventListener('mousedown', handleWindowClick)
+      )
+    }
+  }, [window.innerWidth])
 
 
   const handleToggleLeftSideBar = () => {
@@ -141,7 +158,7 @@ const Navbar = () => {
 
         </div>
         {/* Navbar */}
-        <div className={styles.app__navbar}>
+        <div id='nav_bar' className={styles.app__navbar}>
           <div className='app__wrapper'>
             <div className={styles.app__navbar_toggleField} >
               <div onClick={handleToggleLeftSideBar}>

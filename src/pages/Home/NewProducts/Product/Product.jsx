@@ -2,18 +2,18 @@ import React from 'react'
 
 import styles from './Product.module.scss'
 
-const Product = ({value}) => {
+const Product = ({ value }) => {
   function formatCurrency(price) {
     const formattedPrice = price.toLocaleString('it-IT',
-        { style: 'currency', currency: 'VND' })
-        .replace("VND", "₫")
-        .replace(/\s+/g, '');
+      { style: 'currency', currency: 'VND' })
+      .replace("VND", "₫")
+      .replace(/\s+/g, '');
     return formattedPrice
-}
+  }
   return (
     <div className={styles.product__wrapper}>
       <div className={styles.product__img}>
-        <img/>
+        <img />
       </div>
 
       <div className={styles.product__content}>

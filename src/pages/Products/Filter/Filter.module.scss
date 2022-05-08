@@ -1,0 +1,101 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+    flex: 0.225;
+
+    >svg {
+        display: none;
+    }
+
+    >div {
+        margin-top: 20px;
+    }
+
+    .filter__brand {
+        margin-top: 0;
+    }
+
+    .filter__size {
+        .size_wrap {
+            margin-top: 15px;
+            margin-bottom: 12px;
+            display: grid;
+            width: 100%;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 15px;
+
+        }
+    }
+
+    .price_range_wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .filter_header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+
+        h1 {
+            font-size: 18px;
+        }
+    }
+
+    @media screen and (max-width: 950px) {
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        background-color: white;
+        margin-right: 0;
+        padding: 20px;
+        width: 250px;
+        height: 100vh;
+        overflow-y: scroll;
+
+
+        >svg {
+            position: absolute;
+            display: flex;
+            justify-self: flex-end;
+            align-self: flex-end;
+            cursor: pointer;
+            margin-right: -5px;
+            height: 30px;
+            width: 30px;
+            background-color: var(--pink-color);
+            padding: 5px;
+        }
+
+        .filter__brand {
+            margin-top: 40px;
+        }
+    }
+
+
+
+}
+
+.show {
+
+    display: flex;
+
+    @media screen and (max-width: 950px) {
+        display: flex;
+        right: 0;
+        transition: 0.3s;
+    }
+}
+
+.hide {
+
+    display: none;
+
+    @media screen and (max-width: 950px) {
+        display: flex;
+        right: -250px;
+        transition: 0.3s;
+    }
+}
