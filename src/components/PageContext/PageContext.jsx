@@ -20,7 +20,31 @@ function PageProvider({ children }) {
     let href = window.location.href
     const splitHrefArr = splitMulti(href, ['/', '?'])
     if (splitHrefArr[splitHrefArr.length - 1] === '') {
-      if (splitHrefArr.length === 4) {
+      if (splitHrefArr[3] === '') {
+        console.log('zoHome')
+        return {
+          direct: tabList.HOME_NO_ACCENTS, //Lấy thẳng cái đường dẫn cuối luôn
+          arrPathSplit: splitHrefArr,
+          page: tabList.HOME_NO_ACCENTS,
+          tab2: splitHrefArr[4],
+          pageAssistance: splitHrefArr[5]
+        }
+      }
+      else {
+        console.log('zoEles1')
+        return {
+          direct: splitHrefArr[splitHrefArr.length - 1], //Lấy thẳng cái đường dẫn cuối luôn
+          arrPathSplit: splitHrefArr,
+          page: splitHrefArr[3],
+          tab2: splitHrefArr[4],
+          pageAssistance: splitHrefArr[5]
+        }
+      }
+
+    }
+    else {
+      if (splitHrefArr[3] === '') {
+        console.log('zoHome')
         return {
           direct: tabList.HOME_NO_ACCENTS, //Lấy thẳng cái đường dẫn cuối luôn
           arrPathSplit: splitHrefArr,
@@ -39,15 +63,6 @@ function PageProvider({ children }) {
         }
       }
 
-    }
-    else {
-      return {
-        direct: splitHrefArr[splitHrefArr.length - 1], //Lấy thẳng cái đường dẫn cuối luôn
-        arrPathSplit: splitHrefArr,
-        page: splitHrefArr[3],
-        tab2: splitHrefArr[4],
-        pageAssistance: splitHrefArr[5]
-      }
     }
   }
 

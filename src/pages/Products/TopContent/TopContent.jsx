@@ -28,7 +28,7 @@ const TopContent = ({ filter }) => {
 
   const handleSortAssending = () => {
     const sortedList = productsShow.list.sort((a, b) => (
-      a.price - b.price
+      (a.price * (1 - a.saleOff / 100)) - (b.price * (1 - b.saleOff / 100))
     ))
     setProductsShow({
       list: sortedList,
@@ -38,7 +38,7 @@ const TopContent = ({ filter }) => {
 
   const handleSortDescending = () => {
     const sortedList = productsShow.list.sort((a, b) => (
-      b.price - a.price
+      (b.price * (1 - b.saleOff / 100)) - (a.price * (1 - a.saleOff / 100))
     ))
     setProductsShow({
       list: sortedList,
@@ -68,7 +68,7 @@ const TopContent = ({ filter }) => {
     <>
       <div className={styles.wrapper_topContent}>
         <h1>{filter}</h1>
-        <div/>
+        <div />
       </div>
       <div className={styles.wrapper}>
 

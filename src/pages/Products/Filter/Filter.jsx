@@ -36,6 +36,12 @@ const Filter = ({ cate, filter }) => {
   const sizes = [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
     41, 42, 43, 44, 45, 47, 48, 49, 50]
 
+  // const currentItems = context.currentItems
+  // const setCurrentItems = context.setCurrentItems
+  // const productsShow = context.productsShow
+
+  const setItemOffset = context.setItemOffset
+  const itemOffset = context.itemOffset
 
 
   const handleSwitchPage = (newList) => {
@@ -93,9 +99,11 @@ const Filter = ({ cate, filter }) => {
     return newList
   }
 
-
+  const setRemountComponent = context.setRemountComponent
   useEffect(() => {
     handleSwitchPage(getCurListWhenLoad())
+    setItemOffset(0)
+    setRemountComponent(Math.random())
   }, [filter])
 
   const handleCloseFilter = () => {
@@ -229,6 +237,8 @@ const Filter = ({ cate, filter }) => {
       list: handleSetProductsShow(),
       sortType: prev.sortType
     }))
+    setItemOffset(0)
+    setRemountComponent(Math.random())
   }, [checkedListGender, checkedListBrand, minPrice, maxPrice, checkedListSize])
 
 

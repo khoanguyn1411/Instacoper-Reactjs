@@ -1,0 +1,53 @@
+.wrapperDiv{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wrapper {
+    display: flex;
+    margin-top: 30px;
+    align-self: center;
+    margin-bottom: 30px;
+
+    a {
+        padding: 8px 12px;
+        margin: 8px;
+        font-weight: 800;
+    }
+
+    li {
+        list-style-type: none;
+        cursor: pointer;
+    }
+}
+
+.disablePage {
+    a {
+        border-radius: 5px;
+        border: 1.5px solid var(--pink-color);
+    }
+}
+
+.directButton {
+    font-weight: 800;
+    cursor: pointer;
+
+    a {
+        border-radius: 0;
+        border: none
+    }
+}
+
+.activePage {
+    a {
+        background-color: var(--pink-color);
+        color: white;
+        border-radius: 5px;
+        -webkit-box-shadow: 2px 2px 2px #666;
+        -moz-box-shadow: 2px 2px 2px #666;
+        box-shadow: 2px 2px 2px #666;
+    }
+}

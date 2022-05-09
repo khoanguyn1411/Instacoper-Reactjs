@@ -22,8 +22,11 @@ const ProductProvider = ({ children }) => {
     const [maxPrice, setMaxPrice] = useState(5000000)
     const [checkedListSize, setCheckedListSize] = useState([])
 
-   
 
+    const [currentItems, setCurrentItems] = useState(productsShow.list.slice(0, 5));
+    const [itemOffset, setItemOffset] = useState(0);
+
+    const [remountComponent, setRemountComponent] = useState(0);
 
     const value = {
         productsShow, setProductsShow, isShowFilter, setShowFilter,
@@ -31,7 +34,10 @@ const ProductProvider = ({ children }) => {
         checkedListGender, setCheckedListGender,
         minPrice, setMinPrice,
         maxPrice, setMaxPrice,
-        checkedListSize, setCheckedListSize
+        checkedListSize, setCheckedListSize,
+        currentItems, setCurrentItems,
+        itemOffset, setItemOffset,
+        remountComponent, setRemountComponent
     }
 
 
