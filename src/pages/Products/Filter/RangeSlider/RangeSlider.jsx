@@ -13,30 +13,41 @@ const RangeSlider = () => {
     const maxVal = context.maxPrice
     const setValueMax = context.setMaxPrice
 
+    const priceGap = 200000
+
+    const rangeInput = document.querySelectorAll(".range-input input"),
+        progress = document.querySelector(".rangeslider-price .progress");
+
     const handleRangeMinChange = (e) => {
         setValueMin(e.target.value)
+
+        let minVal2 = parseInt(e.target.value)
+        let maxVal2 = parseInt(maxVal)
+
+        if (maxVal2 - minVal2 < priceGap) {
+            setValueMin(maxVal2 - priceGap)
+        }
+        progress.style.left = (minVal2 / rangeInput[0].max) * 100 + "%";
     }
 
     const handleRangeMaxChange = (e) => {
         setValueMax(e.target.value)
+
+        let maxVal2 = parseInt(e.target.value)
+        let minVal2 = parseInt(minVal)
+
+        if (maxVal2 - minVal2 < priceGap) {
+            setValueMax(minVal2 + priceGap)
+        }
+        progress.style.right = 100 - (maxVal2 / rangeInput[1].max) * 100 + "%";
     }
     const VND = Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' });
+
     useEffect(() => {
-        const rangeInput = document.querySelectorAll(".range-input input"),
-            progress = document.querySelector(".rangeslider-price .progress")
-
-        let priceGap = 200000;
-
-        if (maxVal - minVal < priceGap) {
-            setValueMin(maxVal - priceGap)
-            setValueMax(minVal + priceGap)
+        if (progress) {
+            progress.style.left = (parseInt(minVal) / rangeInput[0].max) * 100 + "%";
+            progress.style.right = 100 - (parseInt(maxVal) / rangeInput[1].max) * 100 + "%";
         }
-        else {
-            progress.style.left = (minVal / rangeInput[0].max) * 100 + "%";
-            progress.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
-        }
-
-
     }, [minVal, maxVal])
 
     return (
