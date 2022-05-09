@@ -1,3 +1,6 @@
+import products from "./products"
+
+
 const HOME = 'Trang chủ'
 const PRODUCTS = 'Sản phẩm'
 const BLOG = 'Blog'
@@ -26,8 +29,8 @@ const POLICY_NO_ACCENT = 'chinh-sach'
 const CONTACT_NO_ACCENT = 'lien-he'
 
 
-const arrProductPages = ['Thương hiệu', 'Khuyến mãi', 'Hàng mới về', 'Bán chạy nhất',
-    'Sneaker nam', 'Sneaker nữ'
+const arrProductPages = ['Khuyến mãi', 'Hàng mới về', 'Bán chạy nhất',
+   
 ]
 const arrBlogPages = ['Chủ đề', 'Blog mới nhất', 'Xem nhiều nhất']
 const arrFAQs = ['Hỗ trợ khách hàng', 'Chính sách', 'Liên hệ']
@@ -39,6 +42,8 @@ const tabsLeftBar = ['Walking Style Shoes', 'Casual Shoes', 'Boat Shoes', 'Canva
 const tabsUser = ['Đăng nhập', 'Đăng ký', 'Tài khoản của tôi', 'Quản lý đơn hàng',
     'Thông báo của tôi', 'Thiết lập địa chỉ', 'Đổi mật khẩu', 'Đăng xuất'
 ]
+
+
 
 const tabsCustomerSupport = [{
         name: 'Hướng dẫn mua hàng',
@@ -60,11 +65,10 @@ const tabsCustomerSupport = [{
         nameNoAccent: 'huong-dan-chon-size',
         isExpanded: false
     },
-   
+
 ]
 
-const tabsPolicy = [
-    {
+const tabsPolicy = [{
         name: 'Chính sách bảo mật',
         nameNoAccent: 'chinh-sach-bao-mat',
         isExpanded: false
@@ -90,47 +94,22 @@ const tabListObj = [{
         name: PRODUCTS,
         nameNoAccent: PRODUCTS_NO_ACCENTS,
         isExpanded: true,
-        tabList2: [{
+        tabList2: [
+            {
                 name: arrProductPages[0],
-                nameNoAccent: BRAND_NO_ACCENTS,
-                isExpanded: true,
-                tablist3: [{
-                        name: 'Nike',
-                        nameNoAccent: 'nike',
-                        isExpanded: false
-                    },
-                    {
-                        name: 'Adidas',
-                        nameNoAccent: 'adidas',
-                        isExpanded: false
-                    },
-                ]
+                nameNoAccent: PROMOTION_NO_ACCENTS,
+                isExpanded: false,
             },
             {
                 name: arrProductPages[1],
-                nameNoAccent: PROMOTION_NO_ACCENTS,
-                isExpanded: false
-            },
-            {
-                name: arrProductPages[2],
                 nameNoAccent: NEWPRODUCT_NO_ACCENT,
                 isExpanded: false
             },
             {
-                name: arrProductPages[3],
+                name: arrProductPages[2],
                 nameNoAccent: TOPSALE_NO_ACCENT,
                 isExpanded: false
             },
-            {
-                name: arrProductPages[4],
-                nameNoAccent: SNEAKERMALE_NO_ACCENT,
-                isExpanded: false
-            },
-            {
-                name: arrProductPages[5],
-                nameNoAccent: SNEAKERFEMALE_NO_ACCENT,
-                isExpanded: false
-            }
         ]
     },
     {
@@ -182,7 +161,7 @@ const tabListObj = [{
                 nameNoAccent: POLICY_NO_ACCENT,
                 isExpanded: true,
                 tablist3: tabsPolicy
-            
+
             },
             {
                 name: arrFAQs[2],

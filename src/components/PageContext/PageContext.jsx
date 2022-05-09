@@ -25,6 +25,7 @@ function PageProvider({ children }) {
           direct: tabList.HOME_NO_ACCENTS, //Lấy thẳng cái đường dẫn cuối luôn
           arrPathSplit: splitHrefArr,
           page: tabList.HOME_NO_ACCENTS,
+          tab2: splitHrefArr[4],
           pageAssistance: splitHrefArr[5]
         }
       }
@@ -33,6 +34,7 @@ function PageProvider({ children }) {
           direct: splitHrefArr[splitHrefArr.length - 1], //Lấy thẳng cái đường dẫn cuối luôn
           arrPathSplit: splitHrefArr,
           page: splitHrefArr[3],
+          tab2: splitHrefArr[4],
           pageAssistance: splitHrefArr[5]
         }
       }
@@ -43,6 +45,7 @@ function PageProvider({ children }) {
         direct: splitHrefArr[splitHrefArr.length - 1], //Lấy thẳng cái đường dẫn cuối luôn
         arrPathSplit: splitHrefArr,
         page: splitHrefArr[3],
+        tab2: splitHrefArr[4],
         pageAssistance: splitHrefArr[5]
       }
     }

@@ -6,8 +6,13 @@ import styles from './Filter.module.scss'
 import { imgsIcon, products } from '../../../constants'
 import RangeSlider from './RangeSlider/RangeSlider'
 import { ProductContext } from '../ProductContext/ProductContext'
+import { useNavigate } from 'react-router-dom'
+import { PageContext } from '../../../components/PageContext/PageContext'
 
-const Filter = () => {
+const Filter = ({ cate, filter }) => {
+
+
+
 
   const context = useContext(ProductContext)
 
@@ -23,6 +28,7 @@ const Filter = () => {
   const minPrice = context.minPrice
   const maxPrice = context.maxPrice
 
+
   const checkedListSize = context.checkedListSize
   const setCheckedListSize = context.setCheckedListSize
 
@@ -33,6 +39,81 @@ const Filter = () => {
     41, 42, 43, 44, 45, 47, 48, 49, 50]
 
 
+
+  const handleSwitchPage = (newList) => {
+    clearFilter()
+    handleSetProductShowNS(newList)
+    handleSetProductCurrentListNS(newList)
+  }
+
+  const handleSetProductShowNS = (newList) => {
+    setProductsShow((prev) => ({
+      list: newList,
+      sortType: prev.sortType
+    }))
+  }
+  const handleSetProductCurrentListNS = (newList) => {
+    setProductCurrentList((prev) => ({
+      list: newList,
+      sortType: prev.sortType
+    }))
+  }
+
+
+
+  const [productCurrentList, setProductCurrentList] = useState({
+    list: getCurListWhenLoad(),
+    sortType: ''
+  })
+  const setMinPrice = context.setMinPrice
+  const setMaxPrice = context.setMaxPrice
+
+  const clearFilter = () => {
+    setCheckedListBrand([])
+    setCheckedListGender([])
+    setCheckedListSize([])
+    setMinPrice(0)
+    setMaxPrice(5000000)
+  }
+
+  function getCurListWhenLoad() {
+    let newList = []
+    if (filter !== '') {
+      if (cate === 'promotion') {
+        newList = products.listProducts.filter((item) => (item.saleOff > 0))
+      }
+      if (cate === 'newPros') {
+        newList = products.listProducts.filter((item) => (item.status === 'Sản phẩm mới'))
+      }
+      if (cate === 'sales') {
+        newList = products.listProducts.filter((item) => (item.status === 'Bestseller'))
+      }
+    }
+    else {
+      newList = productsList
+    }
+    return newList
+  }
+
+
+  useEffect(() => {
+    if (filter !== '') {
+
+      if (cate === 'promotion') {
+        handleSwitchPage(getCurListWhenLoad())
+      }
+      if (cate === 'newPros') {
+        handleSwitchPage(getCurListWhenLoad())
+
+      }
+      if (cate === 'sales') {
+        handleSwitchPage(getCurListWhenLoad())
+      }
+    }
+    else {
+      handleSwitchPage(getCurListWhenLoad())
+    }
+  }, [filter])
 
   const handleCloseFilter = () => {
     setShowFilter(false)
@@ -101,15 +182,16 @@ const Filter = () => {
     })
   }
 
+
   const handleFilterCheckboxField = () => {
     if (checkedListGender.length === 0 & checkedListBrand.length === 0) {
-      return productsList
+      return productCurrentList.list
     }
 
     else {
       let filterListGender = [];
       for (let i = 0; i < checkedListGender.length; i++) {
-        const list = productsList.filter((item) => (item.isMaleShoes === checkedListGender[i].boolean))
+        const list = productCurrentList.list.filter((item) => (item.isMaleShoes === checkedListGender[i].boolean))
         filterListGender = [...filterListGender, ...list]
       }
 
@@ -129,7 +211,7 @@ const Filter = () => {
       }
       else {
         for (let i = 0; i < checkedListBrand.length; i++) {
-          const list = productsList.filter((item) => (item.brand === checkedListBrand[i]))
+          const list = productCurrentList.list.filter((item) => (item.brand === checkedListBrand[i]))
           filterListBrand = [...filterListBrand, ...list]
         }
         return filterListBrand
@@ -145,7 +227,7 @@ const Filter = () => {
       return checker(listSizePro, checkedListSize)
     })
     return newList
-   
+
   }
 
   const handleRangeSliderField = () => {
@@ -159,6 +241,7 @@ const Filter = () => {
   }
 
   useEffect(() => {
+
     setProductsShow((prev) => ({
       list: handleSetProductsShow(),
       sortType: prev.sortType

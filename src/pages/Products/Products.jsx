@@ -1,13 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 import styles from './Products.module.scss'
 import { TopContent, Filter, ProductsGrid } from '../Products'
-import { products } from '../../constants'
-import { ProductProvider } from './ProductContext/ProductContext'
+import { ProductContext, ProductProvider } from './ProductContext/ProductContext'
 
-const Products = () => {
-
-
+const Products = ({cate ,filter}) => {
+  
   return (
 
     <ProductProvider>
@@ -16,7 +14,7 @@ const Products = () => {
           <TopContent />
           <div className={styles.bottom_content}>
             {
-              <Filter />
+              <Filter cate = {cate} filter = {filter} />
             }
             <ProductsGrid />
           </div>
