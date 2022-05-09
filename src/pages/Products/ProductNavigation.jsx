@@ -7,8 +7,6 @@ import Products from './Products'
 
 const ProductNavigation = () => {
 
-    const productsList = products.listProducts
-
 
     function removeSpace(str) {
         str = str.replace(/\s+/g, '-')
@@ -18,10 +16,10 @@ const ProductNavigation = () => {
 
     return (
         <Routes>
-            <Route path='/*' element={<Products filter='' />} />
-            <Route path='/khuyen-mai' element={<Products cate='promotion' filter='promotion' />} />
-            <Route path='/hang-moi-ve' element={<Products cate='newPros' filter='newproduct' />} />
-            <Route path='/ban-chay-nhat' element={<Products cate='sales' filter='topsale' />} />
+            <Route path='/*' element={<Products filter='Tất cả sản phẩm' />} />
+            <Route path='/khuyen-mai' element={<Products cate='promotion' filter='Khuyến mãi' />} />
+            <Route path='/hang-moi-ve' element={<Products cate='newPros' filter='Hàng mới về' />} />
+            <Route path='/ban-chay-nhat' element={<Products cate='sales' filter='Bán chạy nhất' />} />
 
         </Routes>
     )

@@ -3,6 +3,7 @@
     flex-direction: column;
     margin-right: 30px;
     flex: 0.225;
+    margin-bottom: 35px;
 
     >svg {
         display: none;
@@ -14,6 +15,28 @@
 
     .filter__brand {
         margin-top: 0;
+    }
+
+    .filter__clear {
+        >button {
+            background-color: black;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 700;
+            transition: 0.3s;
+
+            &:hover {
+                transition: 0.3s;
+                opacity: 0.8;
+
+            }
+        }
+
     }
 
     .filter__size {

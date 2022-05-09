@@ -62,11 +62,12 @@
                 cursor: pointer;
                 transition: 0.3s;
                 width: max-content;
+                transition: 0.3s;
 
                 &:hover {
                     transition: 0.3s;
                     color: var(--pink-color);
-                    font-weight: bold;
+                    text-decoration: underline;
                 }
             }
 
@@ -145,4 +146,19 @@
 
     }
 
+}
+
+.wrapper_topContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+    text-transform: uppercase;
+    >div{
+        height: 2px;
+        width: 25%;
+        background-color: var(--pink-color);
+        margin-top: 5px;
+    }
 }

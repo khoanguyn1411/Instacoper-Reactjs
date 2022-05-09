@@ -11,7 +11,7 @@ const Products = ({cate ,filter}) => {
     <ProductProvider>
       <div className='app__wrapper'>
         <div className={styles.wrapper}>
-          <TopContent />
+          <TopContent filter = {filter} />
           <div className={styles.bottom_content}>
             {
               <Filter cate = {cate} filter = {filter} />

@@ -6,8 +6,6 @@ import styles from './Filter.module.scss'
 import { imgsIcon, products } from '../../../constants'
 import RangeSlider from './RangeSlider/RangeSlider'
 import { ProductContext } from '../ProductContext/ProductContext'
-import { useNavigate } from 'react-router-dom'
-import { PageContext } from '../../../components/PageContext/PageContext'
 
 const Filter = ({ cate, filter }) => {
 
@@ -78,7 +76,7 @@ const Filter = ({ cate, filter }) => {
 
   function getCurListWhenLoad() {
     let newList = []
-    if (filter !== '') {
+    if (filter !== 'Tất cả sản phẩm') {
       if (cate === 'promotion') {
         newList = products.listProducts.filter((item) => (item.saleOff > 0))
       }
@@ -97,22 +95,7 @@ const Filter = ({ cate, filter }) => {
 
 
   useEffect(() => {
-    if (filter !== '') {
-
-      if (cate === 'promotion') {
-        handleSwitchPage(getCurListWhenLoad())
-      }
-      if (cate === 'newPros') {
-        handleSwitchPage(getCurListWhenLoad())
-
-      }
-      if (cate === 'sales') {
-        handleSwitchPage(getCurListWhenLoad())
-      }
-    }
-    else {
-      handleSwitchPage(getCurListWhenLoad())
-    }
+    handleSwitchPage(getCurListWhenLoad())
   }, [filter])
 
   const handleCloseFilter = () => {
@@ -333,6 +316,10 @@ const Filter = ({ cate, filter }) => {
             ))
           }
         </div>
+      </div>
+
+      <div className={styles.filter__clear}>
+        <button onClick={() => clearFilter()}>Xóa bộ lọc</button>
       </div>
 
     </div>
