@@ -142,7 +142,6 @@ const Filter = () => {
     const newList = currentListPros.filter((item) => {
       const listSizePro = item.sizeAvailable
       let checker = (arr, target) => target.every(v => arr.includes(v));
-      // return checker(listSizePro, checkedListSize)
       return checker(listSizePro, checkedListSize)
     })
     return newList
@@ -156,7 +155,6 @@ const Filter = () => {
   }
 
   const handleSetProductsShow = () => {
-    console.log(handleSizeField())
     return handleSizeField()
   }
 

@@ -36,7 +36,7 @@ const ProductsGrid = () => {
               <h3>{product.isMaleShoes? 'Giày nam': 'Giày nữ'}</h3>
               <div className={styles.price_wrap}>
                 <h5>{formatCurrency(product.price * (1 - product.saleOff / 100))}</h5>
-                <h4>{formatCurrency(product.price)}</h4>
+                <h4>{product.saleOff > 0? formatCurrency(product.price) : ''}</h4>
               </div>
               <h6>{product.saleOff !== 0 ? `${product.saleOff}% off` : ''}</h6>
             </div>
