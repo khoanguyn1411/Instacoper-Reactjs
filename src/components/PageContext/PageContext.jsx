@@ -7,6 +7,15 @@ const PageContext = createContext()
 
 function PageProvider({ children }) {
 
+  function formatCurrency(price) {
+    const formattedPrice = price.toLocaleString('it-IT',
+      { style: 'currency', currency: 'VND' })
+      .replace("VND", "₫")
+      .replace(/\s+/g, '');
+    return formattedPrice
+  }
+
+
   function splitMulti(str, tokens) {
     var tempChar = tokens[0];
     for (let i = 1; i < tokens.length; i++) {
@@ -21,7 +30,6 @@ function PageProvider({ children }) {
     const splitHrefArr = splitMulti(href, ['/', '?'])
     if (splitHrefArr[splitHrefArr.length - 1] === '') {
       if (splitHrefArr[3] === '') {
-        console.log('zoHome')
         return {
           direct: tabList.HOME_NO_ACCENTS, //Lấy thẳng cái đường dẫn cuối luôn
           arrPathSplit: splitHrefArr,
@@ -31,7 +39,6 @@ function PageProvider({ children }) {
         }
       }
       else {
-        console.log('zoEles1')
         return {
           direct: splitHrefArr[splitHrefArr.length - 1], //Lấy thẳng cái đường dẫn cuối luôn
           arrPathSplit: splitHrefArr,
@@ -44,7 +51,6 @@ function PageProvider({ children }) {
     }
     else {
       if (splitHrefArr[3] === '') {
-        console.log('zoHome')
         return {
           direct: tabList.HOME_NO_ACCENTS, //Lấy thẳng cái đường dẫn cuối luôn
           arrPathSplit: splitHrefArr,
@@ -76,12 +82,23 @@ function PageProvider({ children }) {
     setBold(item)
   }
 
+  const [reRender, setRerender] = useState(Math.random())
+
+  const keyItemsInCart = 'keyLocal'
+  const itemsInCart = JSON.parse(localStorage.getItem(keyItemsInCart))
 
 
   const value = {
     bold,
     handleSetBold,
     getWindowHref,
+    formatCurrency,
+    
+    reRender,
+    setRerender,
+
+    itemsInCart,
+    keyItemsInCart
   }
 
   return (

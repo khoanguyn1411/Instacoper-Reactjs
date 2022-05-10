@@ -1,0 +1,52 @@
+.wrapper {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    &__arrow {
+        background-color: black;
+        height: fit-content;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 50%;
+        transition: 0.3s;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--pink-color);
+            transition: 0.3s;
+        }
+
+        &:first-child{
+            margin-right: 15px;
+        }
+        
+        &:last-child{
+            margin-left: 15px;
+        }
+    }
+
+
+    &__ins {
+        justify-content: space-between;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: hidden;
+
+        .item {
+            height: 100%;
+            min-width: 15%;
+            margin: 0 5px;
+
+            img {
+                width: 100%;
+                cursor: pointer;
+            }
+        }
+
+        .active{
+            border: 2px solid black;
+        }
+    }
+
+
+}

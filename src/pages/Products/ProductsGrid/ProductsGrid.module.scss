@@ -17,76 +17,7 @@
             width: max-content;
         }
 
-        .item {
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-
-            .img_wrap {
-                width: 100%;
-                overflow: hidden;
-
-                img {
-                    width: 100%;
-                    transition: 0.5s all ease-in-out;
-
-                    &:hover {
-                        transform: scale(1.2);
-                    }
-                }
-
-            }
-
-            h1 {
-                font-size: 10px;
-                color: var(--pink-color);
-                font-weight: bold;
-                margin-top: 10px;
-            }
-
-            h2 {
-                font-size: 14px;
-                font-weight: bold;
-                transition: 0.4s;
-                cursor: pointer;
-
-                &:hover {
-                    color: var(--pink-color);
-                    transition: 0.4s;
-                }
-            }
-
-            h3 {
-                font-size: 14px;
-                font-weight: normal;
-            }
-
-            .price_wrap {
-                display: flex;
-
-                h5 {
-                    font-size: 12px;
-                    margin-top: 3px;
-                    font-weight: bold;
-                }
-
-                h4 {
-                    font-size: 12px;
-                    color: #8D8D8D;
-                    margin-top: 3px;
-                    text-decoration: line-through;
-                    font-weight: bold;
-                    margin-left: 5px;
-                }
-            }
-
-            h6 {
-                color: #41A139;
-                font-weight: bold;
-                font-size: 12px;
-            }
-
-        }
+      
 
         @media screen and (max-width: 950px) {
             grid-template-columns: repeat(4, minmax(0, 1fr));

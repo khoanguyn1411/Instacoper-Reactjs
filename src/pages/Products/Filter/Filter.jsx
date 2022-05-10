@@ -6,56 +6,87 @@ import styles from './Filter.module.scss'
 import { imgsIcon, products } from '../../../constants'
 import RangeSlider from './RangeSlider/RangeSlider'
 import { ProductContext } from '../ProductContext/ProductContext'
+import CheckboxInside from '../../../smallComponents/CheckboxInside'
+import CheckboxOutSide from '../../../smallComponents/CheckboxOutside'
 
 const Filter = ({ cate, filter }) => {
-
-
-
-
-  const context = useContext(ProductContext)
-
-  const isShowFilter = context.isShowFilter
-  const setShowFilter = context.setShowFilter
-  const setProductsShow = context.setProductsShow
-
-  const checkedListBrand = context.checkedListBrand
-  const setCheckedListBrand = context.setCheckedListBrand
-  const checkedListGender = context.checkedListGender
-  const setCheckedListGender = context.setCheckedListGender
-
-  const minPrice = context.minPrice
-  const maxPrice = context.maxPrice
-
-
-  const checkedListSize = context.checkedListSize
-  const setCheckedListSize = context.setCheckedListSize
-
-  const productsList = products.listProducts
-  const brandUnique = Array.from(new Set(productsList.map((item) => (item.brand))))
-
-  const sizes = [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
-    41, 42, 43, 44, 45, 47, 48, 49, 50]
 
   // const currentItems = context.currentItems
   // const setCurrentItems = context.setCurrentItems
   // const productsShow = context.productsShow
 
+  // Lưu trữ list sản phẩm mặc định (list full)
+  const productsList = products.listProducts
+
+  // ProductContext để quản lý các state chung
+  const context = useContext(ProductContext)
+
+  // useState: Ẩn hiện filter
+  const isShowFilter = context.isShowFilter
+  const setShowFilter = context.setShowFilter
+
+  // useState: Hiển thị danh sách sản phẩm hiện tại
+  const setProductsShow = context.setProductsShow
+
+  // useState: Lưu trữ list sản phẩm hiện tại theo trang sản phẩm
+  const [productCurrentList, setProductCurrentList] = useState({
+    list: getCurListWhenLoad(),
+    sortType: ''
+  })
+
+  // useState: Cập nhật các điều kiện filter
+  const checkedListBrand = context.checkedListBrand
+  const setCheckedListBrand = context.setCheckedListBrand
+
+  const checkedListGender = context.checkedListGender
+  const setCheckedListGender = context.setCheckedListGender
+
+  const minPrice = context.minPrice
+  const maxPrice = context.maxPrice
+  const setMinPrice = context.setMinPrice
+  const setMaxPrice = context.setMaxPrice
+
+  const checkedListSize = context.checkedListSize
+  const setCheckedListSize = context.setCheckedListSize
+
+
+
+  // Lưu trữ mảng các thương hiệu
+  const brandUnique = Array.from(new Set(productsList.map((item) => (item.brand))))
+
+  // Các sizes trong trường filter
+  const sizes = [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+    41, 42, 43, 44, 45, 47, 48, 49, 50]
+
+
+
+  // useState: Set số lượng sản phẩm của pagination lại (Có thể từ 0 - 5, 5 - ...)
   const setItemOffset = context.setItemOffset
   const itemOffset = context.itemOffset
 
+  // useState: Dùng để mount cái Pagination để nó cập nhật lại trang số 1 (tại cái react-pagination nó 
+  // không cho set lại cái page hiện tại đang hướng tới)
+  const setRemountComponent = context.setRemountComponent
 
+
+
+  // Hàm chuyển sang các trang con của sản phẩm, ví dụ như trang Thương hiệu, Sản phẩm mới ...
   const handleSwitchPage = (newList) => {
     clearFilter()
     handleSetProductShowNS(newList)
     handleSetProductCurrentListNS(newList)
   }
 
+  // Hàm set lại và hiển thị 1 list sản phẩm mới cho trường sản phẩm
   const handleSetProductShowNS = (newList) => {
     setProductsShow((prev) => ({
       list: newList,
       sortType: prev.sortType
     }))
   }
+
+  // Hàm set lại list sản phẩm gốc khi chuyển qua các trang, sử dụng để lưu trữ các sản phẩm của trang đó,
+  // ví dụ list sản phẩm của trang Sản phẩm mới, Bán chạy nhất ... rồi dùng currentList này để lọc
   const handleSetProductCurrentListNS = (newList) => {
     setProductCurrentList((prev) => ({
       list: newList,
@@ -65,13 +96,8 @@ const Filter = ({ cate, filter }) => {
 
 
 
-  const [productCurrentList, setProductCurrentList] = useState({
-    list: getCurListWhenLoad(),
-    sortType: ''
-  })
-  const setMinPrice = context.setMinPrice
-  const setMaxPrice = context.setMaxPrice
 
+  // Hàm clear bộ lọc
   const clearFilter = () => {
     setCheckedListBrand([])
     setCheckedListGender([])
@@ -80,6 +106,8 @@ const Filter = ({ cate, filter }) => {
     setMaxPrice(5000000)
   }
 
+
+  // Hàm filter ra list sản phẩm tương ứng với các page, rồi dùng list này làm initial list khi reload page
   function getCurListWhenLoad() {
     let newList = []
     if (filter !== 'Tất cả sản phẩm') {
@@ -99,7 +127,8 @@ const Filter = ({ cate, filter }) => {
     return newList
   }
 
-  const setRemountComponent = context.setRemountComponent
+  // Khi giá trị của filter thay đổi (tức là user chuyển sang page product khác) 
+  // => cập nhật lại page mới, set sản phẩm về thứ tự từ 0 - 5, re-mount lại cái pagination
   useEffect(() => {
     handleSwitchPage(getCurListWhenLoad())
     setItemOffset(0)
@@ -109,12 +138,14 @@ const Filter = ({ cate, filter }) => {
   const handleCloseFilter = () => {
     setShowFilter(false)
   }
+
   const classWrapper = clsx(
     styles.wrapper,
     { [styles.show]: isShowFilter },
     { [styles.hide]: !isShowFilter },
   )
 
+  // Xử lý đóng cửa sổ filter khi người dùng click ra ngoài
   useEffect(() => {
     const eFilter = document.querySelector('#filter_wrap')
     if (window.innerWidth < 950) {
@@ -133,6 +164,7 @@ const Filter = ({ cate, filter }) => {
     }
   }, [window.innerWidth])
 
+  // Lấy list filter các thương hiệu
   const handleSetCheckedBrand = (brand) => {
     setCheckedListBrand((prev) => {
       if (prev.includes(brand)) {
@@ -144,6 +176,7 @@ const Filter = ({ cate, filter }) => {
     })
   }
 
+  // Lấy list filter các size
   const handleSetCheckedSize = (size) => {
     setCheckedListSize((prev) => {
       if (prev.includes(size)) {
@@ -155,6 +188,7 @@ const Filter = ({ cate, filter }) => {
     })
   }
 
+  // Lấy list filter giới tính
   const handleSetCheckedGender = (gender) => {
     setCheckedListGender((prev) => {
       const stringArrPrev = prev.map((item) => (item.string))
@@ -173,7 +207,7 @@ const Filter = ({ cate, filter }) => {
     })
   }
 
-
+  // 3 hàm phía dưới logic xử lý filter
   const handleFilterCheckboxField = () => {
     if (checkedListGender.length === 0 & checkedListBrand.length === 0) {
       return productCurrentList.list
@@ -209,7 +243,6 @@ const Filter = ({ cate, filter }) => {
       }
     }
   }
-
   const handleSizeField = () => {
     const currentListPros = handleRangeSliderField()
     const newList = currentListPros.filter((item) => {
@@ -220,17 +253,19 @@ const Filter = ({ cate, filter }) => {
     return newList
 
   }
-
   const handleRangeSliderField = () => {
     const currentListPros = handleFilterCheckboxField()
     const newList = currentListPros.filter((item) => (item.price >= minPrice && item.price <= maxPrice))
     return newList
   }
 
+  // Trả về kết quả (1 list sản phẩm mới) sau khi xử lý filter
   const handleSetProductsShow = () => {
     return handleSizeField()
   }
 
+
+  // Khi các list chứa điều kiện filter thay đổi, re-render lại component và set lại panation như trên
   useEffect(() => {
 
     setProductsShow((prev) => ({
@@ -287,16 +322,15 @@ const Filter = ({ cate, filter }) => {
         <div className={styles.size_wrap}>
           {
             sizes.map((item, index) => (
-              <div key={index} className='app__checkbox_number_wrap'>
-                <input
-                  type='checkbox'
-                  className='app__checkbox_number_input'
-                  id={`chk${item}`}
+              <div key={index}>
+                <CheckboxInside
+                  item={item}
                   checked={checkedListSize.includes(item)}
-                  onChange={() => { handleSetCheckedSize(item) }}
-                ></input>
-                <label htmlFor={`chk${item}`}>{item}</label>
+                  onchange={() => { handleSetCheckedSize(item) }}
+                />
               </div>
+
+
             ))
           }
         </div>
@@ -311,17 +345,14 @@ const Filter = ({ cate, filter }) => {
         <div className={styles.checkbox_wrap}>
           {
             ['Giày nam', 'Giày nữ'].map((item, index) => (
-              <div key={index} className='app__checkbox_wrap'>
-                <input
-                  type='checkbox'
-                  className='app__checkbox_input'
-                  id={`chk${item}`}
-                  onChange={() => {
+              <div key={index}>
+                <CheckboxOutSide
+                  item={item}
+                  onchange={() => {
                     handleSetCheckedGender(item)
                   }}
                   checked={checkedListGender.map((item) => (item.string)).includes(item)}
-                ></input>
-                <label htmlFor={`chk${item}`}>{item}</label>
+                />
               </div>
             ))
           }

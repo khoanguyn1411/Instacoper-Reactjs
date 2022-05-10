@@ -9,12 +9,9 @@ import styles from './Pagination.module.scss'
 function Pagination({ itemsPerPage }) {
 
     const context = useContext(ProductContext)
-
     const productsShow = context.productsShow
-
     const setCurrentItems = context.setCurrentItems
-    
-    const getWindowHref = useContext(PageContext).getWindowHref
+
 
 
     const [pageCount, setPageCount] = useState(0);
@@ -23,36 +20,36 @@ function Pagination({ itemsPerPage }) {
     const setItemOffset = context.setItemOffset
 
     const remountComponent = context.remountComponent
-    
+
 
     useEffect(() => {
         const endOffset = itemOffset + itemsPerPage;
         console.log(`Loading items from ${itemOffset} to ${endOffset}`);
         setCurrentItems(productsShow.list.slice(itemOffset, endOffset));
         setPageCount(Math.ceil(productsShow.list.length / itemsPerPage));
-        console.log("itembenpage" +  itemOffset)
     }, [itemOffset, itemsPerPage, productsShow]);
 
 
-    // Invoke when user click to request another page.
+    // const [pageNumber, setPageNumber] = useState('1')
+    // const getWindowHref = useContext(PageContext).getWindowHref
     const handlePageClick = (event) => {
         const newOffset = (event.selected * itemsPerPage) % productsShow.list.length;
         setItemOffset(newOffset);
-        // console.log(event)
+        // setPageNumber(event.selected + 1)
     };
 
     // useEffect(() => {
-    //     let path
-    //     if(!getWindowHref().tab2){
-    //         path = `/${getWindowHref().page}/${page}`
+    //     let path = ''
+    //     if (!getWindowHref().tab2) {
+    //         path = `/${getWindowHref().page}/page-${pageNumber}`
     //     }
-    //     else{
-    //         path = `/${getWindowHref().page}/${getWindowHref().tab2}/${page}`
+    //     else {
+    //         path = `/${getWindowHref().page}/${getWindowHref().tab2}/page-${pageNumber}`
     //     }
     //     console.log(path)
-    // }, [page])
+    // }, [pageNumber])
 
-    
+
 
     return (
         <div className={styles.wrapperDiv} key={remountComponent}>
@@ -64,10 +61,10 @@ function Pagination({ itemsPerPage }) {
                 pageCount={pageCount}
                 previousLabel="❮"
                 renderOnZeroPageCount={null}
-                containerClassName = {styles.wrapper}
-                previousLinkClassName = {styles.directButton}
-                nextLinkClassName = {styles.directButton}
-                activeClassName = {styles.activePage}
+                containerClassName={styles.wrapper}
+                previousLinkClassName={styles.directButton}
+                nextLinkClassName={styles.directButton}
+                activeClassName={styles.activePage}
             />
         </div>
     );

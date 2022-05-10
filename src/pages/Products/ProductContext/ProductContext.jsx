@@ -6,6 +6,7 @@ import { products } from '../../../constants'
 const ProductContext = createContext()
 const ProductProvider = ({ children }) => {
 
+
     const productsList = products.listProducts
     const pageContext = useContext(PageContext)
 
@@ -23,7 +24,7 @@ const ProductProvider = ({ children }) => {
     const [checkedListSize, setCheckedListSize] = useState([])
 
 
-    const [currentItems, setCurrentItems] = useState(productsShow.list.slice(0, 5));
+    const [currentItems, setCurrentItems] = useState((productsShow.list.slice(0, 5)));
     const [itemOffset, setItemOffset] = useState(0);
 
     const [remountComponent, setRemountComponent] = useState(0);
@@ -37,7 +38,7 @@ const ProductProvider = ({ children }) => {
         checkedListSize, setCheckedListSize,
         currentItems, setCurrentItems,
         itemOffset, setItemOffset,
-        remountComponent, setRemountComponent
+        remountComponent, setRemountComponent,
     }
 
 

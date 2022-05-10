@@ -62,15 +62,16 @@
         font-size: 16px;
         padding-top: 3px;
         padding-bottom: 3px;
-        padding-right: 7px;
-        padding-left: 7px;
+        width: 100%;
+        display: inline-block;
         background-color: rgba(250, 251, 251, 1);
         border-radius: 3px;
-        margin-right: 5px;
         font-weight: bold;
+        text-align: center;
         cursor: pointer;
     }
-    input:checked + label {
+
+    input:checked+label {
         background-color: #F54253;
         color: white;
         border: 1px solid #F54253;

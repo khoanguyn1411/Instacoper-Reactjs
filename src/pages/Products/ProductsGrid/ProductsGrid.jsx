@@ -1,10 +1,12 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import clsx from 'clsx'
 
 import styles from './ProductsGrid.module.scss'
 import { ProductContext } from '../ProductContext/ProductContext'
 
 import Pagination from './Pagination/Pagination'
+import ItemProduct from '../../../smallComponents/ItemProduct/ItemProduct'
 
 const ProductsGrid = () => {
 
@@ -14,13 +16,8 @@ const ProductsGrid = () => {
   const currentItems = context.currentItems
   const setCurrentItems = context.setCurrentItems
 
-  function formatCurrency(price) {
-    const formattedPrice = price.toLocaleString('it-IT',
-      { style: 'currency', currency: 'VND' })
-      .replace("VND", "₫")
-      .replace(/\s+/g, '');
-    return formattedPrice
-  }
+
+ 
 
 
   return (
@@ -32,19 +29,12 @@ const ProductsGrid = () => {
         }
         {
           currentItems.map((product, index) => (
-            <div key={index} className={styles.item}>
-              <div className={styles.img_wrap}>
-                <img src={product.thumb} />
-              </div>
-              <h1>{product.status}</h1>
-              <h2>{product.name}</h2>
-              <h3>{product.isMaleShoes ? 'Giày nam' : 'Giày nữ'}</h3>
-              <div className={styles.price_wrap}>
-                <h5>{formatCurrency(product.price * (1 - product.saleOff / 100))}</h5>
-                <h4>{product.saleOff > 0 ? formatCurrency(product.price) : ''}</h4>
-              </div>
-              <h6>{product.saleOff !== 0 ? `${product.saleOff}% off` : ''}</h6>
+            <div key={index}>
+              <ItemProduct
+                product={product}
+              />
             </div>
+
           ))
         }
 

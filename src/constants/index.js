@@ -5,6 +5,7 @@ import imgsFooter from './img/imgsFooter';
 import imgsAboutus from './img/imgsAboutus';
 import imgsFaqs from './img/imgsFaqs'
 import imgsProducts from './img/imgsProducts'
+import imgsProductDetail from './img/imgsProductDetail'
 
 import videos from './video/videos'
 
@@ -21,5 +22,7 @@ export {
     imgsFaqs,
     videos,
     imgsProducts,
-    products
+    products,
+    imgsProductDetail
+
 };

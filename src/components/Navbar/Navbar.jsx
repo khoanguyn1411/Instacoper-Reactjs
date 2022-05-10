@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { HiMenuAlt4, HiX, HiSearch } from 'react-icons/hi'
 import clsx from 'clsx'
 import { Routes, Route, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import { imgsIcon, imgsLogo, tabList } from '../../constants'
 import { LeftSideBar } from '../../components'
@@ -25,6 +26,7 @@ const Navbar = () => {
   const handleSetBold = context.handleSetBold
 
   const getWindowHref = context.getWindowHref
+  const itemsInCart = context.itemsInCart
 
 
 
@@ -149,6 +151,9 @@ const Navbar = () => {
               </div>
               <div>
                 <img id='img-cart' onClick={(e) => handleOpenActionTab(e.target.alt)} alt='cart' src={imgsIcon.cart3} />
+                {
+                  itemsInCart && <h1>{itemsInCart.length}</h1>
+                }
                 <div id='cart'>
                   <ExpandedTabActions isVisible={openActionTab.includes('cart')} alt='cart' />
                 </div>

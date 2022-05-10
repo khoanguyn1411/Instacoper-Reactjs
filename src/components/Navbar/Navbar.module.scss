@@ -80,6 +80,27 @@
                     right: 0;
                     margin-right: 8px;
                 }
+                &:last-child {
+                    > h1{
+                        position: absolute;
+                        top: 0;
+                        background-color: var(--pink-color);
+                        width: 22px;
+                        height: 22px;
+                        display: flex;
+                        padding: 10px;
+                        justify-content: center;
+                        align-items: center;
+                        color: white;
+                        font-size: 12px;
+                        border-radius: 50%;
+                        right: 0;
+                        font-weight: 600;
+                        margin-top: -10px;
+                        margin-right: -10px;
+
+                    }
+                }
             }
 
             >div:first-child {
