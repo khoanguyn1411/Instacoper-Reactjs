@@ -1,20 +1,69 @@
-.expandedTabActions__wrapper{
+.wrapper {
     width: max-content;
     background-color: white;
-    box-shadow:  1px 1px 5px rgb(0 0 0 / 40%);
+    box-shadow: 1px 1px 5px rgb(0 0 0 / 40%);
     margin-top: 10px;
 
-    >ul{
-        >li{
+    &__user {
+        >li {
             list-style-type: none;
             padding: 5px 8px;
             cursor: pointer;
-            >a{
+
+            >a {
                 font-weight: 600;
             }
         }
-        >li:hover{
+
+        >li:hover {
             background-color: var(--pink-color);
         }
     }
+
+    &__cart {
+        width: 320px;
+
+
+        &_top {
+            overflow-y: scroll;
+            max-height: 400px;
+
+            >h1{
+                font-size: 22px;
+                padding: 12px;
+                text-align: center;
+            }
+
+            .wrap_item {
+                position: relative;
+
+                svg {
+                    position: absolute;
+                    margin-right: 10px;
+                    right: 0;
+                    margin-top: 12px;
+                    cursor: pointer;
+                    background-color: var(--pink-color);
+                    border-radius: 50%;
+                    padding: 4px;
+                    font-size: 20px;
+                    fill: white;
+                }
+
+                .wrap_content {
+                    margin-right: 20px;
+                }
+            }
+        }
+
+        &_bottom {
+            height: 50px;
+            margin-top: 30px;
+        }
+
+
+
+    }
+
+
 }

@@ -78,6 +78,7 @@
                 >div {
                     position: absolute;
                     right: 0;
+                    z-index: 7;
                     margin-right: 8px;
                 }
                 &:last-child {

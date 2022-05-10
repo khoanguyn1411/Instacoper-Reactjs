@@ -1,5 +1,5 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react'
+import { useNavigate  } from 'react-router-dom';
 
 import styles from './MaybeYouLike.module.scss'
 import ItemProduct from '../../../smallComponents/ItemProduct/ItemProduct'
@@ -10,8 +10,11 @@ const MaybeYouLike = ({ setActiveImg }) => {
         const shuffled = [...arr].sort(() => 0.5 - Math.random());
         return shuffled.slice(0, num);
     }
+    
+    const [randomProducts, setRandomProducts] = useState(() => {
+        return getMultipleRandom(products.listProducts, 6)
+    })
 
-    const randomProducts = getMultipleRandom(products.listProducts, 6)
 
 
     const navigate = useNavigate()
@@ -37,6 +40,7 @@ const MaybeYouLike = ({ setActiveImg }) => {
             index: 0,
             thumb: item.thumb
         })
+        setRandomProducts(getMultipleRandom(products.listProducts, 6))
     }
 
 
@@ -48,7 +52,10 @@ const MaybeYouLike = ({ setActiveImg }) => {
                 {
                     randomProducts.map((item, index) => (
                         <div key={index}>
-                            <ItemProduct
+                            <ItemProduct 
+                                saleOf
+                                status
+                                priceSaleOf
                                 onClick={() => { handleSetItemToLocal(item) }}
                                 product={item}
                             />

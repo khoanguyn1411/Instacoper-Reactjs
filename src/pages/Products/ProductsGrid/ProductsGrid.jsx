@@ -17,7 +17,7 @@ const ProductsGrid = () => {
   const setCurrentItems = context.setCurrentItems
 
 
- 
+
 
 
   return (
@@ -31,6 +31,9 @@ const ProductsGrid = () => {
           currentItems.map((product, index) => (
             <div key={index}>
               <ItemProduct
+                saleOf
+                status
+                priceSaleOf
                 product={product}
               />
             </div>

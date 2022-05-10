@@ -152,7 +152,7 @@ const Navbar = () => {
               <div>
                 <img id='img-cart' onClick={(e) => handleOpenActionTab(e.target.alt)} alt='cart' src={imgsIcon.cart3} />
                 {
-                  itemsInCart && <h1>{itemsInCart.length}</h1>
+                  itemsInCart.length !==0 && <h1>{itemsInCart.length}</h1>
                 }
                 <div id='cart'>
                   <ExpandedTabActions isVisible={openActionTab.includes('cart')} alt='cart' />

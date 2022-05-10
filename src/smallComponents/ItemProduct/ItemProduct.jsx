@@ -3,7 +3,17 @@ import styles from './ItemProduct.module.scss'
 
 import { useNavigate } from 'react-router-dom';
 
-const ItemProduct = ({ onClick, product }) => {
+const ItemProduct = ({
+    product,
+    isColumn = true,
+    status = false,
+    priceSaleOf = false,
+    saleOf = false,
+    disableClick = false,
+    size = false,
+    hideTestFlow = false,
+    onClick,
+}) => {
 
 
 
@@ -35,31 +45,60 @@ const ItemProduct = ({ onClick, product }) => {
     }
 
     const handleOnClickEvent = (item) => {
+
         if (onClick) {
             return onClick
         }
-
         else {
-            return () => {
-                handleSetItemToLocal(item)
+            if (disableClick) {
+                return;
+            }
+            else {
+                return () => {
+                    handleSetItemToLocal(item)
+                }
             }
         }
     }
 
     return (
-        <div onClick={handleOnClickEvent(product)} className={styles.item}>
-            <div className={styles.img_wrap}>
-                <img src={product.thumb} />
+        <div className={styles.wrapper}>
+            <div onClick={handleOnClickEvent(product)}
+                className={isColumn ? styles.item__column : styles.item__row}>
+                <div className={styles.img_wrap}>
+                    <img className={!disableClick? styles.hoverEventImg: ''} src={product.thumb} />
+                </div>
+                <div className={styles.content__wrap}>
+                    {
+                        status &&
+                        <h1>{product.status}</h1>
+                    }
+                    <h2
+                        onClick={handleOnClickEvent(product)}
+                        className={!disableClick? styles.hoverEventText : hideTestFlow? styles.hideFlow: ''}
+                    >
+                        {product.name}</h2>
+                    <h3>{product.isMaleShoes ? 'Giày nam' : 'Giày nữ'}</h3>
+                    <div className={styles.price_wrap}>
+                        <h5>{formatCurrency(product.price * (1 - product.saleOff / 100))}</h5>
+                        {
+                            priceSaleOf &&
+                            <h4>{product.saleOff > 0 ? formatCurrency(product.price) : ''}</h4>
+                        }
+                    </div>
+                    {
+                        saleOf &&
+                        <h6>{product.saleOff !== 0 ? `${product.saleOff}% off` : ''}</h6>
+                    }
+                    {
+                        size && 
+                        <h6>{`Size: ${product.sizeChosen}`}</h6>
+                    }
+                </div>
+
             </div>
-            <h1>{product.status}</h1>
-            <h2>{product.name}</h2>
-            <h3>{product.isMaleShoes ? 'Giày nam' : 'Giày nữ'}</h3>
-            <div className={styles.price_wrap}>
-                <h5>{formatCurrency(product.price * (1 - product.saleOff / 100))}</h5>
-                <h4>{product.saleOff > 0 ? formatCurrency(product.price) : ''}</h4>
-            </div>
-            <h6>{product.saleOff !== 0 ? `${product.saleOff}% off` : ''}</h6>
         </div>
+
     )
 }
 
