@@ -15,12 +15,24 @@ const ProductDetail = ({ product }) => {
   const formatCurrency = context.formatCurrency
 
   const setRerender = context.setRerender
-  const reRender = context.reRender
+
 
   const [activeImg, setActiveImg] = useState({
     index: 0,
     thumb: product.thumb
   })
+
+  useEffect(() => {
+    setActiveImg({
+      index: 0,
+      thumb: product.thumb
+    })
+    setSizeChosen('')
+
+  }, [product])
+
+
+
 
   const [sizeChosen, setSizeChosen] = useState('')
 
@@ -38,37 +50,36 @@ const ProductDetail = ({ product }) => {
     let storerage = JSON.parse(localStorage.getItem(keyLocal) || '[]')
 
     if (storerage !== []) {
-      console.log(0)
       let pro = storerage.filter((item) => (item.tagID === productSave.tagID))
       if (pro.length !== 0) {
-        console.log(1)
         pro[0].quantity += 1
+        pro[0].totalPrice = pro[0].price * pro[0].quantity
         storerage = storerage.filter((item) => (item.tagID !== productSave.tagID))
         storerage.push(pro[0])
       }
       else {
         productSave.quantity = 1
+        productSave.totalPrice = productSave.price
         storerage.push(productSave)
       }
     }
     else {
       productSave.quantity = 1
+      productSave.totalPrice = productSave.price
       storerage.push(productSave)
     }
     localStorage.setItem(keyLocal, JSON.stringify(storerage))
-    console.log(storerage)
-
   }
 
 
   const handleAddItemToCart = () => {
-    if(sizeChosen){
+    if (sizeChosen) {
       alert('Thêm vào giỏ hàng thành công!')
       setLocalStoreItem()
       setSizeChosen('')
       setRerender(Math.random()) // Hàm này để re-render lại thanh nav, cập nhật lại cái số lượng items trong cart
     }
-    else{
+    else {
       alert('Vui lòng chọn size giày!')
     }
   }
@@ -126,7 +137,7 @@ const ProductDetail = ({ product }) => {
           </div>
         </div>
         <div className={styles.bottomSide}>
-          <MaybeYouLike setActiveImg={setActiveImg} />
+          <MaybeYouLike product = {product} />
         </div>
       </div>
     </div>

@@ -155,7 +155,7 @@ const Navbar = () => {
                   itemsInCart.length !==0 && <h1>{itemsInCart.length}</h1>
                 }
                 <div id='cart'>
-                  <ExpandedTabActions isVisible={openActionTab.includes('cart')} alt='cart' />
+                  <ExpandedTabActions setOpenActionTab = {setOpenActionTab} isVisible={openActionTab.includes('cart')} alt='cart' />
                 </div>
               </div>
             </div>

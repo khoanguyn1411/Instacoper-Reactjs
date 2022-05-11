@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import React, { useEffect, useState } from 'react'
-import { FaCaretRight } from 'react-icons/fa'
+import Button from '../../../smallComponents/Button/Button'
 
 
 import styles from './Banner.module.scss'
@@ -108,8 +108,8 @@ const Banner = () => {
                 </div>
               </div>
               <div className={styles.banner__button_wrapper}>
-                <button>Khám phá BST mới</button>
-                <button>Mua hàng ngay</button>
+                <Button pink>Khám phá BST mới</Button>
+                <Button outLineWhite>Mua hàng ngay</Button>
               </div>
             </div>
           </div>

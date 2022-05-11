@@ -117,42 +117,22 @@
             button {
                 padding: 15px 10px;
                 min-width: 150px;
-                color: white;
                 border-radius: 25px;
-                font-weight: bold;
                 font-size: 15px;
-                cursor: pointer;
                 margin: 5px 0;
                 @media screen and (max-width:340px) {
                     display: none;
                 }
+                &:first-child{
+                    &:hover {
+                        background-color: white;
+                        color: black;
+                        opacity: 1;
+                        border: 2px solid white;
+                    }
+                }
             }
-
-            button:first-child {
-                width: 100%;
-                background-color: var(--pink-color);
-                border: none;
-                transition: 0.3s;
-            }
-
-            button:first-child:hover {
-                background-color: white;
-                color: black;
-                transition: 0.3s;
-            }
-
-            button:last-child {
-                width: 100%;
-                background-color: transparent;
-                border: 2px solid white;
-                transition: 0.3s;
-            }
-
-            button:last-child:hover {
-                background-color: white;
-                color: black;
-                transition: 0.3s;
-            }
+            
         }
     }
 

@@ -1,52 +1,65 @@
-.wrapper{
+.wrapper {
     margin-top: 30px;
     margin-bottom: 30px;
     display: flex;
     flex-direction: column;
-    *{
+
+    * {
         text-align: justify;
     }
-    h1{
+
+    h1 {
         font-size: 30px;
     }
-    h2{
+
+    h2 {
         margin-top: 12px;
         font-size: 18px;
     }
-    
-    ul{
+
+    ul {
         margin-top: 5px;
-        li{
+
+        li {
             margin-left: 23px;
         }
     }
-    
-    p{
+
+    p {
         margin-top: 5px;
     }
-    
-    h5{
+
+    h5 {
         margin-top: 20px;
         font-size: 17px;
     }
-    h3{
+
+    h3 {
         font-weight: normal;
         font-size: 17px;
         margin-top: 12px;
     }
 
-    video, img{
+    video,
+    img {
         margin: 10px 0;
         width: 60%;
         align-self: center;
+
         @media screen and (max-width: 500px) {
             width: 100%;
         }
     }
-    iframe{
+
+    iframe {
         width: 100%;
         height: 60vh;
         border: 2px solid var(--pink-color);
         margin: 15px 0;
+    }
+}
+
+.something {
+    .btnDemo {
     }
 }

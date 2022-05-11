@@ -1,0 +1,59 @@
+.wrapper {
+    &__topContent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 30px;
+        text-transform: uppercase;
+
+        >div {
+            height: 2px;
+            width: 25%;
+            background-color: var(--pink-color);
+            margin-top: 5px;
+        }
+    }
+
+    &__number {
+        .noProducts {
+            text-align: center;
+            margin-top: 10px;
+
+            >h1 {
+                font-size: 20px;
+            }
+
+            >div {
+                margin-top: 6px;
+
+                a {
+                    margin-top: 500px;
+                    color: var(--pink-color);
+                }
+            }
+        }
+
+        .productOrder {
+            margin-top: 20px;
+            display: flex;
+            &__leftContent {
+                flex: 1;
+                >h1 {
+                    font-size: 22px;
+
+                    >span {
+                        color: var(--pink-color);
+                    }
+                }
+                &_productsWrap{
+                }
+            }
+
+            &__rightContent {
+                flex: 0.6;
+                background-color: aquamarine;
+            }
+        }
+    }
+}

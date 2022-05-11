@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react'
+import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 
-import { products, tabList } from '../../constants'
+import { products  } from '../../constants'
 import Products from './Products'
 import ProductDetail from '../ProductDetail/ProductDetail'
 
@@ -26,7 +26,7 @@ const ProductNavigation = () => {
             {
                 productList.map((item, index) => (
                     <Route key={index}
-                        path={`/chi-tiet-san-pham/${removeAccent(item.name)}/`}
+                        path={`/chi-tiet-san-pham/${removeAccent(item.name)}`}
                         element={<ProductDetail product = {item} />}
                     />
                 ))

@@ -85,7 +85,8 @@ function PageProvider({ children }) {
   const [reRender, setRerender] = useState(Math.random())
 
   const keyItemsInCart = 'keyLocal'
-  const itemsInCart = JSON.parse(localStorage.getItem(keyItemsInCart))
+  const itemsInCart = JSON.parse(localStorage.getItem(keyItemsInCart) || '[]')
+
 
 
   const value = {
@@ -98,7 +99,7 @@ function PageProvider({ children }) {
     setRerender,
 
     itemsInCart,
-    keyItemsInCart
+    keyItemsInCart,
   }
 
   return (

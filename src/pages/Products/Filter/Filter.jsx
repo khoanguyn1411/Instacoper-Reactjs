@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { HiX } from 'react-icons/hi'
 import clsx from 'clsx'
 
@@ -8,6 +8,7 @@ import RangeSlider from './RangeSlider/RangeSlider'
 import { ProductContext } from '../ProductContext/ProductContext'
 import CheckboxInside from '../../../smallComponents/CheckboxInside'
 import CheckboxOutSide from '../../../smallComponents/CheckboxOutside'
+import Button from '../../../smallComponents/Button/Button'
 
 const Filter = ({ cate, filter }) => {
 
@@ -62,7 +63,6 @@ const Filter = ({ cate, filter }) => {
 
   // useState: Set số lượng sản phẩm của pagination lại (Có thể từ 0 - 5, 5 - ...)
   const setItemOffset = context.setItemOffset
-  const itemOffset = context.itemOffset
 
   // useState: Dùng để mount cái Pagination để nó cập nhật lại trang số 1 (tại cái react-pagination nó 
   // không cho set lại cái page hiện tại đang hướng tới)
@@ -162,7 +162,7 @@ const Filter = ({ cate, filter }) => {
         window.removeEventListener('mousedown', handleWindowClick)
       )
     }
-  }, [window.innerWidth])
+  }, [])
 
   // Lấy list filter các thương hiệu
   const handleSetCheckedBrand = (brand) => {
@@ -360,7 +360,7 @@ const Filter = ({ cate, filter }) => {
       </div>
 
       <div className={styles.filter__clear}>
-        <button onClick={() => clearFilter()}>Xóa bộ lọc</button>
+        <Button black onClick={() => clearFilter()}>Xóa bộ lọc</Button>
       </div>
 
     </div>

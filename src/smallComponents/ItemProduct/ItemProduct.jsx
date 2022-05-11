@@ -10,8 +10,10 @@ const ItemProduct = ({
     priceSaleOf = false,
     saleOf = false,
     disableClick = false,
+    disableHover = false,
     size = false,
     hideTestFlow = false,
+    quantity = false,
     onClick,
 }) => {
 
@@ -33,7 +35,7 @@ const ItemProduct = ({
     }
 
     const handleSwitchToDetailPage = (item) => {
-        let path = `/san-pham/chi-tiet-san-pham/${removeAccent(item.name)}/`
+        let path = `/san-pham/chi-tiet-san-pham/${removeAccent(item.name)}`
         console.log(path)
         navigate(path);
         window.scrollTo(0, 0)
@@ -66,7 +68,7 @@ const ItemProduct = ({
             <div onClick={handleOnClickEvent(product)}
                 className={isColumn ? styles.item__column : styles.item__row}>
                 <div className={styles.img_wrap}>
-                    <img className={!disableClick? styles.hoverEventImg: ''} src={product.thumb} />
+                    <img className={!disableHover ? styles.hoverEventImg : ''} src={product.thumb} />
                 </div>
                 <div className={styles.content__wrap}>
                     {
@@ -75,7 +77,7 @@ const ItemProduct = ({
                     }
                     <h2
                         onClick={handleOnClickEvent(product)}
-                        className={!disableClick? styles.hoverEventText : hideTestFlow? styles.hideFlow: ''}
+                        className={!disableHover ? styles.hoverEventText : hideTestFlow ? styles.hideFlow : ''}
                     >
                         {product.name}</h2>
                     <h3>{product.isMaleShoes ? 'Giày nam' : 'Giày nữ'}</h3>
@@ -90,10 +92,22 @@ const ItemProduct = ({
                         saleOf &&
                         <h6>{product.saleOff !== 0 ? `${product.saleOff}% off` : ''}</h6>
                     }
-                    {
-                        size && 
-                        <h6>{`Size: ${product.sizeChosen}`}</h6>
-                    }
+                    <div className={styles.size_wrap}>
+                        {
+                            size &&
+                            <h6>{`Size: ${product.sizeChosen}`}</h6>
+                        }
+                        {
+                            quantity &&
+                            (
+                                <>
+                                <h6>-</h6>
+                                <h6>{`Số lượng: ${product.quantity}`}</h6>
+                                </>
+                            )
+                        }
+                    </div>
+
                 </div>
 
             </div>

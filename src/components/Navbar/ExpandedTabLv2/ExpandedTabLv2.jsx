@@ -1,11 +1,8 @@
 import React, { useContext } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
-import clsx from 'clsx'
-
 
 import styles from './ExpandedTabLv2.module.scss'
-import { tabList } from '../../../constants'
 import { useNavigate } from 'react-router-dom'
 import { PageContext } from '../../PageContext/PageContext'
 

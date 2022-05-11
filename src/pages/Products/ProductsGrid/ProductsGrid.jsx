@@ -1,6 +1,4 @@
 import React, { useContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import clsx from 'clsx'
 
 import styles from './ProductsGrid.module.scss'
 import { ProductContext } from '../ProductContext/ProductContext'
@@ -14,11 +12,6 @@ const ProductsGrid = () => {
   const productsShow = context.productsShow
 
   const currentItems = context.currentItems
-  const setCurrentItems = context.setCurrentItems
-
-
-
-
 
   return (
     <div className={styles.wrapper}>

@@ -19,21 +19,14 @@
 
     .filter__clear {
         >button {
-            background-color: black;
-            border: none;
             border-radius: 5px;
-            color: white;
             padding: 10px;
-            width: 100%;
-            cursor: pointer;
             font-size: 15px;
-            font-weight: 700;
             transition: 0.3s;
 
             &:hover {
                 transition: 0.3s;
                 opacity: 0.8;
-
             }
         }
 

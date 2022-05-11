@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import clsx from 'clsx'
 
 import { imgsProductDetail } from '../../../constants'
@@ -16,15 +16,24 @@ const SliderImg = ({ product, activeImg, setActiveImg }) => {
         })
     }
 
+    useEffect(() => {
+        handleMoveSlider(0)
+    }, [product])
+
+
     const handleMoveSlider = (direction) => {
         const container = document.querySelector(`.${styles.wrapper__ins}`)
         let containerDimesion = container.getBoundingClientRect()
         let containerWitth = containerDimesion.width
         if (direction === toLeft) {
             container.scrollLeft -= containerWitth
+            console.log(containerWitth)
+        }
+        if (direction === toRight) {
+            container.scrollLeft += containerWitth
         }
         else {
-            container.scrollLeft += containerWitth
+            container.scrollLeft = direction
         }
     }
 
