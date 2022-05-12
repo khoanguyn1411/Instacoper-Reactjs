@@ -58,6 +58,19 @@ const Navbar = () => {
   }, [bold.direct])
 
   useEffect(() => {
+    window.onpopstate = function (event) {
+      if (event) {
+        handleSetBold(
+          {
+            direct: getWindowHref().page,
+            pageAssistance: getWindowHref().pageAssistance
+          }
+        )
+      }
+    }
+  }, [])
+
+  useEffect(() => {
     const handleEventClickOut = (event) => {
       const element = document.querySelector(`#${openActionTab[0]}`)
       const elementImg = document.querySelector(`#img-${openActionTab[0]}`)
@@ -94,7 +107,7 @@ const Navbar = () => {
         window.removeEventListener('mousedown', handleWindowClick)
       )
     }
-  }, [window.innerWidth])
+  }, [])
 
 
   const handleToggleLeftSideBar = () => {
@@ -152,10 +165,10 @@ const Navbar = () => {
               <div>
                 <img id='img-cart' onClick={(e) => handleOpenActionTab(e.target.alt)} alt='cart' src={imgsIcon.cart3} />
                 {
-                  itemsInCart.length !==0 && <h1>{itemsInCart.length}</h1>
+                  itemsInCart.length !== 0 && <h1>{itemsInCart.length}</h1>
                 }
                 <div id='cart'>
-                  <ExpandedTabActions setOpenActionTab = {setOpenActionTab} isVisible={openActionTab.includes('cart')} alt='cart' />
+                  <ExpandedTabActions setOpenActionTab={setOpenActionTab} isVisible={openActionTab.includes('cart')} alt='cart' />
                 </div>
               </div>
             </div>
@@ -163,7 +176,7 @@ const Navbar = () => {
 
         </div>
         {/* Navbar */}
-        <div id='nav_bar' className={styles.app__navbar}>
+        <div className={styles.app__navbar}>
           <div className='app__wrapper'>
             <div className={styles.app__navbar_toggleField} >
               <div onClick={handleToggleLeftSideBar}>
@@ -172,7 +185,7 @@ const Navbar = () => {
               </div>
             </div>
             <HiMenuAlt4 onClick={handleToggleMobileNav}></HiMenuAlt4>
-            <ul className={classesNav}>
+            <ul id='nav_bar' className={classesNav}>
               <HiX onClick={handleToggleMobileNav}></HiX>
               {
                 tabs.map((item, index) => (
@@ -190,7 +203,8 @@ const Navbar = () => {
                       {
                         item.isExpanded &&
                         <div>
-                          <div className={styles.app__navbar_extended}>
+                          <div className={styles.app__navbar_extended}
+                          >
                             <ExpandedTab page={item.nameNoAccent} handleSwitchPage={handleSwitchPage} />
                           </div>
                         </div>

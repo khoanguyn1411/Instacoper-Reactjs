@@ -60,7 +60,7 @@ const ExpandedTab = ({ page }) => {
 
 
   return (
-    <ul className={classesWrapper}>
+    <ul className={classesWrapper} onMouseLeave = {() => {setChecked([])}}>
       {
         tabInside.map((item, index) => (
           <div key={index}>

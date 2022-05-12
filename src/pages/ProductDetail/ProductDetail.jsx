@@ -74,7 +74,6 @@ const ProductDetail = ({ product }) => {
 
   const handleAddItemToCart = () => {
     if (sizeChosen) {
-      alert('Thêm vào giỏ hàng thành công!')
       setLocalStoreItem()
       setSizeChosen('')
       setRerender(Math.random()) // Hàm này để re-render lại thanh nav, cập nhật lại cái số lượng items trong cart

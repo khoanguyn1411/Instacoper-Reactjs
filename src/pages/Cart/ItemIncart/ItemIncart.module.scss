@@ -1,74 +1,134 @@
 .wrapper {
     display: flex;
-    margin-top: 20px;
+    align-items: center;
     width: 100%;
+    background-color: white;
+    box-shadow: 1px 1px 5px rgb(0 0 0 / 20%);
+    padding: 15px 10px;
+    position: relative;
+
+    +.wrapper {
+        margin-top: 20px;
+    }
 
     &__img {
-        width: 20%;
+        flex: 1;
 
         img {
             width: 100%;
         }
     }
 
-    &__content {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        margin-left: 15px;
+    &__name {
+        align-self: center;
+        padding-left: 20px;
+        flex: 2.5;
 
-        >h1 {
+        h1 {
             font-size: 20px;
         }
 
         h2 {
             font-size: 15px;
-            margin-right: 10px;
+            color: var(--pink-color);
+            margin-top: 5px;
         }
+    }
+
+    &__size {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
         h3 {
-            font-weight: 500;
+            margin-bottom: 10px;
+        }
+    }
+
+    &__price {
+        flex: 1.5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h3 {
+            margin-bottom: 15px;
         }
 
         h4 {
             color: var(--green-color);
         }
+    }
 
-        .selector {
-            display: flex;
-            margin-top: 4px;
+    &__quantity {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-            >div {
-                display: flex;
-                align-items: center;
-            }
+        &_field {
+            display: inline-block;
+            margin-top: 10px;
 
-            &__size {
-                margin-right: 15px;
+            input {
+                width: 30px;
+                text-align: center;
+                border: none;
+                height: 22px;
+                padding-bottom: 2px;
+                outline: none;
+                -webkit-appearance: none;
 
-                select {
-                    padding: 3px;
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
                 }
             }
 
-            &__quantity {
-                display: flex;
-                input {
-                    width: 30px;
-                    text-align: center;
-                    border: none;
-                }
-
-                span {
-                    cursor: pointer;
-                    display: inline-block;
-                    background-color: black;
-                    color: white;
-                    font-size: 10px;
-                    padding: 5px 9px;
-                }
+            span {
+                cursor: pointer;
+                display: inline-block;
+                background-color: black;
+                color: white;
+                font-size: 10px;
+                padding: 5px 9px;
+                user-select: none;
             }
+        }
 
+
+
+    }
+
+    &__totalPrice {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 15px;
+
+        h4 {
+            margin-top: 5px;
+            color: white;
+            padding: 5px;
+            background-color: var(--green-color);
         }
     }
+
+    &__delete{
+        display: flex;
+        border-radius: 50%;
+        background-color: var(--pink-color);
+        padding: 5px;
+        cursor: pointer;
+        svg{
+            align-self: center;
+            color: white;
+        }
+    }
+
+
+
 }

@@ -36,8 +36,8 @@ const ExpandedTabActions = ({ isVisible, alt, setOpenActionTab }) => {
 
   )
 
-  const keyLocal = 'keyLocal'
-  const items = JSON.parse(localStorage.getItem(keyLocal))
+  const keyLocal = context.keyItemsInCart
+  const items = context.itemsInCart
 
   const handleDeleteItem = (product) => {
     const newListItems = items.filter(item => item !== product)

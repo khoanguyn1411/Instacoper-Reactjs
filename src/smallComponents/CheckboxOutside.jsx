@@ -1,16 +1,22 @@
 import React from 'react'
 
-const CheckboxOutSide = ({item, onchange, checked}) => {
+const CheckboxOutSide = ({ isCheckbox = true, item, onchange, checked, noLable = false }) => {
+    const props = {
+        checked :checked,
+    }
+
     return (
         <div className='app__checkbox_wrap'>
             <input
-                type='checkbox'
+                type={isCheckbox ? 'checkbox' : 'radio'}
                 className='app__checkbox_input'
                 id={`chk${item}`}
                 onChange={onchange}
-                checked={checked}
+                {...props}
             ></input>
-            <label htmlFor={`chk${item}`}>{item}</label>
+            {
+                <label htmlFor={`chk${item}`}>{!noLable && item}</label>
+            }
         </div>
     )
 }

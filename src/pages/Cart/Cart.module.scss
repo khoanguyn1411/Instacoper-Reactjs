@@ -1,4 +1,6 @@
 .wrapper {
+    margin-bottom: 50px;
+
     &__topContent {
         display: flex;
         justify-content: center;
@@ -37,7 +39,10 @@
         .productOrder {
             margin-top: 20px;
             display: flex;
-            &__leftContent {
+            flex-direction: column;
+            padding-bottom: 50px;
+
+            &__topContent {
                 flex: 1;
                 >h1 {
                     font-size: 22px;
@@ -46,13 +51,51 @@
                         color: var(--pink-color);
                     }
                 }
-                &_productsWrap{
+
+                &_productsWrap {
+                    margin-top: 25px;
+                }
+                &_selectAll{
+                    display: flex;
+                    margin-left: 10px;
+                    margin-top: 10px;
+                    align-items: flex-end;
                 }
             }
 
-            &__rightContent {
-                flex: 0.6;
-                background-color: aquamarine;
+            &__bottomContent {
+                margin-top: 50px;
+                background-color: white;
+                box-shadow: 1px 1px 5px rgb(0 0 0 / 40%);
+                display: flex;
+                padding: 20px 10px;
+                .leftSide{
+                    flex: 1;
+                    display: flex;
+                    &__button{
+                        flex: 1;
+                        padding: 10px
+                    }
+                }
+                .rightSide{
+                    flex: 2;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    width: 100%;
+                    >div{
+                        margin-right: 20px;
+                        h1{
+                            font-size: 20px;
+                            
+                        }
+                    }
+                    &__button{
+                        width: 25%;
+                        padding: 10px
+                    }
+                   
+                }
             }
         }
     }

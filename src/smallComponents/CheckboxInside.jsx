@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CheckboxInside = ({item, checked, onchange, type}) => {
+const CheckboxInside = ({ item, checked, onchange, type }) => {
     return (
         <div className='app__checkbox_number_wrap'>
             <input
@@ -10,7 +10,9 @@ const CheckboxInside = ({item, checked, onchange, type}) => {
                 checked={checked}
                 onChange={onchange}
             ></input>
-            <label htmlFor={`chk${item}`}>{item}</label>
+            {
+                <label htmlFor={`chk${item}`}>{item}</label>
+            }
         </div>
     )
 }

@@ -3,7 +3,8 @@ import React from 'react'
 
 import styles from './Button.module.scss'
 
-const Button = ({ icon, children, className, pink, black, outlineBlack, outLineWhite, onClick, ...passProp }) => {
+const Button = ({ children, className, pink, black,
+  outlineBlack, outLineWhite, onClick, ...passProp }) => {
 
   const prop = {
     onClick,
