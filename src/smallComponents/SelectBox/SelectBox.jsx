@@ -6,7 +6,7 @@ import styles from './SelectBox.module.scss'
 import clsx from 'clsx'
 
 
-const SelectBox = ({ small = false, large = false,
+const SelectBox = ({ small = false, large = false, className,
     defaultActive, listShow, onClick, idForSelect, setCurrentValue }) => {
 
     const [active, setActive] = useState(defaultActive)
@@ -44,8 +44,8 @@ const SelectBox = ({ small = false, large = false,
     }, [])
 
     const classes = clsx(styles.wrapper__displayBox, {
-        [styles.activeBox]: isShowList
-    })
+        [styles.activeBox]: isShowList,
+    }, className)
     return (
 
         <div className={styles.wrapper}>

@@ -53,7 +53,9 @@ const InstacoperBrand = () => {
         <div className={styles.brandLogos}>
           {
             brandList.map((item, index) => (
-              <img key={index} src={item} />
+              <div key={index}>
+                <img src={item} />
+              </div>
             ))
           }
         </div>

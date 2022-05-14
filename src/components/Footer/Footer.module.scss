@@ -13,12 +13,16 @@
             width: 100%;
             display: flex;
             justify-content: space-between;
-
-            img {
-                margin: 0 10px;
+            >div{
                 width: 9%;
-                max-height: 40px;
+                display: flex;
+                align-items: center;
+                img {
+                    width: 100%;
+                    max-height: 40px;
+                }
             }
+         
         }
     }
 

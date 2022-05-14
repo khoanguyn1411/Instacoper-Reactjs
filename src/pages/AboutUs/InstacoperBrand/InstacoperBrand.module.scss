@@ -80,8 +80,9 @@
         }
     }
 
- 
+
 }
+
 .brandLogos__wrapper {
     display: flex;
     background-color: var(--pink-color);
@@ -95,10 +96,15 @@
         display: flex;
         justify-content: space-between;
 
-        img {
-            margin: 0 10px;
+        >div {
             width: 9%;
-            max-height: 40px;
+            display: flex;
+            align-items: center;
+
+            img {
+                width: 100%;
+                max-height: 40px;
+            }
         }
     }
 }
