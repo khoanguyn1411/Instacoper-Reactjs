@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import { tabList } from '../../constants'
 import {
   Home, Blog, AboutUs, ProductsNavigation, FAQsNavigation,
-  Cart
+  Cart, Order
 } from '../../pages'
 import styles from './Content.module.scss'
 
@@ -22,7 +22,9 @@ const Content = () => {
           })
         }
         <Route path='/' element={<Home />} />
-        <Route path='/Cart' element={<Cart />} />
+        <Route path='/gio-hang' element={<Cart />} />
+        <Route path='/dat-hang' element = {<Order/>}/>
+      
       </Routes>
     </div>
   )

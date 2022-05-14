@@ -1,0 +1,73 @@
+.wrapper {
+    background-color: antiquewhite;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+
+    &__content {
+        background-color: #fefefe;
+        margin: 10% auto;
+        /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 50%;
+        scroll-behavior: auto;
+        min-height: 350px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        &_header {
+            h1 {
+                font-size: 18px;
+            }
+        }
+
+        &_field {
+            margin-top: 15px;
+
+            .nameAndPhone {
+                display: flex;
+
+                * {
+                    width: 50%;
+                }
+            }
+
+            //Chỗ cho tỉnh thành
+
+            .specificAddress {
+                margin-top: 10px;
+
+                >input {
+                    width: 100%;
+                }
+            }
+        }
+
+        &_buttons {
+            display: flex;
+            position: absolute;
+            bottom: 0;
+            margin-bottom: 20px;
+            width: 100%;
+            right: 0;
+            margin-right: 20px;
+            justify-content: flex-end;
+            >button{
+                padding: 10px;
+                width: 150px;
+                + button{
+                    margin-left: 20px;
+                }
+            }
+        }
+    }
+
+
+}

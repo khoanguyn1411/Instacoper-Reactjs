@@ -1,0 +1,47 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+
+    &__header {
+        padding: 10px 0;
+        // box-shadow: 1px 1px 5px rgb(0 0 0 / 20%);
+
+        >div {
+            display: flex;
+            align-items: center;
+
+            .wrapper__header_img {
+                width: 50px;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            h1,
+            h2 {
+                font-size: 30px;
+                margin-bottom: 10px;
+            }
+
+            h2 {
+                margin-left: 15px;
+                font-weight: 600;
+            }
+
+            h1 {
+                color: var(--pink-color);
+                margin-left: 10px;
+            }
+        }
+
+    }
+
+    &__content {
+        margin-top: 20px;
+
+    
+    }
+}

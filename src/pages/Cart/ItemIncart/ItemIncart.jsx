@@ -16,6 +16,7 @@ const ItemIncart = ({ product, idForSelect, checkedProductList, setCheckedProduc
     const key = context.keyItemsInCart
     const formatCurrency = context.formatCurrency
     const setRerender = context.setRerender
+    
 
     const [quantity, setQuantity] = useState(product.quantity)
     const [totalPrice, setTotalPrice] = useState(product.totalPrice)

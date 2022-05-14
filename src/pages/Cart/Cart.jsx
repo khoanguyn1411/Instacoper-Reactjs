@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { PageContext } from '../../components/PageContext/PageContext'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import styles from './Cart.module.scss'
 import ItemIncart from './ItemIncart/ItemIncart'
@@ -9,6 +9,7 @@ import Button from '../../smallComponents/Button/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import clsx from 'clsx'
+import { localStore } from '../../constants'
 
 
 
@@ -85,6 +86,11 @@ const ProductOrder = ({ items }) => {
       acc += curr.totalPrice
     ), 0)
     setTotalAllProducts(total)
+
+    if (checkedProductList.length === items.length) {
+      setSelectAll(true)
+    }
+
   }, [checkedProductList])
 
   useEffect(() => {
@@ -125,6 +131,23 @@ const ProductOrder = ({ items }) => {
     setRerender(Math.random())
   }
 
+  let navigate = useNavigate()
+
+  const getItemsInLocal = localStore.getItemsOrder
+
+  const handleSwitchPage = () => {
+
+    if (checkedProductList.length !== 0) {
+      localStorage.setItem(getItemsInLocal().key, JSON.stringify(checkedProductList))
+      let path = `/dat-hang`
+      navigate(path);
+      window.scrollTo(0, 0)
+    }
+    else {
+      // Chỉnh lại alert sau
+      alert('Vui lòng chọn sản phẩm')
+    }
+  }
 
 
   return (
@@ -197,6 +220,7 @@ const ProductOrder = ({ items }) => {
           <Button
             pink
             className={styles.rightSide__button}
+            onClick={handleSwitchPage}
           >
             {`Mua hàng`}
           </Button>

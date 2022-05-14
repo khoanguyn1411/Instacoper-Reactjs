@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { HiX } from 'react-icons/hi'
 
-import { tabList } from '../../../constants'
+import { localStore, tabList } from '../../../constants'
 import ItemProduct from '../../../smallComponents/ItemProduct/ItemProduct'
 import Button from '../../../smallComponents/Button/Button'
 import { PageContext } from '../../PageContext/PageContext'
@@ -47,7 +47,7 @@ const ExpandedTabActions = ({ isVisible, alt, setOpenActionTab }) => {
 
   let navigate = useNavigate()
   const handleMoveToCart = () => {
-    let path = '/cart'
+    let path = '/gio-hang'
     navigate(path)
     
     setOpenActionTab([])
@@ -74,6 +74,14 @@ const ExpandedTabActions = ({ isVisible, alt, setOpenActionTab }) => {
 
     setOpenActionTab([])
     handleSetBold(getHref().page)
+  }
+
+  const handleMoveToOrder = () => {
+    const getItemsOrder = localStore.getItemsOrder
+    localStorage.setItem(getItemsOrder().key, JSON.stringify(items))
+    let path = `/dat-hang`
+    navigate(path);
+    window.scrollTo(0, 0)
   }
 
 
@@ -106,7 +114,7 @@ const ExpandedTabActions = ({ isVisible, alt, setOpenActionTab }) => {
 
       <div className={styles.wrapper__cart_bottom}>
         <Button onClick={handleMoveToCart} pink>{`Giỏ hàng (${items.length})`}</Button>
-        <Button black>Thanh toán</Button>
+        <Button onClick={handleMoveToOrder} black>Thanh toán</Button>
       </div>
 
     </div>

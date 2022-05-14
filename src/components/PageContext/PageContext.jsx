@@ -94,12 +94,13 @@ function PageProvider({ children }) {
     handleSetBold,
     getWindowHref,
     formatCurrency,
-    
+
     reRender,
     setRerender,
 
     itemsInCart,
     keyItemsInCart,
+
   }
 
   return (

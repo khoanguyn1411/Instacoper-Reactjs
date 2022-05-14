@@ -11,6 +11,7 @@ import videos from './video/videos'
 
 import tabList from './tabs'
 import products from './products';
+import localStore from './localStore/localStore';
 
 export {
     imgsHome,
@@ -23,6 +24,7 @@ export {
     videos,
     imgsProducts,
     products,
-    imgsProductDetail
+    imgsProductDetail,
+    localStore
 
 };
