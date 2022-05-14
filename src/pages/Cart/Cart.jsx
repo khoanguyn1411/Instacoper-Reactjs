@@ -15,8 +15,10 @@ import clsx from 'clsx'
 const ProductOrder = ({ items }) => {
 
   const context = useContext(PageContext)
+
   const key = context.keyItemsInCart
   const setRerender = context.setRerender
+
   const [checkedProductList, setCheckedProductList] = useState([])
   const [selectAll, setSelectAll] = useState(false)
 
@@ -34,7 +36,7 @@ const ProductOrder = ({ items }) => {
   }
   useEffect(() => {
     handleSetPositionElement()
-  }, [])
+  }, [items])
 
 
 
@@ -46,26 +48,11 @@ const ProductOrder = ({ items }) => {
   }, [positionBottomBar])
 
 
-  // useEffect(() => {
-  //   const element = document.querySelector('#bottomContent')
-  //   console.log(positionBottomBar)
-  //   if (element) {
-  //     const windowScrollBottom = document.documentElement.scrollTop + window.innerHeight
-  //     if (windowScrollBottom > positionBottomBar + 2 * element.offsetHeight) {
-  //       setFixed(false)
-  //     }
-  //     else {
-  //       setFixed(true)
-  //     }
-  //   }
-
-  // }, [positionBottomBar])
 
   useEffect(() => {
     const handleScroll = () => {
       const element = document.querySelector('#bottomContent')
       if (element) {
-        const rectWindow = element.getBoundingClientRect()
         const windowScrollBottom = document.documentElement.scrollTop + window.innerHeight
         // console.log('window: ' + window.scrollY)
         // console.log('pos: ' + positionBottomBar)
@@ -135,7 +122,6 @@ const ProductOrder = ({ items }) => {
     });
     localStorage.setItem(key, JSON.stringify(newArr))
     setCheckedProductList([])
-
     setRerender(Math.random())
   }
 

@@ -11,16 +11,17 @@ import styles from './ItemIncart.module.scss'
 const ItemIncart = ({ product, idForSelect, checkedProductList, setCheckedProductList }) => {
 
     const context = useContext(PageContext)
+    
     const itemsInCart = context.itemsInCart
     const key = context.keyItemsInCart
+    const formatCurrency = context.formatCurrency
+    const setRerender = context.setRerender
 
     const [quantity, setQuantity] = useState(product.quantity)
     const [totalPrice, setTotalPrice] = useState(product.totalPrice)
     const [size, setSize] = useState(product.sizeChosen)
 
-    const [widthScreen, setWidthScreen] = useState(window.innerWidth)
-
-    const formatCurrency = context.formatCurrency
+   
 
     const updateTotalPrice = () => {
         setTotalPrice(product.price * quantity)
@@ -69,12 +70,16 @@ const ItemIncart = ({ product, idForSelect, checkedProductList, setCheckedProduc
     useEffect(() => {
         updateTotalPrice()
         updateLocalStorage({ key: 'quantity', value: quantity })
-        updateLocalStorage({ key: 'totalPrice', value: totalPrice })
 
-        updateCheckedListAfterEdit({ key: 'totalPrice', value: totalPrice })
         updateCheckedListAfterEdit({ key: 'quantity', value: quantity })
 
-    }, [quantity, totalPrice])
+    }, [quantity])
+
+    useEffect(() => {
+        updateLocalStorage({ key: 'totalPrice', value: totalPrice })
+        updateCheckedListAfterEdit({ key: 'totalPrice', value: totalPrice })
+
+    }, [totalPrice])
 
     useEffect(() => {
         updateLocalStorage({ key: 'sizeChosen', value: size })
@@ -103,7 +108,6 @@ const ItemIncart = ({ product, idForSelect, checkedProductList, setCheckedProduc
     }
 
 
-    const setRerender = context.setRerender
 
     const handleRemoveItem = () => {
         let newArr = itemsInCart.filter(item => item !== product)
