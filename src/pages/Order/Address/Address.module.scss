@@ -2,6 +2,7 @@
     box-shadow: 1px 1px 5px rgb(0 0 0 / 20%);
     border-top: 2px solid var(--pink-color);
     padding: 20px;
+    position: relative;
 
     &__title {
         display: flex;
@@ -24,9 +25,11 @@
         display: flex;
         justify-content: space-between;
         margin-top: 10px;
-        @media screen and (max-width: 700px){
+
+        @media screen and (max-width: 700px) {
             flex-direction: column;
         }
+
         &_contact {
             h1 {
                 font-size: 18px;
@@ -44,15 +47,17 @@
                 margin-top: 3px;
             }
 
-            
+
         }
 
         &_change {
             height: 100%;
             align-self: flex-end;
-            @media screen and (max-width: 700px){
+
+            @media screen and (max-width: 700px) {
                 margin-top: 30px;
             }
+
             h1 {
                 font-size: 18px;
                 cursor: pointer;
@@ -72,17 +77,54 @@
 
             .item_wrap {
                 display: flex;
-                align-items: center;
+                justify-content: space-between;
 
-                h1 {
-                    font-weight: bold;
-                    font-size: 17px;
-                    >span{
-                        font-weight: normal;
-                        margin-left: 15px;
+                >div {
+                    display: flex;
+
+                    >div {
+                        &:last-child {
+                            display: flex;
+                            margin-top: 4px;
+                            flex-wrap: wrap;
+
+                            h1 {
+                                font-weight: bold;
+                                font-size: 17px;
+                            }
+
+                            h2 {
+                                font-size: 17px;
+                                font-weight: normal;
+                                margin-left: 10px;
+
+                                @media screen and (max-width: 850px) {
+                                    margin-left: 0;
+                                    margin-top: 3px;
+                                }
+
+                            }
+
+                            @media screen and (max-width: 850px) {
+                                flex-direction: column;
+                            }
+                        }
+
                     }
 
                 }
+
+                >svg {
+                    align-self: center;
+                    background-color: var(--pink-color);
+                    padding: 7px 10px;
+                    border-radius: 5px;
+                    color: white;
+                    margin-left: 12px;
+                    cursor: pointer;
+                }
+
+
 
                 +.item_wrap {
                     margin-top: 10px;
@@ -95,10 +137,45 @@
             justify-content: space-between;
             margin-top: 25px;
             width: 100%;
-            .leftSide{
+
+            .leftSide {
                 margin-left: 20px;
                 width: 15%;
+
+                @media screen and (max-width: 700px) {
+                    width: 100%;
+                }
             }
+
+            .rightSide {
+                >svg {
+                    display: none;
+                }
+
+                @media screen and (max-width: 700px) {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    margin-top: 20px;
+                    margin-right: 20px;
+
+                    button {
+                        display: none;
+                    }
+
+                    >svg {
+                        display: flex;
+                        font-size: 25px;
+                        color: var(--pink-color);
+
+                    }
+
+                    >svg+svg {
+                        margin-left: 20px;
+                    }
+                }
+            }
+
             >div {
                 display: flex;
 
@@ -114,13 +191,15 @@
         }
     }
 
-    &__noAddress{
+    &__noAddress {
         margin-top: 10px;
-        h1{
+
+        h1 {
             font-size: 18px;
             font-weight: normal;
         }
-        button{
+
+        button {
             margin-top: 10px;
             padding: 10px;
             font-size: 15px;

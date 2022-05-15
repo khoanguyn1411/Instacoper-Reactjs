@@ -3,9 +3,9 @@ import React, { useState } from 'react'
 import InputField from '../../../smallComponents/InputField/InputField'
 import Button from '../../../smallComponents/Button/Button'
 import s from './InputAddressModal.module.scss'
-import {localStore} from '../../../constants'
+import { localStore } from '../../../constants'
 
-const InputAddressModal = ({isOutside, setOpenModal, setNoAddress}) => {
+const InputAddressModal = ({ setOpenModal, setNoAddress }) => {
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
     const [specificAddress, setSpecificAddress] = useState('')
@@ -19,18 +19,20 @@ const InputAddressModal = ({isOutside, setOpenModal, setNoAddress}) => {
         const address = {
             name,
             phone,
-            specificAddress, 
+            specificAddress,
             // tagID : `${name}?${phone}?${specificAddress}`
             tagID: Math.random()
         }
         localStorage.setItem(getAddress().key, JSON.stringify([...getAddress().items, address]))
-        localStorage.setItem(currentAddress.key, JSON.stringify([address]))
-        
+        if (getAddress().items.length === 1) {
+            localStorage.setItem(currentAddress.key, JSON.stringify([address]))
+        }
+
         setNoAddress(false)
         setOpenModal(false)
-    }       
+    }
 
-        return (
+    return (
         <div className={s.wrapper}>
             <div className={s.wrapper__content}>
                 <div className={s.wrapper__content_header}>
