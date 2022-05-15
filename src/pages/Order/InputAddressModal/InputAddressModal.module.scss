@@ -1,5 +1,5 @@
 .wrapper {
-    background-color: antiquewhite;
+    background-color: white;
     width: 100%;
     height: 100%;
     background-color: rgb(0, 0, 0);
@@ -11,32 +11,110 @@
 
     &__content {
         background-color: #fefefe;
-        margin: 10% auto;
+        margin: 10vh auto;
         /* 15% from the top and centered */
         padding: 20px;
-        border: 1px solid #888;
         width: 50%;
         scroll-behavior: auto;
-        min-height: 350px;
+        height: 80vh;
         display: flex;
         flex-direction: column;
         position: relative;
 
+        @media screen and (max-width: 900px) {
+            width: 70%;
+        }
+
         &_header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 7px;
             h1 {
-                font-size: 18px;
+                font-size: 22px;
+                margin-bottom: 5px;
+                text-transform: uppercase;
+            }
+            div{
+                height: 2px;
+                width: 30%;
+                background-color: var(--pink-color);
             }
         }
 
         &_field {
+            overflow: auto;
             margin-top: 15px;
+            height: 70%;
+            margin-bottom: 50px;
 
             .nameAndPhone {
                 display: flex;
 
-                * {
+                input {
                     width: 50%;
                 }
+
+                input+input {
+                    margin-left: 10px;
+                }
+
+                @media screen and (max-width: 900px) {
+                    flex-direction: column;
+
+                    input {
+                        width: 100%;
+                    }
+
+                    input+input {
+                        margin-left: 0;
+                        margin-top: 10px;
+                    }
+                }
+            }
+
+            .citys{
+                display: flex;
+                justify-content: space-between;
+                margin-top: 10px;
+                @media screen and (max-width: 730px) {
+                    flex-direction: column;
+                }
+                >div{
+                    flex: 1;
+                    @media screen and (max-width: 730px) {
+                        margin-left: 0;
+                        + div{
+                            margin-top: 10px;
+                        }
+                    }
+                }
+                .customBox{
+                    border-color: black;
+                    padding: 7px;
+                    border: 1.5px solid black;
+                    border-radius: 3px;
+                    h1{
+                        font-weight: normal;
+                        font-size: 15px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 1;
+                        line-clamp: 1;
+                        -webkit-box-orient: vertical;
+                    }
+                }
+                .customList{
+                    max-height: 40vh;
+                    >div{
+                        padding: 7px;
+                        h2{
+                            font-size: 15px;
+                        }
+                    }
+                }
+                
             }
 
             //Chỗ cho tỉnh thành
@@ -59,13 +137,30 @@
             right: 0;
             margin-right: 20px;
             justify-content: flex-end;
-            >button{
+
+            @media screen and (max-width: 900px) {
+                margin-right: 0;
+                padding: 0 20px
+            }
+
+            >button {
                 padding: 10px;
                 width: 150px;
-                + button{
+
+                @media screen and (max-width: 900px) {
+                    width: 50%;
+                }
+
+                +button {
                     margin-left: 20px;
+
+                    @media screen and (max-width: 900px) {
+                        margin-left: 10px;
+                    }
                 }
             }
+
+
         }
     }
 

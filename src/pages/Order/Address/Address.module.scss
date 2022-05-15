@@ -1,6 +1,5 @@
 .wrapper {
     box-shadow: 1px 1px 5px rgb(0 0 0 / 20%);
-    border-top: 2px solid var(--pink-color);
     padding: 20px;
     position: relative;
 
@@ -85,24 +84,40 @@
                     >div {
                         &:last-child {
                             display: flex;
-                            margin-top: 4px;
                             flex-wrap: wrap;
 
                             h1 {
-                                font-weight: bold;
+                                font-weight: normal;
                                 font-size: 17px;
+                                line-height: 30px;
+                                @media screen and (max-width: 850px) {
+                                    display: none;
+                                }
                             }
 
                             h2 {
                                 font-size: 17px;
                                 font-weight: normal;
                                 margin-left: 10px;
+                                display: none;
 
                                 @media screen and (max-width: 850px) {
                                     margin-left: 0;
+                                    display: block;
                                     margin-top: 3px;
                                 }
 
+                            }
+
+                            h3{
+                                font-size: 17px;
+                                font-weight: bold;
+                                display: none;
+                                @media screen and (max-width: 850px) {
+                                    margin-left: 0;
+                                    display: block;
+                                    margin-top: 3px;
+                                }
                             }
 
                             @media screen and (max-width: 850px) {

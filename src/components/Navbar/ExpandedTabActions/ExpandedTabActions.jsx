@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { HiX } from 'react-icons/hi'
 
 import { localStore, tabList } from '../../../constants'
@@ -10,10 +10,6 @@ import { useNavigate } from 'react-router-dom'
 
 const ExpandedTabActions = ({ isVisible, alt, setOpenActionTab }) => {
 
-  // const context = useContext(PageContext)
-
-  // const setItemsInCart = context.setItemsInCart
-  // const itemsInCart = context.itemsInCart
 
   const context = useContext(PageContext)
   const handleSetBold = context.handleSetBold
@@ -46,6 +42,7 @@ const ExpandedTabActions = ({ isVisible, alt, setOpenActionTab }) => {
   }
 
   let navigate = useNavigate()
+
   const handleMoveToCart = () => {
     let path = '/gio-hang'
     navigate(path)
@@ -81,6 +78,9 @@ const ExpandedTabActions = ({ isVisible, alt, setOpenActionTab }) => {
     localStorage.setItem(getItemsOrder().key, JSON.stringify(items))
     let path = `/dat-hang`
     navigate(path);
+
+    setOpenActionTab([])
+    handleSetBold(getHref().page)
     window.scrollTo(0, 0)
   }
 

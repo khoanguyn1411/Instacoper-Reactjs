@@ -9,16 +9,6 @@ import InputAddressModal from '../InputAddressModal/InputAddressModal'
 import { localStore } from '../../../constants'
 
 
-// function AddressAdded(name, phone, houseNumber, email, ward, district, city) {
-//     this.name = name
-//     this.phone = phone
-//     this.houseNumber = houseNumber
-//     this.email = email
-//     this.ward = ward
-//     this.district = district
-//     this.city = city
-// }
-
 const ShowAddress = ({ setEdit, setNoAddress }) => {
     const handleShowAddAddress = () => {
         setEdit(true)
@@ -33,16 +23,15 @@ const ShowAddress = ({ setEdit, setNoAddress }) => {
             setNoAddress(false)
         }
     }, [])
-
-
-
+    const address = `${currentAddress.specificAddress}, ${currentAddress.ward}, 
+    ${currentAddress.district}, ${currentAddress.city}`
     return (
         <>
             <div className={styles.wrapper__info}>
                 <div className={styles.wrapper__info_contact}>
                     <h1>{currentAddress.name}</h1>
                     <h1>{currentAddress.phone}</h1>
-                    <h3>{currentAddress.specificAddress}</h3>
+                    <h3>{address}</h3>
                 </div>
                 <div className={styles.wrapper__info_change}>
                     <h1 onClick={handleShowAddAddress}>Thay đổi</h1>
@@ -52,7 +41,7 @@ const ShowAddress = ({ setEdit, setNoAddress }) => {
     )
 }
 
-const AddAddress = ({ isOpenModal, setOpenModal, setEdit, setNoAddress }) => {
+const AddAddress = ({ setOpenModal, setEdit, setNoAddress }) => {
     const listAddress = localStore.getItemsAddress().items
     const [checkedAddress, setCheckedAddress] = useState(localStore.getCurrentAddress().items[0])
     const [reRender, setRerender] = useState(Math.random())
@@ -101,8 +90,10 @@ const AddAddress = ({ isOpenModal, setOpenModal, setEdit, setNoAddress }) => {
                                     onchange={() => handleSetCheckedAddress(item)}
                                 />
                                 <div>
-                                    <h1>{`${item.name} (${item.phone})`}</h1>
-                                    <h2>{`${item.specificAddress}`}</h2>
+                                    <h1><b>{`${item.name} (${item.phone})`}</b>{` ${item.specificAddress}, ${item.ward}, ${item.district}, ${item.city}`}</h1>
+                                    <h3>{`${item.name} (${item.phone})`}</h3>
+
+                                    <h2>{`${item.specificAddress}, ${item.ward}, ${item.district}, ${item.city}`}</h2>
                                 </div>
                             </div>
                             <FontAwesomeIcon onClick={() => handleRemoveAddress(item)} icon={faRemove} />
@@ -126,9 +117,9 @@ const AddAddress = ({ isOpenModal, setOpenModal, setEdit, setNoAddress }) => {
 
             </div>
 
-            {
+            {/* {
                 isOpenModal && <InputAddressModal setOpenModal={setOpenModal}
-                />}
+                />} */}
 
         </div>
     )

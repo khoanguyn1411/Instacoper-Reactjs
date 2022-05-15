@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { HiMenuAlt4, HiX, HiSearch } from 'react-icons/hi'
 import clsx from 'clsx'
-import { Routes, Route, Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import { imgsIcon, imgsLogo, tabList } from '../../constants'
 import { LeftSideBar } from '../../components'

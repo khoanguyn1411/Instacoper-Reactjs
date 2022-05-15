@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown, faL } from '@fortawesome/free-solid-svg-icons'
 
@@ -7,8 +7,10 @@ import clsx from 'clsx'
 
 
 const SelectBox = ({ small = false, large = false, className,
-    defaultActive, listShow, onClick, idForSelect, setCurrentValue }) => {
-
+    defaultActive, listShow, onClick, idForSelect, setCurrentValue,
+    isDisable = false, classNameList
+ }) => {
+ 
     const [active, setActive] = useState(defaultActive)
     const [isShowList, setShowList] = useState(false)
 
@@ -18,17 +20,26 @@ const SelectBox = ({ small = false, large = false, className,
         setCurrentValue && setCurrentValue(item)
         setShowList(!isShowList)
         onClick && onClick()
-    }
 
-    const handleShowListSize = () => {
-        setShowList(!isShowList)
     }
 
     useEffect(() => {
-        const handleClickOutside = (e) => {
-            const elements = document.querySelector(`#displayBox${idForSelect}`)
-            const elements2 = document.querySelector(`#displayList${idForSelect}`)
+        setActive(defaultActive)
+    }, [defaultActive])
 
+    const handleShowListSize = () => {
+        if(!isDisable){
+            setShowList(!isShowList)
+        }
+    }
+
+    const refBox = useRef()
+    const refList = useRef()
+
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            const elements = refBox.current
+            const elements2 = refList.current
             if (elements && elements2) {
                 let isClickInsideElement = elements.contains(e.target);
                 let isClickInsideElement2 = elements2.contains(e.target);
@@ -37,19 +48,23 @@ const SelectBox = ({ small = false, large = false, className,
                 }
             }
         }
-        window.addEventListener('click', handleClickOutside)
+        document.addEventListener('mousedown', handleClickOutside)
         return () => {
-            window.removeEventListener('click', handleClickOutside)
+            document.removeEventListener('mousedown', handleClickOutside)
         }
     }, [])
 
     const classes = clsx(styles.wrapper__displayBox, {
         [styles.activeBox]: isShowList,
     }, className)
+
+    const classesList = clsx(styles.wrapper__displayList, classNameList)
+
+
     return (
 
         <div className={styles.wrapper}>
-            <div onClick={handleShowListSize}
+            <div ref={refBox} onClick={handleShowListSize}
                 className={classes}
                 id={`displayBox${idForSelect}`}
             >
@@ -58,14 +73,15 @@ const SelectBox = ({ small = false, large = false, className,
             </div>
             {
                 isShowList &&
-                <div className={styles.wrapper__displayList}
+                <div className={classesList}
                     id={`displayList${idForSelect}`}
+                    ref = {refList}
                 >
                     {
                         listShow.map((item, index) => (
                             <div key={index}
                                 className={item === active ? styles.active : styles.normal}
-                                onClick={() => handleChangeActive(item)}
+                                onClick = {() => handleChangeActive(item)}
                             >
                                 <h2>{item}</h2>
                             </div>
