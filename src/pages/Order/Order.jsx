@@ -1,8 +1,10 @@
 import React, { useContext, useState } from 'react'
+
 import { PageContext } from '../../components/PageContext/PageContext'
-import { imgsLogo, localStore } from '../../constants'
+import { localStore } from '../../constants'
 import styles from './Order.module.scss'
 import Address from './Address/Address'
+import Products from './Products/Products'
 
 
 const Order = () => {
@@ -26,6 +28,7 @@ const Order = () => {
       <div className={styles.wrapper__content}>
         <div className='app__wrapper'>
             <Address/>
+            <Products/>
         </div>
       </div>
     </div>
