@@ -1,19 +1,21 @@
 import clsx from 'clsx'
-import React from 'react'
+import React, { forwardRef, useEffect } from 'react'
 
 import styles from './InputField.module.scss'
 
 
-const InputField = ({ type, className, value, placeholder, setValue, ...passProps }) => {
-  const props = {
+const InputField = forwardRef((props, ref) => {
+  const { value, placeholder, type, setValue, className, ...passProps } = props
+  const _props = {
     placeholder,
     value,
     ...passProps
   }
 
   if (type) {
-    props.type = type
+    _props.type = type
   }
+
 
 
 
@@ -25,11 +27,19 @@ const InputField = ({ type, className, value, placeholder, setValue, ...passProp
 
   const classes = clsx(styles.wrapper, className)
 
+  const handleBlur = () => {
+    console.log(value)
+    if(value.trim() === ''){
+      setValue('')
+    }
+  }
+
+
   return (
-    <input className={classes} onChange={handleSaveValue} {...props}>
-      
-    </input>
+    <input ref={ref} className={classes} 
+    onChange={handleSaveValue} 
+    onBlur = {handleBlur} {..._props}/>
   )
-}
+})
 
 export default InputField

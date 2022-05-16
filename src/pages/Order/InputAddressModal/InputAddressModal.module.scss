@@ -30,12 +30,14 @@
             flex-direction: column;
             align-items: center;
             margin-bottom: 7px;
+
             h1 {
                 font-size: 22px;
                 margin-bottom: 5px;
                 text-transform: uppercase;
             }
-            div{
+
+            div {
                 height: 2px;
                 width: 30%;
                 background-color: var(--pink-color);
@@ -51,70 +53,104 @@
             .nameAndPhone {
                 display: flex;
 
-                input {
+                div {
                     width: 50%;
+
+                    >input {
+                        width: 100%;
+                    }
                 }
 
-                input+input {
+                div+div {
                     margin-left: 10px;
                 }
+
 
                 @media screen and (max-width: 900px) {
                     flex-direction: column;
 
-                    input {
+                    div {
                         width: 100%;
                     }
 
-                    input+input {
+                    div+div {
                         margin-left: 0;
                         margin-top: 10px;
                     }
                 }
             }
 
-            .citys{
+            .citys {
                 display: flex;
                 justify-content: space-between;
                 margin-top: 10px;
+
                 @media screen and (max-width: 730px) {
                     flex-direction: column;
                 }
-                >div{
+
+                >div {
                     flex: 1;
+
+                    +div {
+                        margin-left: 10px;
+                    }
+
+                    >div {
+                        width: 100%;
+                    }
+
                     @media screen and (max-width: 730px) {
-                        margin-left: 0;
-                        + div{
+                        +div {
                             margin-top: 10px;
+                            margin-left: 0;
                         }
                     }
-                }
-                .customBox{
-                    border-color: black;
-                    padding: 7px;
-                    border: 1.5px solid black;
-                    border-radius: 3px;
-                    h1{
-                        font-weight: normal;
-                        font-size: 15px;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        display: -webkit-box;
-                        -webkit-line-clamp: 1;
-                        line-clamp: 1;
-                        -webkit-box-orient: vertical;
-                    }
-                }
-                .customList{
-                    max-height: 40vh;
-                    >div{
+
+                    .customBox {
+                        border-color: black;
                         padding: 7px;
-                        h2{
+                        border: 1.5px solid black;
+                        border-radius: 3px;
+
+                        h1 {
+                            font-weight: normal;
                             font-size: 15px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 1;
+                            line-clamp: 1;
+                            -webkit-box-orient: vertical;
+                        }
+                    }
+
+                    .error {
+                        h1{
+                            color: red;
+                        }
+                        border-color: red;
+                        outline: red;
+
+                        &::placeholder {
+                            color: red;
+                        }
+                    }
+
+
+                    .customList {
+                        max-height: 40vh;
+
+                        >div {
+                            padding: 7px;
+
+                            h2 {
+                                font-size: 15px;
+                            }
                         }
                     }
                 }
-                
+
             }
 
             //Chỗ cho tỉnh thành
@@ -122,9 +158,43 @@
             .specificAddress {
                 margin-top: 10px;
 
-                >input {
+                >div {
                     width: 100%;
+
+                    input {
+                        width: 100%;
+                    }
                 }
+            }
+
+            .errorCity {
+                &_hide {
+                    display: none;
+                }
+
+                &_show {
+                    display: block;
+                }
+            }
+
+
+
+
+            .error {
+                border-color: red;
+                outline: red;
+                color: red;
+
+                &::placeholder {
+                    color: red;
+                }
+            }
+
+            .errorMessage {
+                color: red;
+                margin-left: 3px;
+                margin-top: 3px;
+                display: block;
             }
         }
 
@@ -163,6 +233,7 @@
 
         }
     }
+
 
 
 }

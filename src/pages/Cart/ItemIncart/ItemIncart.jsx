@@ -126,12 +126,12 @@ const ItemIncart = ({ product, idForSelect, checkedProductList, setCheckedProduc
     const SelectBoxSize = (prop) => {
         return (
             <SelectBox
-                small
-                idForSelect={idForSelect}
                 defaultActive={product.sizeChosen}
                 listShow={product.sizeAvailable}
                 setCurrentValue={setSize}
                 className={prop.className}
+                // Cho nay moi sua
+                value = {size}
             >
             </SelectBox>
         )

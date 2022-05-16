@@ -140,6 +140,7 @@ const NoAddress = ({ setOpenModal }) => {
 const Address = () => {
     const [isEdit, setEdit] = useState(false)
     const currentAddress = localStore.getCurrentAddress().items
+    const [reRender, setRerender] = useState(Math.random())
 
     const [isNoAddress, setNoAddress] = useState(() => {
         if (currentAddress.length === 0) {
@@ -152,7 +153,7 @@ const Address = () => {
 
     const [isOpenModal, setOpenModal] = useState(false)
     const props = {
-        isEdit, setEdit, isNoAddress, setNoAddress, isOpenModal, setOpenModal
+        isEdit, setEdit, isNoAddress, setNoAddress, isOpenModal, setOpenModal, setRerender
     }
     const conditionShowAddress = () => {
         if (isEdit === false && isNoAddress === false) {

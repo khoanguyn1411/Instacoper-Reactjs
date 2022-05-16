@@ -1,4 +1,4 @@
-# This is Instacoper, an modern e-commerce website selling trendy shoes.
+# This is Instacoper, a modern e-commerce website selling trendy shoes.
 
 - The techniques involve:
     + ReactJS

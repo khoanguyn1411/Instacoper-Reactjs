@@ -1,6 +1,6 @@
 import React from 'react'
 
-import s from './Products.modules.scss'
+import s from './Products.module.scss'
 
 const Products = () => {
   return (

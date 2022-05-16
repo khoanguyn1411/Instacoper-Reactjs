@@ -1,10 +1,10 @@
 import clsx from 'clsx'
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 import styles from './Button.module.scss'
 
-const Button = ({ children, className, pink, black, icon,
-  outlineBlack, outLineWhite, onClick, ...passProp }) => {
+const Button = forwardRef(({ children, className, pink, black, icon,
+  outlineBlack, outLineWhite, onClick, ...passProp }, ref) => {
 
   const prop = {
     onClick,
@@ -24,8 +24,8 @@ const Button = ({ children, className, pink, black, icon,
 
   return (
 
-    <button className={classes} {...prop}> <span className={icon && styles.isShowIcon}>{icon}</span> {children}</button>
+    <button ref={ref} className={classes} {...prop}> <span className={icon && styles.isShowIcon}>{icon}</span> {children}</button>
   )
-}
+})
 
-export default Button
+export default Button 

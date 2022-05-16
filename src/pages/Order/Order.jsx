@@ -1,6 +1,5 @@
-import React, { useContext, useState } from 'react'
+import React from 'react'
 
-import { PageContext } from '../../components/PageContext/PageContext'
 import { localStore } from '../../constants'
 import styles from './Order.module.scss'
 import Address from './Address/Address'
@@ -10,8 +9,6 @@ import Products from './Products/Products'
 const Order = () => {
 
 
-  const getItems = localStore.getItemsOrder
-  console.log(getItems().items)
   return (
     <div className={styles.wrapper}>
       {/* <div className={styles.wrapper__header}>

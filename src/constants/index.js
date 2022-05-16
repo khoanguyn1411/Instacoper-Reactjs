@@ -13,6 +13,8 @@ import tabList from './tabs'
 import products from './products';
 import localStore from './localStore/localStore';
 
+import validate from './validateSubmit/validate';
+
 export {
     imgsHome,
     tabList,
@@ -25,6 +27,6 @@ export {
     imgsProducts,
     products,
     imgsProductDetail,
-    localStore
-
+    localStore,
+    validate
 };
