@@ -15,7 +15,7 @@
 
 ## FUTURE DEVELOPMENT
 
-- Replace hook useContext() by redux to manage state.
+- Replace hook useContext() by Redux to manage states.
 - Add more motion to components in website.
 - Develop a back-end system storing user login information.
 

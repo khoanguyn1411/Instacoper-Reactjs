@@ -1,9 +1,11 @@
 import React from 'react'
 
-import { localStore } from '../../constants'
 import styles from './Order.module.scss'
 import Address from './Address/Address'
 import Products from './Products/Products'
+import TotalField from './TotalField/TotalField'
+import Delivery from './Delivery/Delivery'
+import Payment from './Payment/Payment'
 
 
 const Order = () => {
@@ -24,8 +26,11 @@ const Order = () => {
       </div> */}
       <div className={styles.wrapper__content}>
         <div className='app__wrapper'>
-            <Address/>
             <Products/>
+            <Address/>
+            <Delivery/>
+            <Payment/>
+            <TotalField/>
         </div>
       </div>
     </div>

@@ -49,6 +49,23 @@
         h3 {
             margin-bottom: 10px;
         }
+
+        div {
+            color: black;
+        }
+        .chkBox {
+            border: 2px solid black;
+        
+            >h1 {
+                color: black;
+            }
+        }
+        .list{
+            >div{
+                justify-content: center;
+            }
+          
+        }
     }
 
     &__price {
@@ -256,6 +273,18 @@
                         user-select: none;
                     }
                 }
+                .chkBox {
+                    border: 2px solid black;
+                
+                    >h1 {
+                        color: black;
+                    }
+                }
+                .list{
+                    >div{
+                        justify-content: center;
+                    }
+                }
 
             }
         }
@@ -293,6 +322,3 @@
 
 }
 
-.chkBox {
-    border: 2px solid black;
-}

@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { forwardRef, useEffect } from 'react'
+import React, { forwardRef } from 'react'
 
 import styles from './InputField.module.scss'
 
@@ -28,8 +28,7 @@ const InputField = forwardRef((props, ref) => {
   const classes = clsx(styles.wrapper, className)
 
   const handleBlur = () => {
-    console.log(value)
-    if(value.trim() === ''){
+    if(value && value.trim() === ''){
       setValue('')
     }
   }

@@ -20,6 +20,7 @@ function validate(props) {
         let errorMessage
         const rules = selectorRules[rule.key]
 
+
         if (rule.type === 'selectBox') {
             parentElement = inputElement.parentElement.parentElement
         }
@@ -84,7 +85,6 @@ function validate(props) {
                 selectorRules[rule.key] = [...selectorRules[rule.key], rule.test]
             }
             const inputElement = rule.selector
-
             if (rule.type === 'selectBox') {
                 if (inputElement) {
                     inputElement.addEventListener('change', () => {
@@ -134,6 +134,17 @@ validate.isEmail = function (selector, key, message) {
         test: (value) => {
             const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
             return regex.test(value) ? undefined : message || 'Trường này phải là email';
+        }
+    }
+}
+
+validate.isDate = function (selector, key, message) {
+    return {
+        selector,
+        key,
+        test: (value) => {
+            const isDate = Date.parse(value)
+            return isDate !== NaN ? undefined : message || 'Trường này phải là ngày tháng';
         }
     }
 }

@@ -1,0 +1,84 @@
+.wrapper {
+    margin-top: 10px;
+
+    &__title {
+        display: flex;
+        color: var(--pink-color);
+        align-items: center;
+
+        h1 {
+            font-size: 20px;
+            margin-left: 10px;
+        }
+    }
+
+    &__content {
+        display: grid;
+        width: 100%;
+        margin-top: 20px;
+        gap: 20px;
+        grid-template-columns: var(--grid-template3);
+
+        .item {
+            padding: 20px;
+            border: 2px solid black;
+            cursor: pointer;
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+            justify-content: space-between;
+
+            button {
+                margin-top: 10px;
+                padding: 10px;
+                min-width: 100%;
+            }
+            &__activeNow{
+                margin-top: 15px;
+                h2{
+                    font-size: 15px;
+                    font-weight: normal;
+                    text-align: center;
+                }
+                h3{
+                    font-size: 18px;
+                    margin-top: 5px;
+                    color: var(--pink-color);
+                    text-align: center;
+                    user-select: none;
+                }
+            }
+
+            >div:first-child {
+                >div {
+                    display: flex;
+                    justify-content: space-between;
+                    >div{
+                        margin-right: -12px;
+                    }
+
+                    h1 {
+                        font-size: 20px;
+                    }
+                }
+
+
+                h2 {
+                    font-size: 18px;
+                    font-weight: normal;
+                    margin-top: 5px;
+                    text-align: justify;
+                }
+            }
+
+            &_active {
+                border: 2px solid var(--pink-color);
+                background-color: rgb(255, 247, 248);
+            }
+
+            &_inActive {
+                border-left: 2px solid black;
+            }
+        }
+    }
+}

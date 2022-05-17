@@ -3,10 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot, faAdd, faRemove } from '@fortawesome/free-solid-svg-icons'
 
 import styles from './Address.module.scss'
-import Button from '../../../smallComponents/Button/Button'
-import CheckBoxOutside from '../../../smallComponents/CheckboxOutside'
+import { CheckboxOutside, Button } from '../../../smallComponents'
 import InputAddressModal from '../InputAddressModal/InputAddressModal'
 import { localStore } from '../../../constants'
+
+// import CheckBoxOutside from '../../../smallComponents/CheckboxOutside'
+
 
 
 const ShowAddress = ({ setEdit, setNoAddress }) => {
@@ -47,17 +49,21 @@ const AddAddress = ({ setOpenModal, setEdit, setNoAddress }) => {
     const [reRender, setRerender] = useState(Math.random())
     const handleSetCheckedAddress = (item) => {
         setCheckedAddress(item)
-        localStorage.setItem(localStore.getCurrentAddress().key, JSON.stringify([item]))
     }
     const handleOpenModal = () => {
         setOpenModal(true)
     }
-    const handleGoBack = () => {
+    const handleSubmitChangeAddress = () => {
+        localStorage.setItem(localStore.getCurrentAddress().key, JSON.stringify([checkedAddress]))
+        setEdit(false)
+    }
+
+    const handleCloseEdit = () => {
         setEdit(false)
     }
 
     useEffect(() => {
-        if(listAddress.length === 0){
+        if (listAddress.length === 0) {
             setNoAddress(true)
             setEdit(false)
             localStorage.setItem(localStore.getCurrentAddress().key, JSON.stringify([]))
@@ -83,7 +89,7 @@ const AddAddress = ({ setOpenModal, setEdit, setNoAddress }) => {
                     listAddress.map((item, index) => (
                         <div key={index} className={styles.item_wrap}>
                             <div>
-                                <CheckBoxOutside
+                                <CheckboxOutside
                                     item={item.tagID}
                                     noLable
                                     checked={item.tagID === checkedAddress.tagID}
@@ -106,7 +112,8 @@ const AddAddress = ({ setOpenModal, setEdit, setNoAddress }) => {
 
             <div className={styles.wrapper__changeAddress_buttons}>
                 <div className={styles.leftSide}>
-                    <Button pink onClick={handleGoBack}>Hoàn thành</Button>
+                    <Button pink onClick={handleSubmitChangeAddress}>Hoàn thành</Button>
+                    <Button outlineBlack onClick={handleCloseEdit}>Trở lại</Button>
                 </div>
                 <div className={styles.rightSide}>
                     <Button icon={<FontAwesomeIcon icon={faAdd} />} outlineBlack onClick={handleOpenModal}>Thêm địa chỉ mới</Button>
@@ -117,9 +124,7 @@ const AddAddress = ({ setOpenModal, setEdit, setNoAddress }) => {
 
             </div>
 
-            {/* {
-                isOpenModal && <InputAddressModal setOpenModal={setOpenModal}
-                />} */}
+
 
         </div>
     )

@@ -14,6 +14,9 @@ import products from './products';
 import localStore from './localStore/localStore';
 
 import validate from './validateSubmit/validate';
+import util from './util/util';
+
+import paymentMethods from './paymentMethods';
 
 export {
     imgsHome,
@@ -28,5 +31,7 @@ export {
     products,
     imgsProductDetail,
     localStore,
-    validate
+    validate,
+    util,
+    paymentMethods
 };

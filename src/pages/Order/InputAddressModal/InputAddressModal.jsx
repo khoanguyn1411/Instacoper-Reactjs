@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-import InputField from '../../../smallComponents/InputField/InputField'
-import Button from '../../../smallComponents/Button/Button'
 import s from './InputAddressModal.module.scss'
 import { localStore, validate } from '../../../constants'
-import SelectBox from '../../../smallComponents/SelectBox/SelectBox'
+import {SelectBox,InputField, Button} from '../../../smallComponents'
 
 const InputAddressModal = ({ setOpenModal, setNoAddress, setRerender }) => {
 
@@ -27,6 +25,7 @@ const InputAddressModal = ({ setOpenModal, setNoAddress, setRerender }) => {
                 }
             )
     }, [])
+
 
 
 
@@ -132,7 +131,6 @@ const InputAddressModal = ({ setOpenModal, setNoAddress, setRerender }) => {
         }
     }, [district])
 
-    console.log(district)
 
     return (
         <div className={s.wrapper} ref={inputFieldRef}>
@@ -149,7 +147,6 @@ const InputAddressModal = ({ setOpenModal, setNoAddress, setRerender }) => {
                                 value={name}
                                 placeholder='Họ và tên'
                                 ref={nameRef}
-                                className={''}
                             />
                             <span className={s.errorMessage}></span>
                         </div>
@@ -168,7 +165,6 @@ const InputAddressModal = ({ setOpenModal, setNoAddress, setRerender }) => {
                     </div>
 
                     <div className={s.citys}>
-                        {/* Làm cái chọn tỉnh thành sau */}
                         <div>
                             <SelectBox
                                 defaultActive={defaultValue.city}

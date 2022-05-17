@@ -1,0 +1,113 @@
+.wrapper {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    // box-shadow: var(--box-shadow);
+    padding: 20px 0;
+    padding-right: 20px;
+
+    h1 {
+        font-size: 20px;
+    }
+
+    &__delivery {
+        &_title {
+            display: flex;
+            align-items: center;
+            color: var(--pink-color);
+
+            svg {
+                margin-right: 10px;
+            }
+        }
+
+        &_info {
+            margin-top: 10px;
+
+            h1 {
+                font-size: 18px;
+
+                span {
+                    margin-left: 20px;
+                    color: var(--pink-color);
+                    text-decoration: underline;
+                    font-weight: normal;
+                    cursor: pointer;
+                }
+            }
+
+            h2 {
+                font-weight: normal;
+                font-size: 18px;
+                margin-top: 5px;
+            }
+        }
+    }
+
+    &__price {
+        align-self: center;
+
+        h1 {
+            font-weight: normal;
+
+        }
+
+    }
+}
+
+.modal {
+    &_content {
+        margin-top: 15px;
+        margin-bottom: 20px;
+        overflow: auto;
+        margin-bottom: 45px;
+
+        >div {
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            justify-content: space-between;
+
+            .leftSide {
+                padding-right: 20px;
+
+                h2 {
+                    font-size: 17px;
+                    margin-top: 5px;
+                    font-weight: normal;
+                }
+            }
+        }
+        .item{
+            &_active{
+                background-color: var(--grey-color);
+                border-left: 10px solid var(--pink-color);
+            }
+    
+            &_inActive{
+                border-left: 10px solid white;
+
+            }
+        }
+    }
+
+    &_button {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+        padding: 20px;
+        >button {
+            width: 20%;
+            padding: 8px;
+            + button{
+                margin-left: 15px;
+            }
+        }
+    }
+
+  
+}

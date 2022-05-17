@@ -27,7 +27,18 @@ const getCurrentAddress = () => {
 }
 
 
+const getCurrentDelivery = () => {
+    const keyDelivery = 'keyDelivery'
+    const itemsDelivery = JSON.parse(localStorage.getItem(keyDelivery) || '[]')
+    return {
+        key: keyDelivery,
+        items: itemsDelivery
+    }
+}
+
+
+
 
 export default {
-    getItemsOrder, getItemsAddress, getCurrentAddress
+    getItemsOrder, getItemsAddress, getCurrentAddress, getCurrentDelivery
 }

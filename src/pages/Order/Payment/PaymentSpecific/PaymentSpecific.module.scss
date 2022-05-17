@@ -1,0 +1,108 @@
+.wrapper {
+    margin-top: 20px;
+
+    h1 {
+        font-size: 20px;
+    }
+}
+
+
+.wallets {
+    &__title {
+        display: flex;
+        align-items: center;
+
+        >div {
+            height: 5px;
+            margin-right: 10px;
+            background-color: var(--pink-color);
+            width: 20px;
+        }
+
+    }
+
+    &__wallets {
+        display: flex;
+        margin-top: 15px;
+
+        .item {
+            display: flex;
+            flex-direction: column;
+            width: 5%;
+            min-width: max-content;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+
+            h1 {
+                font-size: 15px;
+                text-align: center;
+                font-weight: 600;
+            }
+
+            &_img {
+                width: 100%;
+                height: 70x;
+                text-align: center;
+
+                img {
+                    width: 60px;
+                }
+            }
+
+            +.item {
+                margin-left: 10px;
+            }
+        }
+
+    }
+}
+
+.interCard {
+    &__title {
+        display: flex;
+        align-items: center;
+
+        >div {
+            height: 5px;
+            margin-right: 10px;
+            background-color: var(--pink-color);
+            width: 20px;
+        }
+
+    }
+
+    &__content {
+        display: flex;
+
+        .item {
+            height: 120px;
+            min-width: max-content;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            .img {
+                width: 100px;
+                display: flex;
+                height: 100%;
+                align-items: center;
+                justify-content: center;
+                img {
+                    width: 100%;
+                }
+            }
+            h1{
+                text-align: center;
+                font-weight: 600;
+                font-size: 18px;
+            }
+
+            + .item{
+                margin-left: 10px;
+            }
+
+        }
+    }
+}

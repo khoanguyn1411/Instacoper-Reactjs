@@ -8,7 +8,7 @@ import CheckboxOutside from '../../../smallComponents/CheckboxOutside'
 import SelectBox from '../../../smallComponents/SelectBox/SelectBox'
 import styles from './ItemIncart.module.scss'
 
-const ItemIncart = ({ product, idForSelect, checkedProductList, setCheckedProductList }) => {
+const ItemIncart = ({ product, checkedProductList, setCheckedProductList }) => {
 
     const context = useContext(PageContext)
     
@@ -130,6 +130,7 @@ const ItemIncart = ({ product, idForSelect, checkedProductList, setCheckedProduc
                 listShow={product.sizeAvailable}
                 setCurrentValue={setSize}
                 className={prop.className}
+                classNameList = {prop.classNameList}
                 // Cho nay moi sua
                 value = {size}
             >
@@ -153,7 +154,7 @@ const ItemIncart = ({ product, idForSelect, checkedProductList, setCheckedProduc
                 </div>
                 <div className={styles.wrapper__size}>
                     <h3>Size</h3>
-                    <SelectBoxSize />
+                    <SelectBoxSize className={styles.chkBox} classNameList = {styles.list} />
                 </div>
 
                 <div className={styles.wrapper__price}>
@@ -223,7 +224,7 @@ const ItemIncart = ({ product, idForSelect, checkedProductList, setCheckedProduc
                         </div>
                         <div className={styles.sizeAndQuantity}>
                             <div className={styles.sizeAndQuantity_size}>
-                                <SelectBoxSize className={styles.chkBox} />
+                                <SelectBoxSize className={styles.chkBox}  classNameList = {styles.list}/>
                             </div>
                             <div className={styles.sizeAndQuantity_input}>
                                 <InputField />

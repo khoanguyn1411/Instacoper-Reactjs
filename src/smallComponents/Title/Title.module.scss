@@ -1,0 +1,15 @@
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-transform: uppercase;
+    text-align: center;
+
+    >div {
+        height: 2px;
+        width: 25%;
+        background-color: var(--pink-color);
+        margin-top: 5px;
+    }
+}

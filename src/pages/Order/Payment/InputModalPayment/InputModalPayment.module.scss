@@ -1,0 +1,53 @@
+.content{
+    &__security{
+        display: flex;
+        margin-top: 12px;
+        padding: 15px 10px;
+        border: 2px solid var(--green-color);
+        background-color: rgb(234, 249, 234);
+        svg{
+            color: var(--green-color);
+        }
+        >div{
+            display: flex;
+            flex-direction: column;
+            margin-left: 10px;
+            h1{
+                color: var(--green-color);
+                font-size: 17px;
+            }
+            h2{
+                font-weight: normal;
+                font-size: 13px;
+                margin-top: 3px;
+            }
+        }
+    }
+    &__input{
+        margin-top: 12px;
+        &_item{
+            >input{
+                width: 100%;
+            }
+            .error {
+                border-color: red;
+                outline: red;
+                color: red;
+        
+                &::placeholder {
+                    color: red;
+                }
+            }
+            span{
+                color: red;
+            }
+            
+        }
+        &_item + &_item{
+            margin-top: 10px;
+        }
+    }
+
+   
+
+}
