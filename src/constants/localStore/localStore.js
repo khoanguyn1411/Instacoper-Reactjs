@@ -1,3 +1,14 @@
+
+const getItemsInCart = () => {
+    const keyLocal = 'keyLocal'
+    const items = JSON.parse(localStorage.getItem(keyLocal) || '[]')
+    return {
+        key: keyLocal,
+        items: items
+    }
+}
+
+
 const getItemsOrder = () => {
     const keysOrder = 'keyOrder'
     const itemsOrder = JSON.parse(localStorage.getItem(keysOrder) || '[]')
@@ -66,5 +77,6 @@ export default {
     getCurrentAddress,
     getCurrentDelivery,
     getPaymentCard,
-    getCurrentPayment
+    getCurrentPayment,
+    getItemsInCart
 }

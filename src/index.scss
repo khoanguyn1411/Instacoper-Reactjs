@@ -10,12 +10,15 @@
   --pink-color: #F54253;
   --green-color: #41A139;
   --grey-color: rgb(242, 242, 242);
+  --disable-color: rgb(255, 237, 240);
 
   --box-shadow: 1px 1px 5px rgb(0 0 0 / 40%);
 
   --grid-template5: repeat(5, minmax(0, 1fr));
+  --grid-template1: repeat(1, minmax(0, 1fr));
   --grid-template4: repeat(4, minmax(0, 1fr));
   --grid-template3: repeat(3, minmax(0, 1fr));
+  --grid-template2: repeat(2, minmax(0, 1fr));
   --grid-template6: repeat(6, minmax(0, 1fr));
   --grid-template7: repeat(7, minmax(0, 1fr));
   --grid-template8: repeat(8, minmax(0, 1fr));

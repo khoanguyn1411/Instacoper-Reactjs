@@ -5,10 +5,11 @@ import styles from './InputField.module.scss'
 
 
 const InputField = forwardRef((props, ref) => {
-  const { value, placeholder, type, setValue, className, ...passProps } = props
+  const { value, placeholder, type, disable, setValue, className, ...passProps } = props
   const _props = {
     placeholder,
     value,
+    disable,
     ...passProps
   }
 
@@ -35,7 +36,7 @@ const InputField = forwardRef((props, ref) => {
 
 
   return (
-    <input ref={ref} className={classes} 
+    <input ref={ref} className={classes} readOnly = {disable}
     onChange={handleSaveValue} 
     onBlur = {handleBlur} {..._props}/>
   )

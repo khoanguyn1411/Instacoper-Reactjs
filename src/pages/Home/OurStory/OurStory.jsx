@@ -3,7 +3,7 @@ import { HiArrowRight } from 'react-icons/hi'
 import { useNavigate } from 'react-router-dom'
 
 import { imgsHome, tabList } from '../../../constants'
-import {PageContext} from '../../../components/PageContext/PageContext'
+import { PageContext } from '../../../components/PageContext/PageContext'
 
 import styles from './OurStory.module.scss'
 
@@ -11,18 +11,20 @@ const OurStory = () => {
 
   const navigate = useNavigate();
   const context = useContext(PageContext)
-  const setBold = context.setBold
+  const handleSetBold = context.handleSetBold
 
   useEffect(() => {
     const elememts = document.querySelectorAll(`.${styles.col__content} h1`)
     const elememtsIcon = document.querySelectorAll(`.${styles.col__content} svg`)
     const handleNavigate = () => {
-      let path = '/ve-chung-toi';
-      navigate(path);
-      setBold((prev) => ({
-        direct: tabList.ABOUTUS_NO_ACCENTS,
-        pageAssistance: prev.pageAssistance
-      }))
+      let path = '/ve-chung-toi'
+      navigate(path)
+      handleSetBold(
+        {
+          direct: tabList.ABOUTUS_NO_ACCENTS,
+          pageAssistance: undefined
+        }
+      )
     }
 
     elememts.forEach((item) => {

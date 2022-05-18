@@ -1,14 +1,14 @@
 import { faRemove } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { localStore } from '../../../../constants'
 import InputModalPayment from '../InputModalPayment/InputModalPayment'
 
 import s from './PaymentSpecific.module.scss'
 
-const PaymentSpecific = ({ item }) => {
+const PaymentSpecific = ({ item, setPaymentCard }) => {
   const [isOpenModal, setIsOpenModal] = useState(false)
   const [methodSelect, setMethodSelect] = useState('')
   const card = localStore.getPaymentCard().items
@@ -85,9 +85,9 @@ const PaymentSpecific = ({ item }) => {
     const [checkedCard, setCheckedCard] = useState(currentPayment.length > 0 && currentPayment[0])
     const handleSetCheckedCard = (item) => {
       setCheckedCard(item)
+      setPaymentCard(checkedCard)
       localStorage.setItem(localStore.getCurrentPayment().key, JSON.stringify([item]))
     }
-
 
     const handleDeleteCard = (item) => {
       const newArr = cards.filter((cardIns) => cardIns.id !== item.id)
@@ -102,6 +102,7 @@ const PaymentSpecific = ({ item }) => {
           localStorage.setItem(localStore.getCurrentPayment().key, JSON.stringify([cards[0]]))
         }
       }
+      setPaymentCard(checkedCard)
       setRerender(Math.random())
     }
     const getStyle = (condition) => {
@@ -175,7 +176,7 @@ const PaymentSpecific = ({ item }) => {
       }
 
       {
-        isOpenModal && <InputModalPayment method={methodSelect} setIsOpenModal={setIsOpenModal} />
+        isOpenModal && <InputModalPayment method={methodSelect} setIsOpenModal={setIsOpenModal} setPaymentCard = {setPaymentCard} />
       }
 
       {

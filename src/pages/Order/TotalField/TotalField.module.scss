@@ -1,11 +1,11 @@
 $font-size: 20px;
 
 .wrapper {
-    box-shadow: var(--box-shadow);
-    margin-top: 30px;
-    padding: 20px;
-    margin-top: 30px;
- 
+    margin-top: 10px;
+    background-color: var(--grey-color);
+    padding-top: 20px;
+    padding-bottom: 20px;
+
     &__topContent {
         display: flex;
         justify-content: space-between;
@@ -15,12 +15,14 @@ $font-size: 20px;
             display: flex;
             align-items: center;
             width: 50%;
-            h1{
-                font-size: $font-size;
+
+            h1 {
+                font-size: 18px;
                 font-weight: normal;
                 min-width: max-content;
             }
-            input{
+
+            input {
                 margin-left: 10px;
                 flex: 1;
             }
@@ -28,19 +30,66 @@ $font-size: 20px;
 
         &_total {
             display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding-left: 50px;
 
-            h1 {
-                font-size: $font-size;
-                color: var(--pink-color);
+            h5{
+                font-size: 20px;
+            }
+            >div {
+                margin-top: 5px;
+                h3{
+                    font-weight: normal;
+                    font-size: 18px;
+                }
+
+                h4{
+                    font-size: 18px;
+                }
+                display: flex;
+                justify-content: space-between;
+                h1 {
+                    color: var(--pink-color);
+                    font-size: $font-size;
+                }
+
+                h2 {
+                    font-size: $font-size;
+                    margin-right: 10px;
+                    color: var(--pink-color);
+                    
+                }
             }
 
-            h2 {
-                font-size: $font-size;
-                margin-right: 10px;
-                font-weight: normal;
-            }
         }
 
 
+    }
+
+    &__bottomContent{
+        display: flex;
+        margin-top: 30px;
+        justify-content: flex-end;
+        button{
+            padding: 10px;
+            width: 20%;
+        }
+    }
+
+    .modal{
+        height: auto;
+        h1{
+            font-size: 20px;
+        }
+        h2{
+            font-size: 20px;
+            margin-top: 15px;
+            text-align: center;
+        }
+        button{
+            padding: 10px;
+            margin-top: 20px;
+        }
     }
 }

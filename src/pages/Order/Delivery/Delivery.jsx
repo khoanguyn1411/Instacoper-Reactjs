@@ -6,7 +6,7 @@ import s from './Delivery.module.scss'
 import { localStore, util } from '../../../constants'
 import { Button, CheckboxOutside, Modal, Title } from '../../../smallComponents'
 
-const Delivery = () => {
+const Delivery = ({setRerenderOut}) => {
 
     const deliveryMethod = [
         {
@@ -44,6 +44,7 @@ const Delivery = () => {
         const key = localStore.getCurrentDelivery().key
         localStorage.setItem(key, JSON.stringify([checked]))
         setIsOpenModal(false)
+        setRerenderOut(Math.random())
     }
 
 

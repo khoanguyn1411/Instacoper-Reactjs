@@ -11,7 +11,7 @@ import { localStore } from '../../../constants'
 
 
 
-const ShowAddress = ({ setEdit, setNoAddress }) => {
+const ShowAddress = ({ setEdit, setNoAddress, setRerenderOut }) => {
     const handleShowAddAddress = () => {
         setEdit(true)
     }
@@ -20,9 +20,11 @@ const ShowAddress = ({ setEdit, setNoAddress }) => {
     useEffect(() => {
         if (!currentAddress || currentAddress.length === 0) {
             setNoAddress(true)
+            setRerenderOut(Math.random())
         }
         else {
             setNoAddress(false)
+            setRerenderOut(Math.random())
         }
     }, [])
     const address = `${currentAddress.specificAddress}, ${currentAddress.ward}, 
@@ -130,7 +132,10 @@ const AddAddress = ({ setOpenModal, setEdit, setNoAddress }) => {
     )
 }
 
-const NoAddress = ({ setOpenModal }) => {
+const NoAddress = ({ setOpenModal, setRerenderOut }) => {
+    useEffect(() => {
+        setRerenderOut(Math.random())
+    },[])
     const handleOpenModal = () => {
         setOpenModal(true)
     }
@@ -142,7 +147,7 @@ const NoAddress = ({ setOpenModal }) => {
     )
 }
 
-const Address = () => {
+const Address = ({setRerenderOut}) => {
     const [isEdit, setEdit] = useState(false)
     const currentAddress = localStore.getCurrentAddress().items
     const [reRender, setRerender] = useState(Math.random())
@@ -158,7 +163,8 @@ const Address = () => {
 
     const [isOpenModal, setOpenModal] = useState(false)
     const props = {
-        isEdit, setEdit, isNoAddress, setNoAddress, isOpenModal, setOpenModal, setRerender
+        isEdit, setEdit, isNoAddress, setNoAddress, isOpenModal, 
+        setOpenModal, setRerender, setRerenderOut
     }
     const conditionShowAddress = () => {
         if (isEdit === false && isNoAddress === false) {

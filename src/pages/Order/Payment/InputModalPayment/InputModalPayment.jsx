@@ -6,7 +6,7 @@ import { localStore, validate } from '../../../../constants'
 import { Button, InputField, Modal, Title } from '../../../../smallComponents'
 import s from './InputModalPayment.module.scss'
 
-const InputModalPayment = ({ method, setIsOpenModal }) => {
+const InputModalPayment = ({ method, setIsOpenModal, setPaymentCard }) => {
 
     const soTheRef = useRef()
     const dateRef = useRef()
@@ -149,7 +149,6 @@ const InputModalPayment = ({ method, setIsOpenModal }) => {
     const listMethods = localStore.getPaymentCard().items
     const currentPayment = localStore.getCurrentPayment().items[0]
     const handleSubmitMethod = () => {
-        console.log(soThe)
         const infoCard = {
             card: method.name,
             cate: method.cate,
@@ -166,6 +165,7 @@ const InputModalPayment = ({ method, setIsOpenModal }) => {
         }
         localStorage.setItem(localStore.getPaymentCard().key, JSON.stringify([...listMethods, infoCard]))
         setIsOpenModal(false)
+        setPaymentCard(infoCard)
     }
 
 

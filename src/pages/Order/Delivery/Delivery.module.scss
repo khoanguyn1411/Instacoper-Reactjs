@@ -4,6 +4,10 @@
     justify-content: space-between;
     // box-shadow: var(--box-shadow);
     padding: 20px 0;
+    
+    @media screen and (max-width: 600px) {
+        flex-direction: column;
+    }
 
     h1 {
         font-size: 20px;
@@ -49,6 +53,10 @@
         h1 {
             font-weight: normal;
 
+        }
+        @media screen and (max-width: 600px) {
+            align-self: flex-end;
+            margin-top: 20px;
         }
 
     }

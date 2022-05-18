@@ -3,7 +3,7 @@ import clsx from 'clsx'
 
 
 import { localStore, util } from '../../../constants'
-import {Title} from '../../../smallComponents'
+import { Title } from '../../../smallComponents'
 import s from './Products.module.scss'
 
 
@@ -76,7 +76,7 @@ const DisplayMobile = () => {
 
   return (
     <div className={s.wrapperMobile}>
-      {
+      {items && items.length > 0 &&
         items.map((item, index) => (
           <div key={index} className={s.wrapperMobile__item}>
 

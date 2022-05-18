@@ -9,7 +9,7 @@ import { paymentMethods } from '../../../constants'
 import PaymentSpecific from './PaymentSpecific/PaymentSpecific'
 
 
-const Payment = ({ checked, setChecked }) => {
+const Payment = ({ checked, setChecked, setPaymentCard }) => {
 
     const paymentMethod = paymentMethods.paymentMethod
     const classes = (value) => {
@@ -84,7 +84,7 @@ const Payment = ({ checked, setChecked }) => {
                 </div>
             </div>
 
-            <PaymentSpecific item={checked}>
+            <PaymentSpecific item={checked} setPaymentCard = {setPaymentCard}>
 
             </PaymentSpecific>
         </>
