@@ -64,15 +64,7 @@ const InputAddressModal = ({ setOpenModal, setNoAddress, setRerender }) => {
     const wardRef = useRef()
 
 
-    const address = {
-        name,
-        phone,
-        specificAddress,
-        city,
-        district,
-        ward,
-        tagID: Math.random()
-    }
+   
 
     useEffect(() => {
         validate({
@@ -91,11 +83,21 @@ const InputAddressModal = ({ setOpenModal, setNoAddress, setRerender }) => {
             onSubmit: handleSubmitAddress,
         })
 
-    }, [address])
+    }, [])
 
 
 
     const handleSubmitAddress = () => {
+        const address = {
+            name: nameRef.current.value,
+            phone: phoneRef.current.value,
+            specificAddress: specificAddressRef.current.value,
+            city: cityRef.current.value,
+            district: districtRef.current.value,
+            ward: wardRef.current.value,
+            tagID: Math.random()
+        }
+
         localStorage.setItem(listAddress.key, JSON.stringify([...listAddress.items, address]))
         if (listAddress.items.length === 0) {
             localStorage.setItem(currentAddress.key, JSON.stringify([address]))

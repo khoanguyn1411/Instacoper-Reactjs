@@ -13,7 +13,7 @@
     &__content {
         width: 100%;
         margin-top: 30px;
-        border: 2px solid black;
+        box-shadow: var(--box-shadow);
 
         &_rowTitle {
             margin-bottom: 15px;

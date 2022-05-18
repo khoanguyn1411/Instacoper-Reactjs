@@ -1,12 +1,12 @@
 import { faCheck, faCheckCircle, faCheckDouble, faCheckSquare } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useRef, useState } from 'react'
-import { validate } from '../../../../constants'
+import { localStore, validate } from '../../../../constants'
 
 import { Button, InputField, Modal, Title } from '../../../../smallComponents'
 import s from './InputModalPayment.module.scss'
 
-const InputModalPayment = ({ method }) => {
+const InputModalPayment = ({ method, setIsOpenModal }) => {
 
     const soTheRef = useRef()
     const dateRef = useRef()
@@ -14,6 +14,9 @@ const InputModalPayment = ({ method }) => {
     const nameRef = useRef()
     const addressRef = useRef()
     const maBuuChinhRef = useRef()
+
+    const grInputRef = useRef()
+    const btnSubmit = useRef()
 
     const [soThe, setSoThe] = useState('')
     const [date, setDate] = useState('')
@@ -62,76 +65,133 @@ const InputModalPayment = ({ method }) => {
         }
 
     ]
-    const grInputRef = useRef()
-    const btnSubmit = useRef()
 
-    const handleSubmitMethod = () => {
-        console.log('Submit ne!')
+
+
+
+    const handleCloseModal = () => {
+        setIsOpenModal(false)
     }
 
-    useEffect(() => {
-        validate({
-            groupInput: grInputRef.current,
-            btnSubmit: btnSubmit.current,
-            errorStyles: s.error,
-            rules: [
-                validate.isRequired(soTheRef.current, 'sothe'),
-                validate.isRequired(dateRef.current, 'date'),
-                validate.isDate(dateRef.current, 'date'),
-                validate.isRequired(codeRef.current, 'code'),
-                validate.isRequired(nameRef.current, 'name'),
-                validate.isRequired(addressRef.current, 'address'),
-                validate.isRequired(maBuuChinhRef.current, 'mabuuchinh'),
-            ],
-            onSubmit: handleSubmitMethod
-        })
-    }, [])
-
-    const getTitle = () => {
-
-        if (method.cate === 'Ví điện tử') {
-            return 'ví'
-        }
-        else {
-            return 'thẻ'
-        }
-    }
 
     const security = {
         title: 'Thông tin thẻ của bạn được bảo mật.',
-        content: `Chúng tôi hợp tác với CyberSource để đảm bảo thông tin ${getTitle()} của bạn được an toàn và bảo mật tuyệt đối. Instacoper sẽ không được cấp quyền truy cập vào thông tin thẻ của bạn.`
+        content: `Chúng tôi hợp tác với CyberSource để đảm bảo thông tin thẻ của bạn được an toàn và bảo mật tuyệt đối. Instacoper sẽ không được cấp quyền truy cập vào thông tin thẻ của bạn.`
+    }
+    const getInfo = () => {
+        if (method.cate === 'Ví điện tử') {
+            return {
+                title: 'ví',
+                component: <AddWallet />
+            }
+        }
+        else {
+            return {
+                title: 'thẻ',
+                component: (
+                    <div className={s.content}>
+                        <div className={s.content__security}>
+                            <FontAwesomeIcon icon={faCheckCircle} />
+                            <div>
+                                <h1>{security.title}</h1>
+                                <h2>{security.content}</h2>
+                            </div>
+                        </div>
+                        <div className={s.content__cate}>
+                            <h1>Loại thẻ: </h1>
+                            <div className={s.img}>
+                                <img alt={method.name} src={method.icon} />
+                            </div>
+                            <h1>{method.name}</h1>
+                        </div>
+                        <div className={s.content__input} ref={grInputRef}>
+                            {
+                                inputCard.map((item, index) => (
+                                    <div key={index} className={s.content__input_item}>
+                                        <InputField
+                                            setValue={item.setValue}
+                                            value={item.value}
+                                            ref={item.ref}
+                                            placeholder={item.placeholder}
+                                        />
+                                        <span />
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+                )
+            }
+        }
     }
 
-    return (
-        <Modal>
-            <Title>{`Thêm ${getTitle()}`}</Title>
-            <div className={s.content}>
-                <div className={s.content__security}>
-                    <FontAwesomeIcon icon={faCheckCircle} />
-                    <div>
-                        <h1>{security.title}</h1>
-                        <h2>{security.content}</h2>
-                    </div>
-                </div>
-            </div>
+    useEffect(() => {
+        if (getInfo().title === 'thẻ') {
+            validate({
+                groupInput: grInputRef.current,
+                btnSubmit: btnSubmit.current,
+                errorStyles: s.error,
+                rules: [
+                    validate.isRequired(soTheRef.current, 'sothe'),
+                    validate.isRequired(dateRef.current, 'date'),
+                    validate.isRequired(codeRef.current, 'code'),
+                    validate.isRequired(nameRef.current, 'name'),
+                    validate.isRequired(addressRef.current, 'address'),
+                    validate.isRequired(maBuuChinhRef.current, 'mabuuchinh'),
+                ],
+                onSubmit: handleSubmitMethod
+            })
+        }
+    }, [])
 
-            <div className={s.content__input} ref = {grInputRef}>
-                {
-                    inputCard.map((item, index) => (
-                        <div key={index} className={s.content__input_item}>
-                            <InputField
-                                setValue={item.setValue}
-                                value={item.value}
-                                ref={item.ref}
-                                placeholder={item.placeholder}
-                            />
-                            <span />
-                        </div>
-                    ))
-                }
-            </div>
+
+    // Phải để ở ngoài, để ở trong hàm handleSubmidMethod thì sẽ lỗi 
+    const listMethods = localStore.getPaymentCard().items
+    const currentPayment = localStore.getCurrentPayment().items[0]
+    const handleSubmitMethod = () => {
+        console.log(soThe)
+        const infoCard = {
+            card: method.name,
+            cate: method.cate,
+            soThe: soTheRef.current.value,
+            date: dateRef.current.value,
+            code: codeRef.current.value,
+            name: nameRef.current.value,
+            address: addressRef.current.value,
+            maBuuChinh: maBuuChinhRef.current.value,
+            id: Math.random()
+        }
+        if (!currentPayment || currentPayment.length === 0) {
+            localStorage.setItem(localStore.getCurrentPayment().key, JSON.stringify([infoCard]))
+        }
+        localStorage.setItem(localStore.getPaymentCard().key, JSON.stringify([...listMethods, infoCard]))
+        setIsOpenModal(false)
+    }
+
+
+
+    const AddWallet = () => {
+        return (
+            <h1 className={s.addWallet}>Ví <span>{method.name}</span> của bạn chưa được kích hoạt hoặc chưa liên kết với tài khoản ngân hàng.</h1>
+        )
+    }
+
+
+
+
+
+    return (
+        <Modal className={s.wrapperAll}>
             <div>
-                <Button ref={btnSubmit}/>
+                <Title>{`Thêm ${getInfo().title}`}</Title>
+                {getInfo().component}
+            </div>
+            <div className={s.buttons}>
+                <Button outlineBlack onClick={handleCloseModal}>Trở lại</Button>
+                {
+                    getInfo().title === 'thẻ' &&
+                    <Button ref={btnSubmit} pink>Hoàn thành</Button>
+                }
             </div>
         </Modal>
     )

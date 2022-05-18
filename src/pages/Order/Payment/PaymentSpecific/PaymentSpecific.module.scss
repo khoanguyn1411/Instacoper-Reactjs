@@ -83,26 +83,80 @@
             flex-direction: column;
             justify-content: space-between;
             cursor: pointer;
+
             .img {
                 width: 100px;
                 display: flex;
                 height: 100%;
                 align-items: center;
                 justify-content: center;
+
                 img {
                     width: 100%;
                 }
             }
-            h1{
+
+            h1 {
                 text-align: center;
                 font-weight: 600;
                 font-size: 18px;
             }
 
-            + .item{
+            +.item {
                 margin-left: 10px;
             }
 
         }
     }
+}
+
+.yourCard {
+    margin-top: 20px;
+
+    &__content {
+        display: grid;
+        grid-template-columns: var(--grid-template4);
+        gap: 15px;
+        margin-top: 10px;
+
+        &_item {
+            padding: 10px;
+            border: 2px solid black;
+            border-radius: 5px;
+            padding-right: 18px;
+            display: flex;
+            flex-direction: column;
+
+            >div {
+                cursor: pointer;
+            }
+
+            svg {
+                align-self: flex-end;
+                right: 0;
+                border: 2px solid black;
+                padding: 5px 10px
+            }
+
+            h1 {
+                font-size: 17px;
+
+                span {
+                    font-weight: 600;
+                    color: var(--pink-color);
+                }
+            }
+
+        }
+
+        .activeCard {
+            border-right: 10px solid var(--pink-color);
+        }
+
+        .inActiveCard {
+            border-right: 10px solid black;
+        }
+    }
+
+
 }

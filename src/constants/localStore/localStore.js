@@ -37,8 +37,34 @@ const getCurrentDelivery = () => {
 }
 
 
+const getPaymentCard = () => {
+    const keyCard = 'card'
+    const itemsCard = JSON.parse(localStorage.getItem(keyCard) || '[]')
+    return {
+        key: keyCard,
+        items: itemsCard
+    }
+}
+
+
+const getCurrentPayment = () => {
+    const keyCard = 'currentPayment'
+    const itemsCard = JSON.parse(localStorage.getItem(keyCard) || '[]')
+    return {
+        key: keyCard,
+        items: itemsCard
+    }
+}
+
+
+
 
 
 export default {
-    getItemsOrder, getItemsAddress, getCurrentAddress, getCurrentDelivery
+    getItemsOrder,
+    getItemsAddress,
+    getCurrentAddress,
+    getCurrentDelivery,
+    getPaymentCard,
+    getCurrentPayment
 }

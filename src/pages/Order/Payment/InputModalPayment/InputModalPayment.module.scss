@@ -1,53 +1,102 @@
-.content{
-    &__security{
+.wrapperAll{
+    height: auto;
+    >span{
+        color: var(--pink-color);
+        font-weight: bold;
+    }
+}
+
+.content {
+    &__security {
         display: flex;
         margin-top: 12px;
         padding: 15px 10px;
         border: 2px solid var(--green-color);
         background-color: rgb(234, 249, 234);
-        svg{
+
+        svg {
             color: var(--green-color);
         }
-        >div{
+
+        >div {
             display: flex;
             flex-direction: column;
             margin-left: 10px;
-            h1{
+
+            h1 {
                 color: var(--green-color);
                 font-size: 17px;
             }
-            h2{
+
+            h2 {
                 font-weight: normal;
                 font-size: 13px;
                 margin-top: 3px;
             }
         }
     }
-    &__input{
-        margin-top: 12px;
-        &_item{
-            >input{
+
+    &__cate{
+        display: flex;
+        margin-top: 20px;
+        .img{
+            margin-right: 3px;
+            margin-left: 5px;
+            width: 30px;
+            img{
                 width: 100%;
             }
+        }
+    }
+    &__input {
+        margin-top: 12px;
+
+        &_item {
+            >input {
+                width: 100%;
+            }
+
             .error {
                 border-color: red;
                 outline: red;
                 color: red;
-        
+
                 &::placeholder {
                     color: red;
                 }
             }
-            span{
+
+            span {
                 color: red;
             }
-            
+
         }
-        &_item + &_item{
+
+        &_item+&_item {
             margin-top: 10px;
         }
     }
+}
+.addWallet{
+    font-weight: normal;
+    font-size: 18px;
+    margin-top: 15px;
+    
+}
 
-   
+.buttons {
+    display: flex;
+    margin-top: 20px;
+    justify-content: flex-end;
+    button {
+        padding: 8px;
+        width: 30%;
 
+        +button {
+            margin-left: 20px;
+        }
+        @media screen and (max-width: 700px){
+            width: 100%;
+        }
+    }
 }

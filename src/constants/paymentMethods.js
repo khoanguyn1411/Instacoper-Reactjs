@@ -69,14 +69,20 @@ const paymentMethod = [{
         des: 'Sử dụng thẻ quốc tế để thanh toán',
         children: [{
                 name: 'Thẻ VISA',
-                icon: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png'
+                icon: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png',
+                cate: 'Thẻ quốc tế',
+
             },
             {
                 name: 'Thẻ Master',
+                cate: 'Thẻ quốc tế',
+
                 icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/MasterCard_logo.png/640px-MasterCard_logo.png'
             },
             {
                 name: 'Thẻ JCB',
+                cate: 'Thẻ quốc tế',
+
                 icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/JCB_logo.svg/1280px-JCB_logo.svg.png'
             }
         ]

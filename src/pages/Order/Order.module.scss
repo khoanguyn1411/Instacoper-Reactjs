@@ -42,6 +42,10 @@
     &__content {
         margin-top: 20px;
 
-    
+        &_ins{
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: var(--box-shadow);
+        }
     }
 }

@@ -138,16 +138,7 @@ validate.isEmail = function (selector, key, message) {
     }
 }
 
-validate.isDate = function (selector, key, message) {
-    return {
-        selector,
-        key,
-        test: (value) => {
-            const isDate = Date.parse(value)
-            return isDate !== NaN ? undefined : message || 'Trường này phải là ngày tháng';
-        }
-    }
-}
+
 
 
 validate.isSelectBoxRequired = function (selector, key, defaultValue, type) {
