@@ -20,6 +20,13 @@ function splitMulti(str, tokens) {
   return str;
 }
 
+function removeAccent(str) {
+  str = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  str = str.replace(/\s/g, '-');
+  str = str.toLowerCase()
+  return str
+}
+
 function getWindowHref() {
   let href = window.location.href
   const splitHrefArr = splitMulti(href, ['/', '?'])
@@ -64,4 +71,4 @@ function getWindowHref() {
   }
 }
 
-export default {formatCurrency, splitMulti, getWindowHref}
+export default {formatCurrency, splitMulti, getWindowHref, removeAccent}

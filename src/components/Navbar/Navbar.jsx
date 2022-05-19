@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { HiMenuAlt4, HiX, HiSearch } from 'react-icons/hi'
 import clsx from 'clsx'
 import { Link } from 'react-router-dom'
@@ -12,6 +12,8 @@ import styles from './Navbar.module.scss'
 import ExpandedTabActions from './ExpandedTabActions/ExpandedTabActions'
 import ExpandedTab from './ExpandedTab/ExpandedTab'
 import { PageContext } from '../PageContext/PageContext'
+import { InputField, ItemProduct } from '../../smallComponents'
+import { SearchDisplay } from '../../smallComponents'
 
 
 const Navbar = () => {
@@ -133,11 +135,12 @@ const Navbar = () => {
 
 
 
+
   const classesNav = clsx(styles.app__navbar_ulWrapper, {
     [styles.app__navbar_show]: openNavMobile
   })
 
-
+  const [valueSearch, setValueSearch] = useState('')
   return (
     <>
       <div className={styles.app__header}>
@@ -149,9 +152,19 @@ const Navbar = () => {
               <img src={imgsLogo.brandNameLogo} />
             </div>
 
+
             <div className={styles.app__searchBar_input}>
-              <HiSearch />
-              <input placeholder='Tìm kiếm' />
+              <SearchDisplay valueSearch={valueSearch}
+                className={styles.searchResult_wrapper}
+              >
+                <InputField
+                  setValue={setValueSearch}
+                  value={valueSearch}
+                  type='search'
+                  placeholder='Tìm kiếm' />
+                <HiSearch />
+              </SearchDisplay>
+
             </div>
 
             <div className={styles.app__searchBar_actions}>

@@ -10,11 +10,24 @@ $font-size: 20px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        @media screen and (max-width: 830px) {
+            flex-direction: column;
+        }
 
         &_note {
             display: flex;
             align-items: center;
             width: 50%;
+            @media screen and (max-width: 830px) {
+                width: 100%;
+            }
+            @media screen and (max-width: 400px) {
+                flex-direction: column;
+                h1{
+                    align-self: flex-start;
+                }
+            }
+            
 
             h1 {
                 font-size: 18px;
@@ -25,6 +38,11 @@ $font-size: 20px;
             input {
                 margin-left: 10px;
                 flex: 1;
+                @media screen and (max-width: 400px) {
+                    width: 100%;
+                    margin-top: 10px;
+                    margin-left: 0;
+                }
             }
         }
 
@@ -33,6 +51,12 @@ $font-size: 20px;
             flex-direction: column;
             flex: 1;
             padding-left: 50px;
+            @media screen and (max-width: 830px) {
+                width: 100%;
+                margin-top: 20px;
+                padding-left: 0;
+            }
+            
 
             h5{
                 font-size: 20px;
@@ -74,7 +98,11 @@ $font-size: 20px;
         button{
             padding: 10px;
             width: 20%;
+            @media screen and (max-width: 830px) {
+                width: 100%;
+            }
         }
+      
     }
 
     .modal{

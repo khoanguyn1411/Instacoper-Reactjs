@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './ItemProduct.module.scss'
 
 import { useNavigate } from 'react-router-dom';
+import clsx from 'clsx';
 
 const ItemProduct = ({
     product,
@@ -14,6 +15,7 @@ const ItemProduct = ({
     size = false,
     hideTestFlow = false,
     quantity = false,
+    classImg,
     onClick,
 }) => {
 
@@ -42,7 +44,6 @@ const ItemProduct = ({
     }
 
     const handleSetItemToLocal = (item) => {
-        localStorage.setItem('forDetailPros', JSON.stringify(item))
         handleSwitchToDetailPage(item)
     }
 
@@ -67,8 +68,8 @@ const ItemProduct = ({
         <div className={styles.wrapper}>
             <div onClick={handleOnClickEvent(product)}
                 className={isColumn ? styles.item__column : styles.item__row}>
-                <div className={styles.img_wrap}>
-                    <img className={!disableHover ? styles.hoverEventImg : ''} src={product.thumb} />
+                <div className={clsx(styles.img_wrap, classImg)}>
+                    <img alt={product.name} className={!disableHover ? styles.hoverEventImg : ''} src={product.thumb} />
                 </div>
                 <div className={styles.content__wrap}>
                     {

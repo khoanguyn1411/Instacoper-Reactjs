@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import { localStore, util } from '../../../constants'
 import { Button, InputField, Modal, Title } from '../../../smallComponents'
 import s from './TotalField.module.scss'
 import { PageContext } from '../../../components/PageContext/PageContext'
-import { useNavigate } from 'react-router-dom'
 
 const TotalField = ({ method, isDiscount }) => {
 
