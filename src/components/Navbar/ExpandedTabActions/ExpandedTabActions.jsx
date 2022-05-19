@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { HiX } from 'react-icons/hi'
 
-import { localStore, tabList } from '../../../constants'
+import { localStore, tabList, util } from '../../../constants'
 import ItemProduct from '../../../smallComponents/ItemProduct/ItemProduct'
 import Button from '../../../smallComponents/Button/Button'
 import { PageContext } from '../../PageContext/PageContext'
@@ -36,7 +36,7 @@ const ExpandedTabActions = ({ isVisible, alt, setOpenActionTab }) => {
   const items = context.itemsInCart
 
   const handleDeleteItem = (product) => {
-    const newListItems = items.filter(item => item !== product)
+    const newListItems = items.filter(item => item.tagID !== product.tagID)
     localStorage.setItem(keyLocal, JSON.stringify(newListItems))
     setRerender(Math.random())
   }
@@ -53,14 +53,8 @@ const ExpandedTabActions = ({ isVisible, alt, setOpenActionTab }) => {
 
 
 
-  function removeAccent(str) {
-    str = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    str = str.replace(/\s/g, '-');
-    str = str.toLowerCase()
-    return str
-  }
   const handleSwitchToDetailPage = (item) => {
-    let path = `/san-pham/chi-tiet-san-pham/${removeAccent(item.name)}/`
+    let path = `/san-pham/chi-tiet-san-pham/${util.removeAccent(item.name)}/`
     navigate(path);
     window.scrollTo(0, 0)
   }

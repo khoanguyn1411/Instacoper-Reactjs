@@ -13,6 +13,12 @@ const RangeSlider = () => {
     const maxVal = context.maxPrice
     const setValueMax = context.setMaxPrice
 
+    const maxValueToFilter = context.maxValueToFilter
+    const minValueToFilter = context.minValueToFilter
+    const setMaxValueToFilter = context.setMaxValueToFilter
+    const setMinValueToFilter = context.setMinValueToFilter
+
+
     const priceGap = 200000
 
     const rangeInput = document.querySelectorAll(".range-input input"),
@@ -28,6 +34,14 @@ const RangeSlider = () => {
             setValueMin(maxVal2 - priceGap)
         }
         progress.style.left = (minVal2 / rangeInput[0].max) * 100 + "%";
+    }
+
+    const handleSetFilterMin = () => {
+        setMinValueToFilter(minVal)
+    }
+
+    const handleSetFilterMax = () => {
+        setMaxValueToFilter(maxVal)
     }
 
     const handleRangeMaxChange = (e) => {
@@ -56,8 +70,16 @@ const RangeSlider = () => {
                 <div className="progress" styles={{ left: '0%', right: '48%' }}></div>
             </div>
             <div className="range-input">
-                <input type="range" className="range-min" min="0" max="5000000" onInput={(e) => { handleRangeMinChange(e) }} value={minVal} step="200000" />
-                <input type="range" className="range-max" min="0" max="5000000" onInput={(e) => { handleRangeMaxChange(e) }} value={maxVal} step="200000" />
+                <input type="range" className="range-min" min="0" max="5000000"
+                    onInput={(e) => { handleRangeMinChange(e) }}
+                    onMouseUp = {handleSetFilterMin}
+                    value={minVal} step="200000"
+                />
+                <input type="range" className="range-max" min="0" max="5000000"
+                    onInput={(e) => { handleRangeMaxChange(e) }}
+                    value={maxVal} step="200000"
+                    onMouseUp = {handleSetFilterMax}
+                />
             </div>
             <div className="rangeslider-inputnum">
                 <div className="output-num">

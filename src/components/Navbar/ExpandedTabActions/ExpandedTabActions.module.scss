@@ -3,6 +3,7 @@
     background-color: white;
     box-shadow: 1px 1px 5px rgb(0 0 0 / 40%);
     margin-top: 10px;
+    border-radius: 3px;
 
     &__user {
         >li {
@@ -22,6 +23,7 @@
 
     &__cart {
         width: 320px;
+        
         @media screen and (max-width: 500px) {
             width: 250px;
         }

@@ -14,7 +14,6 @@
 
     &__content {
         background-color: #fefefe;
-        /* 15% from the top and centered */
         padding: 20px;
         width: 50%;
         scroll-behavior: auto;
@@ -27,5 +26,18 @@
         @media screen and (max-width: 900px) {
             width: 70%;
         }
+
+        &_message {
+            height: auto;
+            background-color: #fefefe;
+            padding: 20px;
+            width: 50%;
+            scroll-behavior: auto;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: auto;
+        }
     }
+
 }

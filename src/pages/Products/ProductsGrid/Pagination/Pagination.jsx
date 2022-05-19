@@ -24,7 +24,7 @@ function Pagination({ itemsPerPage }) {
 
     useEffect(() => {
         const endOffset = itemOffset + itemsPerPage;
-        console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+        // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
         setCurrentItems(productsShow.list.slice(itemOffset, endOffset));
         setPageCount(Math.ceil(productsShow.list.length / itemsPerPage));
     }, [itemOffset, itemsPerPage, productsShow]);
@@ -35,6 +35,7 @@ function Pagination({ itemsPerPage }) {
     const handlePageClick = (event) => {
         const newOffset = (event.selected * itemsPerPage) % productsShow.list.length;
         setItemOffset(newOffset);
+        window.scroll(0,0)
         // setPageNumber(event.selected + 1)
     };
 

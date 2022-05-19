@@ -5,8 +5,10 @@
         &__column {
             flex-direction: column;
             display: flex;
+
             .img_wrap {
                 width: 100%;
+                border-radius: 2px;
             }
 
         }
@@ -39,8 +41,11 @@
     .img_wrap {
         overflow: hidden;
         cursor: pointer;
+     
+
         img {
-            width: 100%;
+            max-width: 100%;
+            object-fit: contain;
             transition: 0.5s all ease-in-out;
         }
 
@@ -49,6 +54,8 @@
     .hoverEventImg {
         &:hover {
             transform: scale(1.2);
+            border: 0;
+            transition: 0.5s all ease-in-out;
         }
     }
 
@@ -81,6 +88,7 @@
 
     .hoverEventText {
         cursor: pointer;
+
         &:hover {
             color: var(--pink-color);
             transition: 0.4s;
@@ -111,7 +119,7 @@
         }
     }
 
-    .size_wrap{
+    .size_wrap {
         display: flex;
     }
 
@@ -119,7 +127,8 @@
         color: #41A139;
         font-weight: bold;
         font-size: 12px;
-        + h6{
+
+        +h6 {
             margin-left: 5px;
         }
     }

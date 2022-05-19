@@ -2,10 +2,10 @@ import React, { useContext, useState, useEffect } from 'react'
 
 import styles from './ProductDetail.module.scss'
 import { PageContext } from '../../components/PageContext/PageContext'
-import CheckboxInside from '../../smallComponents/CheckboxInside'
 import { imgsIcon } from '../../constants'
 import SliderImg from './SliderImg/SliderImg'
 import MaybeYouLike from './MaybeYouLike/MaybeYouLike'
+import { CheckboxInside, Button, Modal, Title } from '../../smallComponents'
 
 
 const ProductDetail = ({ product }) => {
@@ -39,13 +39,13 @@ const ProductDetail = ({ product }) => {
   const handleSetRadList = (item) => {
     setSizeChosen(item)
   }
-
+  const [message, setMessage] = useState('')
   const keyLocal = context.keyItemsInCart
 
   const setLocalStoreItem = () => {
     const productSave = product
     productSave.sizeChosen = sizeChosen
-    productSave.tagID = productSave.name + "?" + productSave.sizeChosen + "?"
+    productSave.tagID = product.id + "?" + productSave.name + "?" + productSave.sizeChosen + "?"
 
     let storerage = JSON.parse(localStorage.getItem(keyLocal) || '[]')
 
@@ -71,18 +71,25 @@ const ProductDetail = ({ product }) => {
     localStorage.setItem(keyLocal, JSON.stringify(storerage))
   }
 
-
+  const [isShowModal, setIsShowModal] = useState(false)
   const handleAddItemToCart = () => {
     if (sizeChosen) {
       setLocalStoreItem()
       setSizeChosen('')
+      setIsShowModal(true)
+      setMessage('Sản phẩm đã được thêm vào giỏ hàng thành công')
       setRerender(Math.random()) // Hàm này để re-render lại thanh nav, cập nhật lại cái số lượng items trong cart
+
     }
     else {
-      alert('Vui lòng chọn size giày!')
+      setIsShowModal(true)
+      setMessage('Vui lòng chọn size giày')
     }
   }
 
+  const handleCloseModal = () => {
+    setIsShowModal(false)
+  }
 
 
   return (
@@ -136,9 +143,18 @@ const ProductDetail = ({ product }) => {
           </div>
         </div>
         <div className={styles.bottomSide}>
-          <MaybeYouLike product = {product} />
+          <MaybeYouLike product={product} />
         </div>
       </div>
+      {isShowModal &&
+        <div className={styles.modal}>
+          <Modal className={styles.background} isMessage>
+            <Title>Thông báo</Title>
+            <h2>{message}</h2>
+            <Button pink onClick={handleCloseModal}>Trở lại</Button>
+          </Modal>
+        </div>
+      }
     </div>
 
   )

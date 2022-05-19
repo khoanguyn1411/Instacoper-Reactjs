@@ -234,7 +234,7 @@ const ItemIncart = ({ product, checkedProductList, setCheckedProductList }) => {
                 </div>
 
                 <div className={styles.wrapperMobile__bottomContent}>
-                    <div className={styles.wrapperMobile__bottomContent_deleteProduct}>
+                    <div className={styles.wrapperMobile__bottomContent_deleteProduct} onClick = {handleRemoveItem}>
                         <FontAwesomeIcon icon={faTrashAlt} />
                         <h1>Xóa sản phẩm</h1>
                     </div>

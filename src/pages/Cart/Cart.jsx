@@ -165,7 +165,7 @@ const ProductOrder = ({ items }) => {
           </div>
 
           <div className={styles.rightSide}>
-            <FontAwesomeIcon icon={faTrashCan} />
+            <FontAwesomeIcon onClick={handleDeleteSelectedProducts} icon={faTrashCan} />
           </div>
         </div>
         <div className={styles.productOrder__topContent_productsWrap}>

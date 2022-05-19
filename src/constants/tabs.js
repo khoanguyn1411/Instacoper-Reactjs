@@ -30,7 +30,7 @@ const CONTACT_NO_ACCENT = 'lien-he'
 
 
 const arrProductPages = ['Khuyến mãi', 'Hàng mới về', 'Bán chạy nhất',
-   
+
 ]
 const arrBlogPages = ['Chủ đề', 'Blog mới nhất', 'Xem nhiều nhất']
 const arrFAQs = ['Hỗ trợ khách hàng', 'Chính sách', 'Liên hệ']
@@ -39,9 +39,7 @@ const tabsLeftBar = ['Walking Style Shoes', 'Casual Shoes', 'Boat Shoes', 'Canva
     'Basketball Style Shoes', 'Chunky Shoes', 'Other Trendy Shoes'
 ]
 
-const tabsUser = ['Đăng nhập', 'Đăng ký', 'Tài khoản của tôi', 'Quản lý đơn hàng',
-    'Thông báo của tôi', 'Thiết lập địa chỉ', 'Đổi mật khẩu', 'Đăng xuất'
-]
+const tabsUser = ['Đăng nhập', 'Đăng ký', ]
 
 
 
@@ -94,8 +92,7 @@ const tabListObj = [{
         name: PRODUCTS,
         nameNoAccent: PRODUCTS_NO_ACCENTS,
         isExpanded: true,
-        tabList2: [
-            {
+        tabList2: [{
                 name: arrProductPages[0],
                 nameNoAccent: PROMOTION_NO_ACCENTS,
                 isExpanded: false,

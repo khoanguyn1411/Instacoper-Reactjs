@@ -50,6 +50,10 @@ const Filter = ({ cate, filter }) => {
   const checkedListSize = context.checkedListSize
   const setCheckedListSize = context.setCheckedListSize
 
+  const maxValueToFilter = context.maxValueToFilter
+  const minValueToFilter = context.minValueToFilter
+  const setMaxValueToFilter = context.setMaxValueToFilter
+  const setMinValueToFilter = context.setMinValueToFilter
 
 
   // Lưu trữ mảng các thương hiệu
@@ -104,6 +108,8 @@ const Filter = ({ cate, filter }) => {
     setCheckedListSize([])
     setMinPrice(0)
     setMaxPrice(5000000)
+    setMaxValueToFilter(5000000)
+    setMinValueToFilter(0)
   }
 
 
@@ -255,7 +261,7 @@ const Filter = ({ cate, filter }) => {
   }
   const handleRangeSliderField = () => {
     const currentListPros = handleFilterCheckboxField()
-    const newList = currentListPros.filter((item) => (item.price >= minPrice && item.price <= maxPrice))
+    const newList = currentListPros.filter((item) => (item.price >= minValueToFilter && item.price <= maxValueToFilter))
     return newList
   }
 
@@ -274,7 +280,7 @@ const Filter = ({ cate, filter }) => {
     }))
     setItemOffset(0)
     setRemountComponent(Math.random())
-  }, [checkedListGender, checkedListBrand, minPrice, maxPrice, checkedListSize])
+  }, [checkedListGender, checkedListBrand, minValueToFilter, maxValueToFilter, checkedListSize])
 
 
   return (

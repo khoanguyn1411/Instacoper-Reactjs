@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React from 'react'
 
 import styles from './Products.module.scss'
 import { TopContent, Filter, ProductsGrid } from '../Products'
-import { ProductContext, ProductProvider } from './ProductContext/ProductContext'
+import { ProductProvider } from './ProductContext/ProductContext'
 
 const Products = ({cate ,filter}) => {
   

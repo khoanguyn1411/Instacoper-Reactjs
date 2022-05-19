@@ -1,11 +1,9 @@
 import clsx from 'clsx'
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import 'react-tippy/dist/tippy.css'
-import Tippy from '@tippyjs/react/headless';
 
 import { products, util } from '../../constants'
 import s from './SearchDisplay.module.scss'
-import { Popper, ItemProduct } from '../';
 import { useNavigate } from 'react-router-dom';
 import { PageContext } from '../../components/PageContext/PageContext'
 import { useDebounce } from '../../hooks';
@@ -60,7 +58,6 @@ const SearchDisplay = ({ valueSearch, className, children }) => {
         })
 
         setIsShowTippy(false)
-        console.log('handleItem')
     }
 
     const displayResultRef = useRef()

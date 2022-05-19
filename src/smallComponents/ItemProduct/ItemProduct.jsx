@@ -38,7 +38,6 @@ const ItemProduct = ({
 
     const handleSwitchToDetailPage = (item) => {
         let path = `/san-pham/chi-tiet-san-pham/${removeAccent(item.name)}`
-        console.log(path)
         navigate(path);
         window.scrollTo(0, 0)
     }

@@ -57,7 +57,7 @@ const OurStory = () => {
 
           </div>
         </div>
-        <div className={styles.ourStory__wrapper}>
+        {/* <div className={styles.ourStory__wrapper}>
           <div className={styles.ourStory__leftContent}>
             <img src={imgsHome.ourstoryBanner}></img>
           </div>
@@ -102,6 +102,50 @@ const OurStory = () => {
                 <img src={imgsHome.story3} />
               </div>
             </div>
+          </div>
+        </div> */}
+
+        <div className={styles.ourStory__content}>
+          
+          <div className={styles.col}>
+            <img alt='' src={imgsHome.ourstoryBanner} />
+          </div>
+
+          <div className={styles.col}>
+            <h1>Instacoper Team</h1>
+            <h2>The Day We Met!</h2>
+            <div className={styles.col__icon}>
+              <HiArrowRight />
+            </div>
+          </div>
+
+          <div className={styles.col}>
+            <img alt='' src={imgsHome.story1} />
+          </div>
+
+
+          <div className={styles.col}>
+            <img src={imgsHome.story2} />
+          </div>
+
+          <div className={styles.col}>
+            <h1>The Place For Passion</h1>
+            <h2>Has Been Founded!</h2>
+            <div className={styles.col__icon}>
+              <HiArrowRight />
+            </div>
+          </div>
+
+          <div className={styles.col}>
+            <h1>Your Satisfaction</h1>
+            <h2>Is our #1 priority!</h2>
+            <div className={styles.col__icon}>
+              <HiArrowRight />
+            </div>
+          </div>
+
+          <div className={styles.col}>
+            <img src={imgsHome.story3} />
           </div>
         </div>
       </div>

@@ -1,47 +1,65 @@
-.newProducts__wrapper {
-    display: flex;
-    align-items: center;
-    position: relative;
-    padding: 60px;
-    background-color: aqua;
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
+// .newProducts__wrapper {
+//     display: flex;
+//     align-items: center;
+//     position: relative;
+//     padding: 60px;
+//     background-color: aqua;
+//     width: 100%;
+//     flex-direction: column;
+//     justify-content: center;
+//     background: url(../../../assets/img/img_home/backgroundSp.png);
+//     > h1{
+//         color: white;
+//         margin-bottom: 30px;
+//     }
+//     .newProducts__button {
+//         position: absolute;
+//         width: 100%;
+//         display: flex;
+//         justify-content: space-between;
+
+//         >div {
+//             padding: 15px;
+//             cursor: pointer;
+//             transition: 0.2s;
+//             background-color: white;
+//             opacity: 0.7;
+//         }
+
+//         >div:hover {
+//             transition: 0.2s;
+//             background-color: var(--pink-color);
+//             opacity: 1;
+//         }
+//     }
+
+//     .newProducts__items_wrapper {
+//         height: 100%;
+//         width: 100%;
+//         margin: 0 60px;
+//         display: grid;
+//         grid-column-gap: 20px;
+//         grid-row-gap: 20px;
+//         grid-template-columns: repeat(5, 1fr);
+//     }
+
+
+// }
+
+
+.wrapper {
     background: url(../../../assets/img/img_home/backgroundSp.png);
-    > h1{
-        color: white;
-        margin-bottom: 30px;
-    }
-    .newProducts__button {
-        position: absolute;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
 
-        >div {
-            padding: 15px;
-            cursor: pointer;
-            transition: 0.2s;
-            background-color: white;
-            opacity: 0.7;
+    >div {
+        padding: 70px;
+
+        >h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
         }
-
-        >div:hover {
-            transition: 0.2s;
-            background-color: var(--pink-color);
-            opacity: 1;
+        .item{
+            padding: 15px
         }
     }
-
-    .newProducts__items_wrapper {
-        height: 100%;
-        width: 100%;
-        margin: 0 60px;
-        display: grid;
-        grid-column-gap: 20px;
-        grid-row-gap: 20px;
-        grid-template-columns: repeat(5, 1fr);
-    }
-
-
 }

@@ -29,6 +29,10 @@ const ProductProvider = ({ children }) => {
 
     const [remountComponent, setRemountComponent] = useState(0);
 
+    const [minValueToFilter, setMinValueToFilter] = useState(0)
+    const [maxValueToFilter, setMaxValueToFilter] = useState(5000000)
+    
+
     const value = {
         productsShow, setProductsShow, isShowFilter, setShowFilter,
         checkedListBrand, setCheckedListBrand,
@@ -39,6 +43,8 @@ const ProductProvider = ({ children }) => {
         currentItems, setCurrentItems,
         itemOffset, setItemOffset,
         remountComponent, setRemountComponent,
+        minValueToFilter,setMinValueToFilter,
+        maxValueToFilter, setMaxValueToFilter
     }
 
 
