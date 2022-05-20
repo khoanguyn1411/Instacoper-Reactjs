@@ -17,6 +17,7 @@ import validate from './validateSubmit/validate';
 import util from './util/util';
 
 import paymentMethods from './paymentMethods';
+import blogs from './blogs';
 
 export {
     imgsHome,
@@ -33,5 +34,6 @@ export {
     localStore,
     validate,
     util,
-    paymentMethods
+    paymentMethods,
+    blogs
 };

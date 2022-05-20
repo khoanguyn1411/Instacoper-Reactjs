@@ -6,7 +6,7 @@ const cate = {
     newsIns: 'Instacoper news'
 }
 const blogsList = [{
-        cate: newsFashion,
+        cate: cate.newsFashion,
         title: 'Lão đại Wowy đưa team đi sắm giày Nike chuẩn bị cho vòng đối đầu Rap Việt mùa 2',
         des: 'Không chỉ hướng dẫn và hỗ trợ các thành viên về khâu âm nhạc lẫn kỹ thuật trình diễn, HLV Wowy còn truyền cảm hứng đến các thành viên trong cách ăn mặc khi vừa qua thầy trò team này đã có một kỷ niệm shopping khó quên tại cửa hàng Nike Saigon Centre để chuẩn bị cho vòng đối đầu đầy rẫy thử thách tại Rap Việt mùa 2',
         thumb: 'https://instacoper-05.web.app/assets/img/blog/part1.jpg',

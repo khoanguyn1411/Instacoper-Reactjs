@@ -1,0 +1,121 @@
+$font20: 20px;
+$font15: 15px;
+$font12: 14px;
+
+.wrapper {
+    margin-top: 30px;
+    margin-bottom: 50px;
+
+    &__topContent {
+        display: grid;
+        grid-template-columns: var(--grid-template3);
+        gap: 20px;
+
+        &_item {
+
+            h1 {
+                font-size: $font15;
+                text-transform: uppercase;
+            }
+
+            h2 {
+                font-size: $font20;
+                margin-top: 7px;
+                font-family: var(--font-pf);
+                cursor: pointer;
+
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+
+            h3 {
+                font-size: $font12 ;
+                margin-top: 10px;
+                font-weight: normal;
+
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+
+            .content_top_title {
+                display: flex;
+                cursor: pointer;
+
+                >div {
+                    width: 7px;
+                    margin-right: 10px;
+                    background-color: var(--pink-color);
+                }
+            }
+
+            .img {
+                cursor: pointer;
+            }
+
+
+            &_normal {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .img {
+                    width: 100%;
+
+                    img {
+                        width: 100%;
+                    }
+
+                    margin-bottom: 10px;
+                }
+
+                .content_watchMore {
+                    cursor: pointer;
+                    width: max-content;
+                    margin-top: 10px;
+                }
+            }
+
+            &_gr14 {
+                grid-column: 1/4;
+
+                .topTop {
+                    display: flex;
+                }
+
+
+
+                .img {
+                    width: calc(33.33333% - 13px);
+
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                .content {
+                    flex: 1;
+                    padding-left: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    &_watchMore {
+                        cursor: pointer;
+                        width: max-content;
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+
+
+    }
+}
