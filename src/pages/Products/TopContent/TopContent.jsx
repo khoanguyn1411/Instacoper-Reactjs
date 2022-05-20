@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useState } from 'react'
-import { faFilter } from '@fortawesome/free-solid-svg-icons'
+import { faFilter, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { HiX } from 'react-icons/hi'
 
@@ -114,7 +114,7 @@ const TopContent = ({ filter }) => {
             >
               {isShowFilter ? 'Ẩn bộ lọc' : 'Hiện bộ lọc'}
             </h1>
-            <img src={imgsIcon.filter} />
+            <FontAwesomeIcon className={styles.svg} icon={faFilter} />
           </div>
 
           <div className={styles.sort_by}>
@@ -127,7 +127,7 @@ const TopContent = ({ filter }) => {
                 </ul>
               </div>
             </div>
-            <img src={imgsIcon.down_arrow} />
+            <FontAwesomeIcon className={styles.svg} icon={faCaretDown} />
           </div>
         </div>
 

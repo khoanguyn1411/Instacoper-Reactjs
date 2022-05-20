@@ -1,14 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { HiX } from 'react-icons/hi'
 import clsx from 'clsx'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
 
 import styles from './Filter.module.scss'
 import { imgsIcon, products } from '../../../constants'
+import { CheckboxInside, CheckboxOutside, Button } from '../../../smallComponents'
 import RangeSlider from './RangeSlider/RangeSlider'
 import { ProductContext } from '../ProductContext/ProductContext'
-import CheckboxInside from '../../../smallComponents/CheckboxInside'
-import CheckboxOutSide from '../../../smallComponents/CheckboxOutside'
-import Button from '../../../smallComponents/Button/Button'
+
+
 
 const Filter = ({ cate, filter }) => {
 
@@ -289,7 +291,8 @@ const Filter = ({ cate, filter }) => {
       <div className={styles.filter__brand}>
         <div className={styles.filter_header}>
           <h1>Nhãn hiệu</h1>
-          <img src={imgsIcon.down_arrow} />
+          <FontAwesomeIcon icon={faCaretDown} />
+
         </div>
         <div className={styles.checkbox_wrap}>
           {
@@ -313,7 +316,8 @@ const Filter = ({ cate, filter }) => {
       <div className={styles.filter__price}>
         <div className={styles.filter_header}>
           <h1>Khoảng giá</h1>
-          <img src={imgsIcon.down_arrow} />
+          <FontAwesomeIcon icon={faCaretDown} />
+          {/* <img src={imgsIcon.down_arrow} /> */}
         </div>
         <div className={styles.price_range_wrap}>
           <RangeSlider />
@@ -323,7 +327,8 @@ const Filter = ({ cate, filter }) => {
       <div className={styles.filter__size}>
         <div className={styles.filter_header}>
           <h1>Size</h1>
-          <img src={imgsIcon.down_arrow} />
+          <FontAwesomeIcon icon={faCaretDown} />
+
         </div>
         <div className={styles.size_wrap}>
           {
@@ -346,13 +351,14 @@ const Filter = ({ cate, filter }) => {
       <div className={styles.filter__price}>
         <div className={styles.filter_header}>
           <h1>Giới tính</h1>
-          <img src={imgsIcon.down_arrow} />
+          <FontAwesomeIcon icon={faCaretDown} />
+
         </div>
         <div className={styles.checkbox_wrap}>
           {
             ['Giày nam', 'Giày nữ'].map((item, index) => (
               <div key={index}>
-                <CheckboxOutSide
+                <CheckboxOutside
                   item={item}
                   onchange={() => {
                     handleSetCheckedGender(item)

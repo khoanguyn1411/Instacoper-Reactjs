@@ -177,7 +177,7 @@ const ItemIncart = ({ product, checkedProductList, setCheckedProductList }) => {
                 <div onClick={handleRemoveItem}
                     className={styles.wrapper__delete}
                 >
-                    <HiX />
+                    <FontAwesomeIcon icon={faTrashAlt}/>
                 </div>
             </div>
         )
@@ -253,12 +253,7 @@ const ItemIncart = ({ product, checkedProductList, setCheckedProductList }) => {
                 <ItemMobileDisplay />
             </>
         )
-        // if (window.innerWidth > 900) {
-        //     return <ItemPCDisplay />
-        // }
-        // else {
-        //     return <ItemMobileDisplay />
-        // }
+    
     }
     return (
         <>

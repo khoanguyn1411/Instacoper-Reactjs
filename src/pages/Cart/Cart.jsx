@@ -12,7 +12,6 @@ import clsx from 'clsx'
 import { localStore } from '../../constants'
 
 
-
 const ProductOrder = ({ items }) => {
 
   const context = useContext(PageContext)
@@ -148,6 +147,7 @@ const ProductOrder = ({ items }) => {
       alert('Vui lòng chọn sản phẩm')
     }
   }
+  
 
 
   return (
@@ -196,21 +196,19 @@ const ProductOrder = ({ items }) => {
       <div className={clsx(styles.productOrder__bottomContent, { [styles.fixCartBar]: isFixed })}
       >
         <div className={styles.leftSide}>
-          <Button
-            black
+          <h1
             className={styles.leftSide__button}
             onClick={handleDeleteSelectedProducts}
           >
             {`Xóa các mục đã chọn (${checkedProductList.length})`}
-          </Button>
+          </h1>
 
-          <Button
-            pink
+          <h1
             className={styles.leftSide__button}
             onClick={handleDeleteAll}
           >
             {`Xóa tất cả`}
-          </Button>
+          </h1>
         </div>
         <div className={styles.rightSide}>
           <div className={styles.rightSide__content}>

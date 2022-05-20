@@ -1,19 +1,14 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 
-import { products  } from '../../constants'
+import { products, util  } from '../../constants'
 import Products from './Products'
 import ProductDetail from '../ProductDetail/ProductDetail'
 
 
 const ProductNavigation = () => {
 
-    function removeAccent(str) {
-        str = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-        str = str.replace(/\s/g, '-');
-        str = str.toLowerCase()
-        return str
-    }
+ 
 
     const productList = products.listProducts
 
@@ -26,7 +21,7 @@ const ProductNavigation = () => {
             {
                 productList.map((item, index) => (
                     <Route key={index}
-                        path={`/chi-tiet-san-pham/${removeAccent(item.name)}`}
+                        path={`/chi-tiet-san-pham/${util.removeAccent(item.name)}`}
                         element={<ProductDetail product = {item} />}
                     />
                 ))

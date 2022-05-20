@@ -23,7 +23,7 @@ const ExpandedTab = ({ page }) => {
   const [checked, setChecked] = useState([]);
 
   const handleSwitchPage = (item) => {
-    handleSetBold( {
+    handleSetBold({
       direct: item,
       pageAssistance: undefined
     })
@@ -53,14 +53,21 @@ const ExpandedTab = ({ page }) => {
 
   const classesWrapper = clsx([
     styles.expandedTab__wrapper,
-    {[styles.productWidth]: page===tabList.PRODUCTS_NO_ACCENTS},
-    {[styles.blogWidth]: page===tabList.BLOG_NO_ACCENTS},
-    {[styles.faqsWidth]: page===tabList.FAQS_NO_ACCENTS}
+    { [styles.productWidth]: page === tabList.PRODUCTS_NO_ACCENTS },
+    { [styles.blogWidth]: page === tabList.BLOG_NO_ACCENTS },
+    { [styles.faqsWidth]: page === tabList.FAQS_NO_ACCENTS }
   ])
 
 
+  // Sự kiện trigger khi đưa chuột khỏi expanded tab, đóng các tab dưới lại
+  const handleLeaveExpandedTab = () => {
+    if (window.innerWidth > 900) {
+      setChecked([])
+    }
+  }
+
   return (
-    <ul className={classesWrapper} onMouseLeave = {() => {setChecked([])}}>
+    <ul className={classesWrapper} onMouseLeave={handleLeaveExpandedTab}>
       {
         tabInside.map((item, index) => (
           <div key={index}>

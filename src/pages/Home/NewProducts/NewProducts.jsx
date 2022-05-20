@@ -48,26 +48,7 @@ const NewProducts = () => {
   };
 
   return (
-    // <div className={styles.newProducts__wrapper}>
-    //   <h1>Sản phẩm mới</h1>
-    //   {/* <div className={styles.newProducts__button}>
-    //     <div>
-    //       <a>❮</a>
-    //     </div>
-    //     <div>
-    //       <a>❯</a>
-    //     </div>
-    //   </div>
-    //   <div className={clsx(styles.newProducts__items_wrapper, 'app__wrapper') }>
-    // {
-    //   products.map((product, index) => (
-    //     <Product key={index} value={product} />
-    //   ))
-    // }
-    //   </div> */}
-    //   <SlickSlider />
-
-    // </div>
+  
 
     <div className={styles.wrapper}>
       <div className='app__wrapper'>

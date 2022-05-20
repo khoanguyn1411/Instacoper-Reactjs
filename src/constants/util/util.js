@@ -24,6 +24,7 @@ function removeAccent(str) {
   str = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   str = str.replace(/\s/g, '-');
   str = str.toLowerCase()
+  str = encodeURIComponent(str)
   return str
 }
 

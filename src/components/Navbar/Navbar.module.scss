@@ -40,10 +40,11 @@
             display: flex;
             align-items: center;
             margin: 0 10px;
-            
+
             .searchResult_wrapper {
                 width: 100%;
                 position: relative;
+
                 >svg {
                     position: absolute;
                     margin-left: 8px;
@@ -130,11 +131,29 @@
 
 
 .app__navbar_bold {
-    font-weight: 800;
-    font-family: var(--font-ssp);
-    cursor: pointer;
-    text-decoration: none;
-    color: var(--pink-color);
+    >a {
+        font-weight: 800;
+        font-family: var(--font-ssp);
+        cursor: pointer;
+        text-decoration: none;
+        color: var(--pink-color);
+
+        &::after {
+            content: "";
+            width: 30%;
+            height: 2px;
+            background-color: #F54253;
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            transition: 0.4s ease-in-out;
+        }
+    }
+
+    >svg {
+        color: var(--pink-color);
+        margin-left: 10px;
+    }
 }
 
 .app__navbar {
@@ -216,11 +235,6 @@
                 margin: 0px 18px;
                 flex-direction: row;
 
-                img {
-                    margin-left: 10px;
-                    height: 8px;
-                }
-
                 .app__navbar_extended {
                     display: none;
                     position: absolute;
@@ -234,14 +248,24 @@
             .app__navbar_noBold {
                 font-family: var(--font-ssp);
                 cursor: pointer;
-                text-decoration: none;
-                color: black;
+
+                >a {
+                    text-decoration: none;
+                    color: black;
+                }
+
+                svg {
+                    margin-left: 10px;
+                }
+
                 transition: 0.3s;
             }
 
             .app__navbar_noBold:hover {
-                color: var(--pink-color);
-                transition: 0.4s;
+                >a {
+                    color: var(--pink-color);
+                    transition: 0.4s;
+                }
             }
 
             div:hover .app__navbar_extended {

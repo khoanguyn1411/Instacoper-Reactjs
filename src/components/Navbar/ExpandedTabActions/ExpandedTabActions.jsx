@@ -46,7 +46,7 @@ const ExpandedTabActions = ({ isVisible, alt, setOpenActionTab }) => {
   const handleMoveToCart = () => {
     let path = '/gio-hang'
     navigate(path)
-    
+
     setOpenActionTab([])
     handleSetBold(getHref().page)
   }

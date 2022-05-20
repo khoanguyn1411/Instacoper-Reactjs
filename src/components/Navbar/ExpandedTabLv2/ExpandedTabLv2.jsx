@@ -27,7 +27,7 @@ const ExpandedTabLv2 = ({ isVisible, title, page }) => {
     handleSwitchPage(name)
   }
 
- 
+
   return (
     isVisible &&
     <div className={styles.expandedTabLv2__wrapper}>

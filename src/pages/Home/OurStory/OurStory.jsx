@@ -14,8 +14,8 @@ const OurStory = () => {
   const handleSetBold = context.handleSetBold
 
   useEffect(() => {
-    const elememts = document.querySelectorAll(`.${styles.col__content} h1`)
-    const elememtsIcon = document.querySelectorAll(`.${styles.col__content} svg`)
+    const elememts = document.querySelectorAll(`.${styles.col} h1`)
+    const elememtsIcon = document.querySelectorAll(`.${styles.col} svg`)
     const handleNavigate = () => {
       let path = '/ve-chung-toi'
       navigate(path)
@@ -57,53 +57,7 @@ const OurStory = () => {
 
           </div>
         </div>
-        {/* <div className={styles.ourStory__wrapper}>
-          <div className={styles.ourStory__leftContent}>
-            <img src={imgsHome.ourstoryBanner}></img>
-          </div>
-
-          <div className={styles.ourStory__rightContent}>
-            <div className={styles.col}>
-              <div className={styles.col__content}>
-                <h1>Instacoper Team</h1>
-                <h2>The Day We Met!</h2>
-                <div className={styles.col__icon}>
-                  <HiArrowRight />
-                </div>
-              </div>
-              <div className={styles.col__image}>
-                <img src={imgsHome.story1} />
-              </div>
-            </div>
-            <div className={styles.col}>
-              <div className={styles.col__image}>
-                <img src={imgsHome.story2} />
-              </div>
-              <div className={styles.col__content}>
-
-                <h1>The Place For Passion</h1>
-                <h2>Has Been Founded!</h2>
-                <div className={styles.col__icon}>
-                  <HiArrowRight />
-                </div>
-              </div>
-            </div>
-            <div className={styles.col}>
-              <div className={styles.col__content}>
-
-                <h1>Your Satisfaction</h1>
-                <h2>Is our #1 priority!</h2>
-                <div className={styles.col__icon}>
-                  <HiArrowRight />
-                </div>
-              </div>
-              <div className={styles.col__image}>
-
-                <img src={imgsHome.story3} />
-              </div>
-            </div>
-          </div>
-        </div> */}
+     
 
         <div className={styles.ourStory__content}>
           

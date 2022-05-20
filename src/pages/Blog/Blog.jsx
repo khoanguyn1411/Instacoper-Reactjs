@@ -1,10 +1,13 @@
 import React from 'react'
 
-import styles from './Blog.module.scss'
+import s from './Blog.module.scss'
 
 const Blog = () => {
   return (
-    <>Blog</>
+    <div className={s.wrapper}>
+      <div className='app__wrapper'>
+      </div>
+    </div>
   )
 }
 

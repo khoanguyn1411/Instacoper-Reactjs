@@ -226,7 +226,7 @@ const listProducts = [{
     {
         name: 'Nike Air Zoom Pegasus 39',
         isMaleShoes: true,
-        price: 3510000 ,
+        price: 3510000,
         saleOff: 0, //(%)
         status: bestseller,
         brand: 'Nike',
@@ -249,8 +249,8 @@ const listProducts = [{
     },
     {
         name: 'Nike Air Zoom Pegasus 38 A.I.R. Jordan Moss',
-        isMaleShoes: true ,
-        price: 3829000 ,
+        isMaleShoes: true,
+        price: 3829000,
         saleOff: 20, //(%)
         status: '',
         brand: 'Nike',
@@ -274,7 +274,7 @@ const listProducts = [{
     {
         name: 'Adidas Superstar',
         isMaleShoes: false,
-        price: 2500000 ,
+        price: 2500000,
         saleOff: 5, //(%)
         status: '',
         brand: 'Adidas',
@@ -321,8 +321,8 @@ const listProducts = [{
     },
     {
         name: 'New Balance 550 – White Green',
-        isMaleShoes: false ,
-        price:  5000000,
+        isMaleShoes: false,
+        price: 5000000,
         saleOff: 10, //(%)
         status: '',
         brand: 'New Balance',
@@ -333,8 +333,8 @@ const listProducts = [{
     },
     {
         name: 'New Balance 530 – Running Navy',
-        isMaleShoes: true ,
-        price: 3500000 ,
+        isMaleShoes: true,
+        price: 3500000,
         saleOff: 0, //(%)
         status: '',
         brand: 'New Balance',
@@ -369,8 +369,8 @@ const listProducts = [{
     },
     {
         name: 'Puma Rs-Z',
-        isMaleShoes: false ,
-        price: 3450000 ,
+        isMaleShoes: false,
+        price: 3450000,
         saleOff: 0, //(%)
         status: '',
         brand: 'Puma',
@@ -418,7 +418,7 @@ const listProducts = [{
     {
         name: 'Balenciaga Triple S Beige Green Yellow Plus Y Factory',
         isMaleShoes: true,
-        price: 4500000 ,
+        price: 4500000,
         saleOff: 10, //(%)
         status: bestseller,
         brand: 'Balenciaga',
@@ -453,7 +453,7 @@ const listProducts = [{
     },
     {
         name: 'Balenciaga Triple S Blue black Plus Y Factory',
-        isMaleShoes: false ,
+        isMaleShoes: false,
         price: 3250000,
         saleOff: 0, //(%)
         status: '',
@@ -465,7 +465,7 @@ const listProducts = [{
     },
     {
         name: 'New Balance Fresh Foam Roav',
-        isMaleShoes: false ,
+        isMaleShoes: false,
         price: 2500000,
         saleOff: 0, //(%)
         status: '',
@@ -477,7 +477,7 @@ const listProducts = [{
     },
     {
         name: 'New Balance CT302',
-        isMaleShoes: true ,
+        isMaleShoes: true,
         price: 3000000,
         saleOff: 0, //(%)
         status: '',
@@ -489,7 +489,7 @@ const listProducts = [{
     },
     {
         name: 'New Balance 2002R',
-        isMaleShoes: true ,
+        isMaleShoes: true,
         price: 2589000,
         saleOff: 0, //(%)
         status: '',
@@ -501,7 +501,7 @@ const listProducts = [{
     },
     {
         name: 'New Balance Made in USA 992',
-        isMaleShoes: false ,
+        isMaleShoes: false,
         price: 4850000,
         saleOff: 0, //(%)
         status: '',
@@ -517,7 +517,7 @@ listProducts.forEach(element => {
     element.des = `Ra mắt vào năm 1990, ${element.name} là đôi giày bóng chày đầu tiên của Jordan, đã cách mạng hóa trò chơi trong khi nhanh chóng thu hút được sức hút trên khắp thế giới. Ngày nay,  ${element.name}  vẫn đúng với nguồn gốc của nó với cùng một lớp đệm mềm mại và có độ đàn hồi đã thay đổi lịch sử giày thể thao.`
 });
 
-listProducts.forEach((element,index) => {
+listProducts.forEach((element, index) => {
     element.id = `SP00${index}`
 });
 

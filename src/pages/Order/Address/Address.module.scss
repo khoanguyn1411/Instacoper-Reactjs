@@ -1,5 +1,6 @@
 .wrapper {
     position: relative;
+
     &__title {
         display: flex;
         align-items: center;
@@ -88,6 +89,7 @@
                                 font-weight: normal;
                                 font-size: 17px;
                                 line-height: 30px;
+
                                 @media screen and (max-width: 850px) {
                                     display: none;
                                 }
@@ -107,10 +109,11 @@
 
                             }
 
-                            h3{
+                            h3 {
                                 font-size: 17px;
                                 font-weight: bold;
                                 display: none;
+
                                 @media screen and (max-width: 850px) {
                                     margin-left: 0;
                                     display: block;
@@ -153,7 +156,8 @@
 
             .leftSide {
                 margin-left: 20px;
-                button{
+
+                button {
                     width: 50%;
                     min-width: 120px;
                 }
@@ -170,7 +174,7 @@
 
                 @media screen and (max-width: 700px) {
                     position: absolute;
-                    top: 0;
+                    top: -18px;
                     right: 0;
                     margin-top: 20px;
                     margin-right: 20px;

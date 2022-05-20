@@ -29,10 +29,12 @@
                 border: 2px solid var(--pink-color);
                 margin-left: 4px;
                 margin-top: 5px;
-                >h4{
+
+                >h4 {
                     margin-right: 4px;
                 }
-                >svg{
+
+                >svg {
                     fill: var(--pink-color);
                     cursor: pointer;
                 }
@@ -44,8 +46,22 @@
         display: flex;
         align-items: flex-start;
         margin-top: 10px;
+
         .filter_res {
             display: none;
+        }
+
+        .toggle_filter {
+            svg {
+                font-size: 12px;
+            }
+        }
+
+        .sort_by {
+            svg {
+                font-size: 25px;
+                margin-top: -3px;
+            }
         }
 
         .toggle_filter,
@@ -54,21 +70,37 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
+            transition: 0.3s;
+
+            &:hover {
+                svg {
+                    transition: 0.3s;
+                    color: var(--pink-color);
+                    text-decoration: underline;
+                    transition: 0.3s all;
+                }
+
+                h1 {
+                    color: var(--pink-color);
+                    transition: 0.3s all;
+
+                }
+
+            }
 
             h1 {
                 font-size: 17px;
                 margin-right: 10px;
                 font-weight: normal;
                 cursor: pointer;
-                transition: 0.3s;
                 width: max-content;
-                transition: 0.3s;
+                transition: 0.3s all;
 
-                &:hover {
-                    transition: 0.3s;
-                    color: var(--pink-color);
-                    text-decoration: underline;
-                }
+            }
+
+            svg {
+                transition: 0.3s all;
+
             }
 
             img {
@@ -148,14 +180,15 @@
 
 }
 
-.wrapper_topContent{
+.wrapper_topContent {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     margin-top: 30px;
     text-transform: uppercase;
-    >div{
+
+    >div {
         height: 2px;
         width: 25%;
         background-color: var(--pink-color);

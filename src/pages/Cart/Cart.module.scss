@@ -103,13 +103,13 @@
                     }
 
                     &__button {
-                        flex: 1;
+                        margin-left: 15px;
+                        min-width: max-content;
                         padding: 15px;
                         font-size: 15px;
-                        &:last-child{
-                            background-color: goldenrod;
-                            border-color: goldenrod;
-                        }
+                        cursor: pointer;
+                        text-align: center;
+                       
                     }
                 }
 

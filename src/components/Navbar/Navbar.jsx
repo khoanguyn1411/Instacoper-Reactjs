@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import { HiMenuAlt4, HiX, HiSearch } from 'react-icons/hi'
 import clsx from 'clsx'
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowDown, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 
 import { imgsIcon, imgsLogo, tabList } from '../../constants'
 import { LeftSideBar } from '../../components'
@@ -203,14 +205,14 @@ const Navbar = () => {
                 tabs.map((item, index) => (
                   <div key={index}>
                     <li className={styles.app__navbar_listItem}>
-                      <div>
+                      <div className={clsx({ [styles.app__navbar_noBold]: bold.direct !== item.nameNoAccent },
+                        { [styles.app__navbar_bold]: bold.direct === item.nameNoAccent })}>
                         <Link
-                          className={clsx({ [styles.app__navbar_noBold]: bold.direct !== item.nameNoAccent },
-                            { [styles.app__navbar_bold]: bold.direct === item.nameNoAccent })}
                           key={index}
                           to={item.nameNoAccent}
                           onClick={() => handleSwitchPage(item.nameNoAccent)}>{item.name}</Link>
-                        {item.isExpanded && <img src={imgsIcon.down_arrow} />}
+                        {/* {item.isExpanded && <img src={imgsIcon.down_arrow} />} */}
+                        {item.isExpanded && <FontAwesomeIcon icon={faCaretDown} />}
                       </div>
                       {
                         item.isExpanded &&

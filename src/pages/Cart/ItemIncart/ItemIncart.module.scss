@@ -79,7 +79,7 @@
         }
 
         h4 {
-            color: var(--green-color);
+            font-weight: 600;
         }
     }
 
@@ -133,21 +133,18 @@
 
         h4 {
             margin-top: 10px;
-            color: goldenrod;
+            color: var(--pink-color);
         }
     }
 
     &__delete {
         display: flex;
-        border-radius: 50%;
-        background-color: var(--pink-color);
         padding: 5px;
         cursor: pointer;
-        align-self: flex-start;
+        align-self: center;
 
         svg {
-            align-self: center;
-            color: white;
+            color: black;
         }
     }
 
