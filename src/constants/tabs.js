@@ -1,4 +1,6 @@
+import blogs from "./blogs"
 import products from "./products"
+import util from "./util/util"
 
 
 const HOME = 'Trang chủ'
@@ -40,6 +42,14 @@ const tabsLeftBar = ['Walking Style Shoes', 'Casual Shoes', 'Boat Shoes', 'Canva
 ]
 
 const tabsUser = ['Đăng nhập', 'Đăng ký', ]
+
+const getTabsBlog = () => {
+    return blogs.getBlogCates().map((item) => ({
+        name: item,
+        nameNoAccent: util.removeAccent(item),
+        isExpanded: false
+    }))
+}
 
 
 
@@ -117,17 +127,7 @@ const tabListObj = [{
                 name: arrBlogPages[0],
                 nameNoAccent: TOPIC_NO_ACCENT,
                 isExpanded: true,
-                tablist3: [{
-                        name: 'Instacoper news',
-                        nameNoAccent: 'instacoper-news',
-                        isExpanded: false
-                    },
-                    {
-                        name: 'Xu hướng thời trang',
-                        nameNoAccent: 'xu-huong-thoi-trang',
-                        isExpanded: false
-                    },
-                ]
+                tablist3: getTabsBlog()
 
             },
             {

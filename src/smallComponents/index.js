@@ -8,6 +8,7 @@ import InputField from './InputField/InputField'
 import Button from './Button/Button'
 import SearchDisplay from './SearchDisplay/SearchDisplay'
 import Popper from './Popper/Popper'
+import Pagination from './Pagination/Pagination'
 
 export {
     CheckboxInside,
@@ -19,5 +20,6 @@ export {
     Popper,
     ItemProduct,
     InputField,
-    Button
+    Button,
+    Pagination
 }

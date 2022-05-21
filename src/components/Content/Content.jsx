@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 
 import { tabList } from '../../constants'
 import {
-  Home, Blog, AboutUs, ProductsNavigation, FAQsNavigation,
+  Home, BlogNavigation, AboutUs, ProductsNavigation, FAQsNavigation,
   Cart, Order
 } from '../../pages'
 import styles from './Content.module.scss'
@@ -11,7 +11,7 @@ import styles from './Content.module.scss'
 const Content = () => {
 
 
-  const pagesComponents = [<Home />, <ProductsNavigation />, <Blog />, <FAQsNavigation />, <AboutUs />]
+  const pagesComponents = [<Home />, <ProductsNavigation />, <BlogNavigation />, <FAQsNavigation />, <AboutUs />]
   const tabs = tabList.tabListObj
   return (
     <div className={styles.content__wrapper}>
