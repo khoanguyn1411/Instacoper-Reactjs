@@ -14,17 +14,23 @@ const ExpandedTabActions = ({ isVisible, alt, setOpenActionTab }) => {
   const context = useContext(PageContext)
   const handleSetBold = context.handleSetBold
   const getHref = context.getWindowHref
+  const navigate = useNavigate()
 
 
   const setRerender = context.setRerender
 
   const tabsUser = tabList.tabsUser
+  const handleDirectPage = (item) => {
+      const path = `/${item.nameNoAccent}`
+      navigate(path)
+      window.scroll(0,0)
+  }
   const UserTab = () => (
     <ul className={styles.wrapper__user}>
       {
         tabsUser.map((item, index) => (
-          <li key={index}>
-            <a>{item}</a>
+          <li onClick={() => handleDirectPage(item)} key={index}>
+            <a>{item.name}</a>
           </li>
         ))
       }
@@ -41,7 +47,6 @@ const ExpandedTabActions = ({ isVisible, alt, setOpenActionTab }) => {
     setRerender(Math.random())
   }
 
-  let navigate = useNavigate()
 
   const handleMoveToCart = () => {
     let path = '/gio-hang'
@@ -78,7 +83,7 @@ const ExpandedTabActions = ({ isVisible, alt, setOpenActionTab }) => {
     window.scrollTo(0, 0)
   }
 
-
+  
   const CartTab = () => (
     <div className={styles.wrapper__cart}>
       <div className={styles.wrapper__cart_top}>

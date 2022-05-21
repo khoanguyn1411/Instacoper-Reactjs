@@ -31,7 +31,7 @@ const ExpandedTab = ({ page }) => {
 
   const handleDirectPage = (name) => {
     if (!name.isExpanded) {
-      let path = `${page}/${name.nameNoAccent}`;
+      let path = `/${page}/${name.nameNoAccent}`;
       navigate(path);
       handleSwitchPage(name.nameNoAccent)
     }

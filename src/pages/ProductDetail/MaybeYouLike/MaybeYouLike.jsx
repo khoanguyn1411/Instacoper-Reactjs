@@ -2,21 +2,18 @@ import React, { useEffect, useState } from 'react'
 
 import styles from './MaybeYouLike.module.scss'
 import ItemProduct from '../../../smallComponents/ItemProduct/ItemProduct'
-import { products } from '../../../constants';
+import { products, util } from '../../../constants';
 
 const MaybeYouLike = ({ product }) => {
-    function getMultipleRandom(arr, num) {
-        const shuffled = [...arr].sort(() => 0.5 - Math.random());
-        return shuffled.slice(0, num);
-    }
+  
 
     const [randomProducts, setRandomProducts] = useState(() => {
-        return getMultipleRandom(products.listProducts, 6)
+        return util.getMultipleRandom(products.listProducts, 6)
     })
 
 
     useEffect(() => {
-        setRandomProducts(getMultipleRandom(products.listProducts, 6))
+        setRandomProducts(util.getMultipleRandom(products.listProducts, 6))
     }, [product])
 
 

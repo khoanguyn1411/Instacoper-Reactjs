@@ -5,7 +5,9 @@
     flex-direction: column;
     text-transform: uppercase;
     text-align: center;
-
+    >h1{
+        text-align: center;
+    }
     >div {
         height: 2px;
         width: 25%;

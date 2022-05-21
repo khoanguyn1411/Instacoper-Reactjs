@@ -1,25 +1,27 @@
 import React from 'react'
-import {imgsHome, imgsIcon} from '../../../constants'
+import { useNavigate } from 'react-router-dom'
+import { blogs, imgsIcon, util } from '../../../constants'
 
 import styles from './TopBlogs.module.scss'
 
 const TopBlogs = () => {
-  const blogs = [
-    {
-      category: 'Instacoper News',
-      title: 'Adidas Stan Smith “Made To Be Remade” – Giày mang cũ gửi trả, adidas sẽ gửi lại đôi mới',
-      content: 'Adidas Stan Smith “Made To Be Remade” là đôi sneakers được phát hành',
-      thumb: imgsHome.blog1,
-      dateUpload: 'Jan 9, 2022',
-    },
-    {
-      category: 'Tin tức thời trang',
-      title: 'Skechers X JGoldcrown: Thông Điệp Về Sự Tích Cực Và Tình Yêu',
-      content: 'Skechers hợp tác cùng nghệ sỹ vẽ tranh tường James Goldcrown ra mắt các sản phẩm mới nhất và độc đáo nhất',
-      thumb: imgsHome.blog2,
-      dateUpload: 'Feb 9, 2022',
-    }
-  ]
+  const blogsList = blogs.getListBlogs()
+  const random2blogs = util.getMultipleRandom(blogsList.filter((blog) => (blog.status === 'Xem nhiều nhất')), 2)
+  random2blogs[0].dateUpload = 'January, 10th 2021'
+  random2blogs[1].dateUpload = 'July, 6th 2022'
+
+  const navigate = useNavigate()
+  const handleMoveToDetail = (item) => {
+    let path = `/blog/chu-de/${util.removeAccent(item.cate)}/${util.removeAccent(item.title)}`
+    navigate(path)
+    window.scroll(0, 0)
+  }
+  const handleMoveToCate = (item) => {
+    let path = `/blog/chu-de/${util.removeAccent(item.cate)}`
+    navigate(path)
+    window.scroll(0, 0)
+  }
+
   return (
     <div className='app__wrapper'>
       <div className={styles.topBlogs__title}>
@@ -30,7 +32,7 @@ const TopBlogs = () => {
 
       <div className={styles.topBlogs__wrapper}>
         {
-          blogs.map((item, index) => (
+          random2blogs.map((item, index) => (
             <div
               key={index}
               className={styles.item__wrapper}
@@ -43,9 +45,9 @@ const TopBlogs = () => {
                   <img src={imgsIcon.twitter} />
                   <img src={imgsIcon.p} />
                 </div>
-                <h1>{item.category}</h1>
-                <h2>{item.title}</h2>
-                <p>{item.content}</p>
+                <h1 onClick={() => { handleMoveToCate(item) }}>{item.cate}</h1>
+                <h2 onClick={() => { handleMoveToDetail(item) }}>{item.title}</h2>
+                <p>{item.des}</p>
                 <h3>{item.dateUpload}</h3>
               </div>
             </div>

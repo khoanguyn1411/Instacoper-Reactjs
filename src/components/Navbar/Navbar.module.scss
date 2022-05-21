@@ -4,328 +4,52 @@
     z-index: 5;
 }
 
-.app__searchBar {
-    background-color: black;
-    height: 70px;
-    width: 100%;
-
-    >div {
-        height: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-
-        .app__searchBar_logo {
-            width: auto;
-            height: 50%;
-            display: flex;
-            flex-direction: row;
-
-            >img:first-child {
-                margin-right: 15px;
-            }
-
-            >img:last-child {
-                margin-top: 5px;
-
-                @media screen and (max-width: 550px) {
-                    display: none;
-                }
-            }
-        }
-
-        .app__searchBar_input {
-            flex: 0.7;
-            display: flex;
-            align-items: center;
-            margin: 0 10px;
-
-            .searchResult_wrapper {
-                width: 100%;
-                position: relative;
-
-                >svg {
-                    position: absolute;
-                    margin-left: 8px;
-                    left: 0;
-                    margin-top: 10px;
-                }
-
-                >input {
-                    width: 100%;
-                    padding: 8px;
-                    padding-left: 30px;
-                    border: none;
-                    border-radius: 3px;
-
-                    @media screen and (max-width: 550px) {
-                        width: 100%;
-
-                    }
-                }
-            }
-
-
-
-        }
-
-        .app__searchBar_actions {
-            width: 15%;
-            height: 30%;
-            display: flex;
-            justify-content: end;
-
-            >div {
-                position: relative;
-
-                >img {
-                    height: 100%;
-                    cursor: pointer;
-                }
-
-                >div {
-                    position: absolute;
-                    right: 0;
-                    z-index: 7;
-                    margin-right: 8px;
-                }
-
-                &:last-child {
-                    >h1 {
-                        position: absolute;
-                        top: 0;
-                        background-color: var(--pink-color);
-                        width: 22px;
-                        height: 22px;
-                        display: flex;
-                        padding: 10px;
-                        justify-content: center;
-                        align-items: center;
-                        color: white;
-                        font-size: 12px;
-                        border-radius: 50%;
-                        right: 0;
-                        font-weight: 600;
-                        margin-top: -10px;
-                        margin-right: -10px;
-
-                    }
-                }
-            }
-
-            >div:first-child {
-                >img:first-child {
-                    margin-right: 10px;
-                }
-            }
-
-        }
-    }
-
-}
-
-
-
-
-
-
-.app__navbar_bold {
-    >a {
-        font-weight: 800;
-        font-family: var(--font-ssp);
-        cursor: pointer;
-        text-decoration: none;
-        color: var(--pink-color);
-
-        &::after {
-            content: "";
-            width: 30%;
-            height: 2px;
-            background-color: #F54253;
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            transition: 0.4s ease-in-out;
-        }
-    }
-
-    >svg {
-        color: var(--pink-color);
-        margin-left: 10px;
-    }
-}
-
-.app__navbar {
+.app__navbar_wrap {
     box-shadow: 1px 1px 5px rgb(0 0 0 / 40%);
     background-color: white;
+    padding: 10px 0;
 
     >div {
-        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.app__navbar_toggleField {
+    flex: 0.25;
+    margin-right: 30px;
+
+    div {
         display: flex;
         flex-direction: row;
         align-items: center;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        background-color: black;
+        height: fit-content;
+        width: fit-content;
+        min-width: 190px;
+        justify-content: center;
+        padding: 10px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
 
-        >svg {
-            position: absolute;
-            right: 0;
-            display: none;
-            margin-right: 20px;
-            font-size: 25px;
+        h1 {
+            font-size: 15px;
+            font-family: var(--font-ssp);
+            margin-left: 10px;
+            color: white;
+        }
+
+        svg {
+            font-size: 20px;
+            color: white;
             cursor: pointer;
         }
+    }
 
-        .app__navbar_toggleField {
-            flex: 0.25;
-
-            div {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                background-color: black;
-                height: fit-content;
-                width: fit-content;
-                min-width: 190px;
-                justify-content: center;
-                padding: 10px 10px;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: 0.3s;
-
-                h1 {
-                    font-size: 15px;
-                    font-family: var(--font-ssp);
-                    margin-left: 10px;
-                    color: white;
-                }
-
-                svg {
-                    font-size: 20px;
-                    color: white;
-                    cursor: pointer;
-                }
-            }
-
-            :hover {
-                background-color: rgb(61, 55, 55);
-                transition: 0.3s;
-            }
-
-        }
-
-        .app__navbar_ulWrapper {
-            display: flex;
-            flex-direction: row;
-            flex: 1;
-
-            >svg {
-                display: none;
-                cursor: pointer;
-            }
-
-            .app__navbar_listItem {
-                text-decoration: none;
-                list-style-type: none;
-                width: fit-content;
-                position: relative;
-                display: flex;
-                align-items: flex-start;
-                margin: 0px 18px;
-                flex-direction: row;
-
-                .app__navbar_extended {
-                    display: none;
-                    position: absolute;
-                    left: 0;
-                    margin-top: 20px;
-                }
-
-
-            }
-
-            .app__navbar_noBold {
-                font-family: var(--font-ssp);
-                cursor: pointer;
-
-                >a {
-                    text-decoration: none;
-                    color: black;
-                }
-
-                svg {
-                    margin-left: 10px;
-                }
-
-                transition: 0.3s;
-            }
-
-            .app__navbar_noBold:hover {
-                >a {
-                    color: var(--pink-color);
-                    transition: 0.4s;
-                }
-            }
-
-            div:hover .app__navbar_extended {
-                display: block;
-            }
-
-            @media screen and (max-width: 900px) {
-                flex-direction: column;
-                right: -200px;
-                background-color: white;
-                overflow: auto;
-                transition: 0.3s;
-                width: 200px;
-                padding-top: 20px;
-                height: 100vh;
-                padding-bottom: 20px;
-                position: fixed;
-                top: 0;
-
-                >svg {
-                    position: absolute;
-                    right: 0;
-                    font-size: 28px;
-                    margin-right: 20px;
-                    display: block;
-                    background-color: var(--pink-color);
-                    padding: 5px;
-                }
-
-                .app__navbar_listItem {
-                    height: auto;
-                    margin: 0;
-                    margin-left: 10px;
-                    margin-top: 10px;
-                    display: flex;
-                    flex-direction: column;
-
-                    .app__navbar_extended {
-                        display: flex;
-                        position: static;
-                        margin: 0;
-                    }
-                }
-            }
-
-
-
-        }
-
-        .app__navbar_show {
-            right: 0px;
-            transition: 0.3s;
-        }
-
-        @media screen and (max-width: 900px) {
-            >svg {
-                display: block;
-            }
-        }
-
+    :hover {
+        background-color: rgb(61, 55, 55);
+        transition: 0.3s;
     }
 
 }

@@ -59,7 +59,54 @@
     }
 }
 
-.something {
-    .btnDemo {
+.wrapperFAQs {
+    margin-top: 30px;
+    padding-bottom: 50px;
+
+    &__title {
+        display: flex;
+        margin-top: 30px;
+
+        >div {
+            width: 7px;
+            background-color: var(--pink-color);
+            border-radius: 999px;
+        }
+
+        h1 {
+            margin-left: 10px;
+        }
+    }
+
+    &__block+&__block {
+        margin-top: 18px;
+    }
+
+    &__item {
+        margin-top: 10px;
+
+        >a {
+            display: block;
+            color: black;
+            width: fit-content;
+            text-decoration: none;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            &:hover{
+                color: var(--pink-color);
+                transition: 0.3s;
+            }
+
+            &::before{
+                display: block;
+                margin-right: 10px;
+                content: "";
+                border-radius: 50%;
+                height: 7px;
+                width: 7px;
+                background-color: var(--pink-color);
+            }
+        }
     }
 }

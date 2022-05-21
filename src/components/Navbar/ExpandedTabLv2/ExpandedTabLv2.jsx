@@ -22,7 +22,7 @@ const ExpandedTabLv2 = ({ isVisible, title, page }) => {
   }
 
   const handleDirectPage = (name) => {
-    let path = `${page}/${title.nameNoAccent}/${name}`
+    let path = `/${page}/${title.nameNoAccent}/${name}`
     navigate(path);
     handleSwitchPage(name)
   }

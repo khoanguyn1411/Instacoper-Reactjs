@@ -1,9 +1,8 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext } from 'react'
 import { faFilter, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { HiX } from 'react-icons/hi'
 
-import { imgsIcon } from '../../../constants'
 import styles from './TopContent.module.scss'
 import { ProductContext } from '../ProductContext/ProductContext'
 

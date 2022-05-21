@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import styles from './Footer.module.scss'
 import { imgsFooter, tabList } from '../../constants'
 import { PageContext } from '../PageContext/PageContext'
+import {Button, InputField} from '../../smallComponents'
 
 const Footer = () => {
 
@@ -60,7 +61,7 @@ const Footer = () => {
                   tabs.map((tab, index) => (
                     <Link
                       key={index}
-                      to={tab.nameNoAccent}
+                      to={`/${tab.nameNoAccent}`}
                       onClick={() => { handleSwitchPage(tab) }}
                       className={clsx({ [styles.bold]: tab.nameNoAccent === bold.direct })}
                     >
@@ -90,7 +91,7 @@ const Footer = () => {
                       <Link
                         key={index}
                         onClick={() => handleSwitchPage(item)}
-                        to={`faqs/ho-tro-khach-hang/${item.nameNoAccent}`}
+                        to={`/faqs/ho-tro-khach-hang/${item.nameNoAccent}`}
                         className={clsx({ [styles.bold]: item.nameNoAccent === bold.pageAssistance })}
                       >
                         {item.name}
@@ -103,8 +104,8 @@ const Footer = () => {
             <div className={styles.footer__content_register}>
               <form>
                 <p>Đăng ký nhận thông tin mới nhất!</p>
-                <input required placeholder='Nhập email bạn tại đây' />
-                <button>Đăng ký ngay</button>
+                <InputField required placeholder='Nhập email bạn tại đây' />
+                <Button pink>Đăng ký ngay</Button>
               </form>
 
             </div>
@@ -116,7 +117,7 @@ const Footer = () => {
               <p>Hỗ trợ thanh toán</p>
               <div>
                 {paymentList.map((item, index) => (
-                  <img key={index} src={item} />
+                  <img alt={`PM0${index}`} key={index} src={item} />
                 ))}
               </div>
             </div>

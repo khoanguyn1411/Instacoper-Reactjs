@@ -12,7 +12,7 @@ const BlogNavigation = () => {
   const listBlogs = blogs.getListBlogs()
   return (
     <Routes>
-      <Route path='/*' element={<Blog />} />
+      <Route path='/*' element={<Blog cate={'Tất cả blogs'} />} />
       {
         catesList.map((item, index) => (
           <Route key={index} path={`/chu-de/${util.removeAccent(item)}`}

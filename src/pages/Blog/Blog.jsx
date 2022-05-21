@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import clsx from 'clsx'
 
 import s from './Blog.module.scss'
 import { blogs, util } from '../../constants'
-import { useNavigate } from 'react-router-dom'
 import { Pagination, Title } from '../../smallComponents'
 
 
@@ -22,8 +22,7 @@ const Blog = ({ filter, cate }) => {
       setCurrentListBlogs(newList)
       return
     }
-    if (cate) {
-      console.log(cate)
+    if (cate && cate != 'Tất cả blogs') {
       newList = listBlogs.filter((item) => (item.status === cate))
       setCurrentListBlogs(newList)
       return

@@ -259,8 +259,8 @@ const Filter = ({ cate, filter }) => {
       return checker(listSizePro, checkedListSize)
     })
     return newList
-
   }
+  
   const handleRangeSliderField = () => {
     const currentListPros = handleFilterCheckboxField()
     const newList = currentListPros.filter((item) => (item.price >= minValueToFilter && item.price <= maxValueToFilter))

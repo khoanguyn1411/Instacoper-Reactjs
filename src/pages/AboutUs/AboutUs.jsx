@@ -8,7 +8,7 @@ import {BannerMain, Values, InstacoperBrand, Team} from './../AboutUs'
 const AboutUs = () => {
   
   return (
-    <div>
+    <div className={styles.wrapper}>
         <BannerMain/>
         <Values/>
         <InstacoperBrand/>

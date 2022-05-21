@@ -138,6 +138,29 @@ validate.isEmail = function (selector, key, message) {
     }
 }
 
+validate.isValidPass = function (selector, key, message) {
+    return {
+        selector,
+        key,
+        test: (value) => {
+            return value.length > 8 ? undefined : message || 'Mật khẩu phải có nhiều hơn 8 ký tự';
+        }
+    }
+}
+
+validate.isValidConfirmPassword = function (selector, key, message, valuePass) {
+    // Phải cho dep useEffect là password
+    return {
+        selector,
+        key,
+        test: (value) => {
+            return value === valuePass ? undefined : message || 'Mật khẩu không trùng khớp';
+        }
+    }
+}
+
+
+
 
 
 

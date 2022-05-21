@@ -72,4 +72,10 @@ function getWindowHref() {
   }
 }
 
-export default {formatCurrency, splitMulti, getWindowHref, removeAccent}
+function getMultipleRandom(arr, num) {
+  const shuffled = [...arr].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, num);
+}
+
+
+export default {formatCurrency, splitMulti, getWindowHref, removeAccent, getMultipleRandom}

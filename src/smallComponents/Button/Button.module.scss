@@ -5,12 +5,17 @@ button {
     transition: 0.3s;
     min-width: max-content;
 
+
     &:hover {
         transition: 0.3s;
     }
 
     .isShowIcon {
         margin-right: 6px;
+        svg{
+            position: relative;
+            transform: translateY(10%);
+        }
     }
 }
 

@@ -1,28 +1,26 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
-import { HiX } from 'react-icons/hi'
+import React, { useContext, useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 import { PageContext } from '../../../components/PageContext/PageContext'
-import CheckboxOutside from '../../../smallComponents/CheckboxOutside'
-import SelectBox from '../../../smallComponents/SelectBox/SelectBox'
+import { CheckboxOutside, SelectBox } from '../../../smallComponents'
 import styles from './ItemIncart.module.scss'
 
 const ItemIncart = ({ product, checkedProductList, setCheckedProductList }) => {
 
     const context = useContext(PageContext)
-    
+
     const itemsInCart = context.itemsInCart
     const key = context.keyItemsInCart
     const formatCurrency = context.formatCurrency
     const setRerender = context.setRerender
-    
+
 
     const [quantity, setQuantity] = useState(product.quantity)
     const [totalPrice, setTotalPrice] = useState(product.totalPrice)
     const [size, setSize] = useState(product.sizeChosen)
 
-   
+
 
     const updateTotalPrice = () => {
         setTotalPrice(product.price * quantity)
@@ -130,9 +128,9 @@ const ItemIncart = ({ product, checkedProductList, setCheckedProductList }) => {
                 listShow={product.sizeAvailable}
                 setCurrentValue={setSize}
                 className={prop.className}
-                classNameList = {prop.classNameList}
+                classNameList={prop.classNameList}
                 // Cho nay moi sua
-                value = {size}
+                value={size}
             >
             </SelectBox>
         )
@@ -154,7 +152,7 @@ const ItemIncart = ({ product, checkedProductList, setCheckedProductList }) => {
                 </div>
                 <div className={styles.wrapper__size}>
                     <h3>Size</h3>
-                    <SelectBoxSize className={styles.chkBox} classNameList = {styles.list} />
+                    <SelectBoxSize className={styles.chkBox} classNameList={styles.list} />
                 </div>
 
                 <div className={styles.wrapper__price}>
@@ -177,7 +175,7 @@ const ItemIncart = ({ product, checkedProductList, setCheckedProductList }) => {
                 <div onClick={handleRemoveItem}
                     className={styles.wrapper__delete}
                 >
-                    <FontAwesomeIcon icon={faTrashAlt}/>
+                    <FontAwesomeIcon icon={faTrashAlt} />
                 </div>
             </div>
         )
@@ -224,7 +222,7 @@ const ItemIncart = ({ product, checkedProductList, setCheckedProductList }) => {
                         </div>
                         <div className={styles.sizeAndQuantity}>
                             <div className={styles.sizeAndQuantity_size}>
-                                <SelectBoxSize className={styles.chkBox}  classNameList = {styles.list}/>
+                                <SelectBoxSize className={styles.chkBox} classNameList={styles.list} />
                             </div>
                             <div className={styles.sizeAndQuantity_input}>
                                 <InputField />
@@ -234,7 +232,7 @@ const ItemIncart = ({ product, checkedProductList, setCheckedProductList }) => {
                 </div>
 
                 <div className={styles.wrapperMobile__bottomContent}>
-                    <div className={styles.wrapperMobile__bottomContent_deleteProduct} onClick = {handleRemoveItem}>
+                    <div className={styles.wrapperMobile__bottomContent_deleteProduct} onClick={handleRemoveItem}>
                         <FontAwesomeIcon icon={faTrashAlt} />
                         <h1>Xóa sản phẩm</h1>
                     </div>
@@ -253,7 +251,7 @@ const ItemIncart = ({ product, checkedProductList, setCheckedProductList }) => {
                 <ItemMobileDisplay />
             </>
         )
-    
+
     }
     return (
         <>

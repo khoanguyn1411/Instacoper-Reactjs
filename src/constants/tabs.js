@@ -41,7 +41,15 @@ const tabsLeftBar = ['Walking Style Shoes', 'Casual Shoes', 'Boat Shoes', 'Canva
     'Basketball Style Shoes', 'Chunky Shoes', 'Other Trendy Shoes'
 ]
 
-const tabsUser = ['Đăng nhập', 'Đăng ký', ]
+const tabsUser = [{
+        name: 'Đăng nhập',
+        nameNoAccent: 'dang-nhap',
+    },
+    {
+        name: 'Đăng ký',
+        nameNoAccent: 'dang-ky',
+    }
+]
 
 const getTabsBlog = () => {
     return blogs.getBlogCates().map((item) => ({

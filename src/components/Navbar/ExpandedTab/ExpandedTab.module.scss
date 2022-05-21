@@ -1,53 +1,70 @@
-.expandedTab__wrapper{
+.expandedTab__wrapper {
     display: flex;
     flex-direction: column;
     height: auto;
     width: max-content;
     background-color: white;
     border-radius: 5px;
-    box-shadow:  1px 1px 5px rgb(0 0 0 / 40%);
+    box-shadow: 1px 1px 5px rgb(0 0 0 / 40%);
     margin-top: 5px;
     z-index: 10;
 
-    > div{
+    >div {
         display: flex;
         flex-direction: column;
         cursor: pointer;
-        > .expandedTab__title{
+
+        >.expandedTab__title {
             padding: 5px 10px;
             display: flex;
             flex-direction: row;
-            li{
+
+            li {
                 list-style-type: none;
                 margin-left: 10px;
             }
-          
+
         }
-        > .expandedTab__title:hover{
+
+        >.expandedTab__title:hover {
             background-color: var(--pink-color);
+            @media screen and (max-width: 900px) {
+                background-color: unset;
+            }
         }
-       
+
     }
+
+ 
+
     @media screen and (max-width: 900px) {
-        box-shadow:  none;  
-        width: 170px; 
+        box-shadow: none;
+        width: 170px;
         border-radius: 0px;
-        .expandedTab__title{
+        .expandedTab__title {
             width: 100%;
         }
     }
-  
-  
-   
 }
 
-.productWidth{
+.productWidth {
     width: 150px;
+    @media screen and (max-width: 900px) {
+        width: auto;
+    }
+
 }
 
-.blogWidth{
+.blogWidth {
     width: 180px;
+    @media screen and (max-width: 900px) {
+        width: auto;
+    }
 }
-.faqsWidth{
+
+.faqsWidth {
     width: 200px;
+    @media screen and (max-width: 900px) {
+        width: auto;
+    }
 }

@@ -1,11 +1,10 @@
-import React, { useContext, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { PageContext } from '../../components/PageContext/PageContext'
 import { Link, useNavigate } from 'react-router-dom'
 
 import styles from './Cart.module.scss'
 import ItemIncart from './ItemIncart/ItemIncart'
-import CheckboxOutSide from '../../smallComponents/CheckboxOutside'
-import Button from '../../smallComponents/Button/Button'
+import { CheckboxOutside, Button } from '../../smallComponents' 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import clsx from 'clsx'
@@ -156,7 +155,7 @@ const ProductOrder = ({ items }) => {
         <h1>Bạn có <span> {items.length}</span> sản phẩm trong giỏ hàng</h1>
         <div className={styles.productOrder__topContent_selectAll}>
           <div className={styles.leftSide}>
-            <CheckboxOutSide
+            <CheckboxOutside
               noLable
               checked={selectAll}
               onchange={handleSelectAll}

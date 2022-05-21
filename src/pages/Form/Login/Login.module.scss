@@ -1,0 +1,26 @@
+.wrapper{
+    margin-top: 40px;
+    padding-right: 35px;
+    h1{
+        font-size: 28px;
+    }
+    h2{
+        font-size: 18px;
+        font-weight: normal;
+        margin-top: 20px;
+        span{
+            color: var(--pink-color);
+            font-weight: bold;
+            cursor: pointer;
+        }
+    }
+
+    .img{
+        display: flex;
+        margin-top: 30px;
+        justify-content: center;
+        img{
+            width: 50%;
+        }
+    }
+}

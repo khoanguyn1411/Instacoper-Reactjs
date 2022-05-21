@@ -9,6 +9,7 @@
     padding: 0 50px;
     max-width: 1250px;
     margin: auto;
+    min-width: 300px;
 
     @media screen and (max-width: 1000px) {
         padding: 0 20px;
@@ -24,7 +25,7 @@
         background-color: #F54253;
         color: white;
         font-size: 12px;
-        border: 1px solid #F54253
+        border: 1px solid #F54253;
     }
 
     input+label::before {
@@ -48,6 +49,7 @@
         margin: 3px 4px 4px 0px;
         font-size: 15px;
         margin-top: 5px;
+        user-select: none;
     }
 }
 
