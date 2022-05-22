@@ -50,7 +50,7 @@ const blogsList = [{
     {
         cate: cate.sneakerTips,
         title: '15 cách buộc dây giày đẹp "chất lừ", làm mới phong cách mỗi ngày của bạn',
-        des: 'ôi giày sneaker sẽ trở nên thú vị và luôn mới mẻ nếu bạn biết cách thay đổi các cách buộc dây giày thường xuyên',
+        des: 'Đôi giày sneaker sẽ trở nên thú vị và luôn mới mẻ nếu bạn biết cách thay đổi các cách buộc dây giày thường xuyên',
         thumb: 'https://instacoper-05.web.app/assets/img/blog/2short-three.png',
         status: status.mostWatch
     },
