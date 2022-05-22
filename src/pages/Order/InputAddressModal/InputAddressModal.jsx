@@ -10,7 +10,6 @@ const InputAddressModal = ({ setOpenModal, setNoAddress, setRerender }) => {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [data, setData] = useState([]);
-
     useEffect(() => {
         fetch("https://provinces.open-api.vn/api/?depth=3")
             .then(res => res.json())

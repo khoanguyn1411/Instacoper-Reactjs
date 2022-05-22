@@ -44,8 +44,6 @@ const Filter = ({ cate, filter }) => {
   const checkedListGender = context.checkedListGender
   const setCheckedListGender = context.setCheckedListGender
 
-  const minPrice = context.minPrice
-  const maxPrice = context.maxPrice
   const setMinPrice = context.setMinPrice
   const setMaxPrice = context.setMaxPrice
 

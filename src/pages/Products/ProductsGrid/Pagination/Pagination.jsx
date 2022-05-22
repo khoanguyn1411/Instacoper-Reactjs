@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState, useNavigate } from 'react';
-import ReactDOM from 'react-dom';
 import ReactPaginate from 'react-paginate';
 
-import { PageContext } from '../../../../components/PageContext/PageContext';
 import { ProductContext } from '../../ProductContext/ProductContext';
 import styles from './Pagination.module.scss'
 

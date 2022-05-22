@@ -76,7 +76,7 @@ const FAQs = () => {
               {
                 item.listQuestion.map((question, index) => (
                   <div key={index} className={s.wrapperFAQs__item}>
-                    <Link  to={question.link}>{question.title}</Link>
+                    <Link onClick={() => {window.scroll(0,0)}}  to={question.link}>{question.title}</Link>
                   </div>
                 ))
               }

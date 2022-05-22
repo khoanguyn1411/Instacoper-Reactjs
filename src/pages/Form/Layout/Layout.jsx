@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import s from './Layout.module.scss'
 import Login from '../Login/Login'
