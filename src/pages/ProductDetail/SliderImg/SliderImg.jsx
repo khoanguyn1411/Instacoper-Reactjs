@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import clsx from 'clsx'
 
 import { imgsProductDetail } from '../../../constants'
@@ -20,20 +20,22 @@ const SliderImg = ({ product, activeImg, setActiveImg }) => {
         handleMoveSlider(0)
     }, [product])
 
+    const containerRef = useRef()
 
     const handleMoveSlider = (direction) => {
-        const container = document.querySelector(`.${styles.wrapper__ins}`)
-        let containerDimesion = container.getBoundingClientRect()
-        let containerWitth = containerDimesion.width
-        if (direction === toLeft) {
-            container.scrollLeft -= containerWitth
-            console.log(containerWitth)
-        }
-        if (direction === toRight) {
-            container.scrollLeft += containerWitth
-        }
-        else {
-            container.scrollLeft = direction
+        if (containerRef.current) {
+            let containerDimesion = containerRef.current.getBoundingClientRect()
+            let containerWitth = containerDimesion.width
+            if (direction === toLeft) {
+                container.scrollLeft -= containerWitth
+                console.log(containerWitth)
+            }
+            if (direction === toRight) {
+                container.scrollLeft += containerWitth
+            }
+            else {
+                container.scrollLeft = direction
+            }
         }
     }
 
@@ -47,7 +49,7 @@ const SliderImg = ({ product, activeImg, setActiveImg }) => {
                 ❮
             </div>
 
-            <div className={styles.wrapper__ins}>
+            <div ref={containerRef} className={styles.wrapper__ins}>
                 <div
                     className={styles.item}
                     onClick={() => handleChangeImg(product.thumb, 0)}
