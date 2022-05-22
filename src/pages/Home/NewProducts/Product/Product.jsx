@@ -29,7 +29,7 @@ const Product = ({ value }) => {
 
       <div className={styles.product__content}>
         <h1>{value.name}</h1>
-        <h2>{value.gender}</h2>
+        <h2>{value.isMaleShoes? 'Giày nam': 'Giày nữ'}</h2>
         <h3>{util.formatCurrency(value.price)}</h3>
         <h4>{value.saleOff > 0 && value.saleOff + '% off'}</h4>
       </div>

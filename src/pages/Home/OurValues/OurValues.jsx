@@ -7,8 +7,8 @@ const OurValues = () => {
 
     const values = [
         {
-            titile: 'Free shipping',
-            content: 'Khách hàng sẽ được miễn phí giao hàng với mỗi đơn hàng >= 5.000.000đ',
+            titile: 'Free Shipping',
+            content: 'Khách hàng sẽ được miễn phí giao hàng với mỗi đơn hàng từ 5.000.000đ',
             icon: imgsHome.ic_value_shipping
         },
         {

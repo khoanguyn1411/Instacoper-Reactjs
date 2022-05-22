@@ -73,12 +73,14 @@ const RangeSlider = () => {
                 <input type="range" className="range-min" min="0" max="5000000"
                     onInput={(e) => { handleRangeMinChange(e) }}
                     onMouseUp = {handleSetFilterMin}
+                    onTouchEnd = {handleSetFilterMin}
                     value={minVal} step="200000"
                 />
                 <input type="range" className="range-max" min="0" max="5000000"
                     onInput={(e) => { handleRangeMaxChange(e) }}
                     value={maxVal} step="200000"
                     onMouseUp = {handleSetFilterMax}
+                    onTouchEnd = {handleSetFilterMax}
                 />
             </div>
             <div className="rangeslider-inputnum">

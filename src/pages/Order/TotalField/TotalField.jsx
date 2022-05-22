@@ -139,7 +139,7 @@ const TotalField = ({ method, isDiscount }) => {
                 <Modal className={s.modal}>
                     <Title>Đặt hàng thành công</Title>
                     <h2>Cảm ơn bạn đã mua hàng tại cửa hàng của chúng tôi, chúng tôi sẽ liên hệ sớm với bạn để xác nhận đơn hàng. </h2>
-                    <Button onClick={handleCloseSuccessModal} pink>Trở lại</Button>
+                    <Button onClick={handleCloseSuccessModal} outlineBlack>Trở lại</Button>
                 </Modal>
             }
         </div>

@@ -6,6 +6,7 @@ import { imgsIcon } from '../../constants'
 import SliderImg from './SliderImg/SliderImg'
 import MaybeYouLike from './MaybeYouLike/MaybeYouLike'
 import { CheckboxInside, Button, Modal, Title } from '../../smallComponents'
+import { useNavigate } from 'react-router-dom'
 
 
 const ProductDetail = ({ product }) => {
@@ -72,6 +73,7 @@ const ProductDetail = ({ product }) => {
   }
 
   const [isShowModal, setIsShowModal] = useState(false)
+  const [isSuccess, setIsSuccess] = useState(false)
   const handleAddItemToCart = () => {
     if (sizeChosen) {
       setLocalStoreItem()
@@ -79,16 +81,23 @@ const ProductDetail = ({ product }) => {
       setIsShowModal(true)
       setMessage('Sản phẩm đã được thêm vào giỏ hàng thành công')
       setRerender(Math.random()) // Hàm này để re-render lại thanh nav, cập nhật lại cái số lượng items trong cart
-
+      setIsSuccess(true)
     }
     else {
       setIsShowModal(true)
       setMessage('Vui lòng chọn size giày')
+      setIsSuccess(false)
     }
   }
 
   const handleCloseModal = () => {
     setIsShowModal(false)
+  }
+  const navigate = useNavigate()
+  const handleMoveToCart = () => {
+    let path = '/gio-hang'
+    navigate(path)
+    window.scroll(0, 0)
   }
 
 
@@ -151,7 +160,13 @@ const ProductDetail = ({ product }) => {
           <Modal className={styles.background} isMessage>
             <Title>Thông báo</Title>
             <h2>{message}</h2>
-            <Button pink onClick={handleCloseModal}>Trở lại</Button>
+            <div className={styles.button}>
+              <Button outlineBlack onClick={handleCloseModal}>Trở lại</Button>
+              {
+                isSuccess &&
+                <Button pink onClick={handleMoveToCart}>Xem giỏ hàng</Button>
+              }
+            </div>
           </Modal>
         </div>
       }

@@ -1,5 +1,7 @@
 import clsx from 'clsx'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { PageContext } from '../../../components/PageContext/PageContext'
 import Button from '../../../smallComponents/Button/Button'
 
 
@@ -14,7 +16,7 @@ const Banner = () => {
       style: styles.banner__titleColor_white,
       content: 'A brand new series of AF1 has been released for 2022',
       actionSlogan: 'Discover with us!',
-      
+
     },
     {
       id: styles.banner1,
@@ -50,7 +52,8 @@ const Banner = () => {
     },
   ]
 
-
+  const context = useContext(PageContext)
+  const handleSetBold = context.handleSetBold
   const [currentSlide, setCurrentSlide] = useState(0)
 
   useEffect(() => {
@@ -82,6 +85,16 @@ const Banner = () => {
     setCurrentSlide(currentSlide + 1)
   }
 
+  const navigate = useNavigate()
+  const handleMoveToProduct = () => {
+    handleSetBold({
+      direct: 'san-pham',
+      pageAssistance: undefined,
+    })
+    navigate('/san-pham')
+    window.scroll(0, 0)
+
+  }
 
 
   return (
@@ -108,8 +121,8 @@ const Banner = () => {
                 </div>
               </div>
               <div className={styles.banner__button_wrapper}>
-                <Button pink>Khám phá BST mới</Button>
-                <Button outLineWhite>Mua hàng ngay</Button>
+                <Button onClick={handleMoveToProduct} pink>Khám phá BST mới</Button>
+                <Button onClick={handleMoveToProduct} outLineWhite>Mua hàng ngay</Button>
               </div>
             </div>
           </div>
