@@ -77,13 +77,13 @@ const FormRegister = () => {
             </div>
 
             <div className={s.button}>
-                <Button ref={btnRef} black>Đăng nhập</Button>
+                <Button ref={btnRef} black>Đăng ký</Button>
                 <div className={s.button__or}>
                     <div />
                     <h3>OR</h3>
                     <div />
                 </div>
-                <Button onClick={handleSubmit} outlineBlack icon={<FcGoogle />}>Đăng nhập với Google</Button>
+                <Button onClick={handleSubmit} outlineBlack icon={<FcGoogle />}>Đăng ký với Google</Button>
             </div>
             <div className={s.lastText}>
                 <h4>Đã có tài khoản? </h4>
