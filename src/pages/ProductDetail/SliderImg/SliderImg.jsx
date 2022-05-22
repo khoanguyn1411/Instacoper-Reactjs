@@ -23,8 +23,13 @@ const SliderImg = ({ product, activeImg, setActiveImg }) => {
     const containerRef = useRef()
 
     const handleMoveSlider = (direction) => {
-        if (containerRef.current) {
-            let containerDimesion = containerRef.current.getBoundingClientRect()
+        const container = containerRef.current
+        if (container) {
+            let containerDimesion = container.getBoundingClientRect()
+            
+            console.log(container)
+            console.log(container.getBoundingClientRect())
+
             let containerWitth = containerDimesion.width
             if (direction === toLeft) {
                 container.scrollLeft -= containerWitth
