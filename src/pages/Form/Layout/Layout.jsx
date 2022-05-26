@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 import s from './Layout.module.scss'
@@ -9,13 +9,20 @@ import clsx from 'clsx'
 import Register from '../Register/Register'
 import FormLogin from '../Login/FormLogin'
 import FormRegister from '../Register/FormRegister'
+import { PageContext } from '../../../components/PageContext/PageContext'
 
 const Layout = ({ page }) => {
 
+  const context = useContext(PageContext)
+  const handleSetBold = context.handleSetBold
   const navigate = useNavigate()
   const handleGoToHomePage = () => {
     navigate('/trang-chu')
     window.scroll(0, 0)
+    handleSetBold({
+      direct: '/trang-chu',
+      pageAssistance: undefined
+  })
   }
 
   const pageIns = (() => {

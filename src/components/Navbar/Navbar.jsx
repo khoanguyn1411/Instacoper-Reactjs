@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import { HiMenuAlt4 } from 'react-icons/hi'
 
 import { LeftSideBar } from '../../components'
-
 import styles from './Navbar.module.scss'
-
-import SearchBar from './SearchBar/SearchBar'
 import NavigationPages from './NavigationPages/NavigationPages'
+import SearchBar from './SearchBar/SearchBar'
+
+
+
 
 
 const Navbar = () => {

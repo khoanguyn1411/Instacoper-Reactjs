@@ -12,6 +12,7 @@ const SearchBar = () => {
 
     const context = useContext(PageContext)
     const itemsInCart = context.itemsInCart
+    const handleSetBold = context.handleSetBold
 
     const [openActionTab, setOpenActionTab] = useState([])
     const [valueSearch, setValueSearch] = useState('')
@@ -20,6 +21,10 @@ const SearchBar = () => {
     const handleGoToHomePage = () => {
         const path = '/trang-chu'
         navigate(path)
+        handleSetBold({
+            direct: '/trang-chu',
+            pageAssistance: undefined
+        })
         window.scroll(0,0)
     }
 
