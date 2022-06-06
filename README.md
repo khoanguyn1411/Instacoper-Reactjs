@@ -6,7 +6,7 @@
     + Javascript
 
 - State management:
-    + Using hook useContext() of ReactJS
+    + Using hook Context API of ReactJS
 
 - Data management:
     + Data, such as products information, address information, among others, is saved
@@ -15,7 +15,7 @@
 
 ## FUTURE DEVELOPMENT
 
-- Replace hook useContext() by Redux to manage states.
+- Replace Context API by Redux to manage states.
 - Add more motion to components in website.
 - Develop a back-end system storing user login information.
 
